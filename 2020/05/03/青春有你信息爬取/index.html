@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="爬虫,Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="写在前面 本篇是在百度飞桨学习的第二天的知识点，觉得很有用，所以记录一下。任务是爬取百度百科中青春有你2所有参赛选手的信息 深度学习的一般过程：  收集数据，尤其是有标签，高质量的数据是一件昂贵的工作 爬虫 的过程，就是模仿浏览器的行为，往目标站点发送请求，接收服务器的响应数据，提取需要的信息，并进行保存的过程。 上网的全过程    普通用户： 爬虫的程序    打开浏览器—-&gt;往目标站点发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="青春有你信息爬取">
+<meta property="og:url" content="http://yoursite.com/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/index.html">
+<meta property="og:site_name" content="AshleyYu Blog">
+<meta property="og:description" content="写在前面 本篇是在百度飞桨学习的第二天的知识点，觉得很有用，所以记录一下。任务是爬取百度百科中青春有你2所有参赛选手的信息 深度学习的一般过程：  收集数据，尤其是有标签，高质量的数据是一件昂贵的工作 爬虫 的过程，就是模仿浏览器的行为，往目标站点发送请求，接收服务器的响应数据，提取需要的信息，并进行保存的过程。 上网的全过程    普通用户： 爬虫的程序    打开浏览器—-&gt;往目标站点发">
+<meta property="og:image" content="http://yoursite.com/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/image-20200503171342778.png">
+<meta property="article:published_time" content="2020-05-03T02:46:35.000Z">
+<meta property="article:modified_time" content="2020-05-03T10:09:11.239Z">
+<meta property="article:author" content="Yuqi Zhang">
+<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/image-20200503171342778.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/03/青春有你信息爬取/"/>
+
+
+
+
+
+  <title>青春有你信息爬取 | AshleyYu Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AshleyYu Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">keep thinking keep coding</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuqi Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AshleyYu Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">青春有你信息爬取</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-03T10:46:35+08:00">
+                2020-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_value_page_pv"></span>次阅读
+         
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>写在前面</strong></p>
+<p>本篇是在百度飞桨学习的第二天的知识点，觉得很有用，所以记录一下。任务是爬取百度百科中青春有你2所有参赛选手的信息</p>
+<p><strong>深度学习的一般过程：</strong></p>
+<p><img src="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/image-20200503171342778.png" alt="image-20200503171342778"></p>
+<p><strong>收集数据，尤其是有标签，高质量的数据是一件昂贵的工作</strong></p>
+<p><strong>爬虫</strong> 的过程，就是模仿浏览器的行为，往目标站点发送请求，接收服务器的响应数据，提取需要的信息，并进行保存的过程。</p>
+<p><strong>上网的全过程</strong></p>
+<table>
+<thead>
+<tr>
+<th>普通用户：</th>
+<th>爬虫的程序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开浏览器—-&gt;往目标站点发送请求—–&gt;接受响应数据—–&gt;渲染到页面上</td>
+<td>模拟浏览器 –&gt; 往目标站点发送请求 –&gt; 接收响应数据 –&gt; 提取有用的数据 –&gt; 保存到本地/数据库。</td>
+</tr>
+</tbody></table>
+<p><strong>爬虫的过程</strong></p>
+<ol>
+<li><p>发送请求（request模块）</p>
+</li>
+<li><p>获取响应的数据（服务器返回）</p>
+</li>
+<li><p>解析并提取数据（BeautifulSoup查找或者re正则）</p>
+</li>
+<li><p>保存数据</p>
+<p>BeautifulSoup 是一个可以从HTML或XML文件中提取数据的Python库。网址：<a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/" target="_blank" rel="noopener">https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/</a> BeautifulSoup支持Python标准库中的HTML解析器,还支持一些第三方的解析器,其中一个是 lxml。 BeautifulSoup(markup, “html.parser”)或者BeautifulSoup(markup, “lxml”)，推荐使用lxml作为解析器,因为效率更高。</p>
+<p><strong>开始前先安装lxml和beautifulSoup</strong></p>
+</li>
+</ol>
+<h1 id="一-爬取青春有你2中所有参赛选手的信息，返回页面数据"><a href="#一-爬取青春有你2中所有参赛选手的信息，返回页面数据" class="headerlink" title="一.爬取青春有你2中所有参赛选手的信息，返回页面数据"></a>一.爬取青春有你2中所有参赛选手的信息，返回页面数据</h1>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">from bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">#获取当天的日期,并进行格式化,用于后面文件命名，格式:20200420</span><br><span class="line">today = datetime.date.today().strftime(<span class="string">'%Y%m%d'</span>)    </span><br><span class="line"></span><br><span class="line"><span class="function">def <span class="title">crawl_wiki_data</span><span class="params">()</span>:</span></span><br><span class="line"><span class="function">    """</span></span><br><span class="line"><span class="function">    爬取百度百科中《青春有你2》中参赛选手信息，返回html</span></span><br><span class="line"><span class="function">    """</span></span><br><span class="line"><span class="function">    headers </span>= &#123; </span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'</span></span><br><span class="line">    &#125;</span><br><span class="line">    url=<span class="string">'https://baike.baidu.com/item/青春有你第二季'</span>                         </span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        response = requests.get(url,headers=headers)</span><br><span class="line">        print(response.status_code)</span><br><span class="line"></span><br><span class="line">        #将一段文档传入BeautifulSoup的构造方法,就能得到一个文档的对象, 可以传入一段字符串</span><br><span class="line">        soup = BeautifulSoup(response.text,<span class="string">'lxml'</span>)</span><br><span class="line">        </span><br><span class="line">        #返回的是class为table-view log-set-param的&lt;table&gt;所有标签</span><br><span class="line">        tables = soup.find_all(<span class="string">'table'</span>,&#123;<span class="string">'class'</span>:<span class="string">'table-view log-set-param'</span>&#125;)</span><br><span class="line"></span><br><span class="line">        crawl_table_title = <span class="string">"参赛学员"</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> table in  tables:           </span><br><span class="line">            #对当前节点前面的标签和字符串进行查找</span><br><span class="line">            table_titles = table.find_previous(<span class="string">'div'</span>).find_all(<span class="string">'h3'</span>)</span><br><span class="line">            <span class="keyword">for</span> title in table_titles:</span><br><span class="line">                <span class="keyword">if</span>(crawl_table_title in title):</span><br><span class="line">                    <span class="keyword">return</span> table       </span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-对爬取的页面数据进行解析，并保存为json文件"><a href="#二-对爬取的页面数据进行解析，并保存为json文件" class="headerlink" title="二.对爬取的页面数据进行解析，并保存为json文件"></a>二.对爬取的页面数据进行解析，并保存为json文件</h1>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">parse_wiki_data</span><span class="params">(table_html)</span>:</span></span><br><span class="line"><span class="function">    '''</span></span><br><span class="line"><span class="function">    从百度百科返回的html中解析得到选手信息，以当前日期作为文件名，存JSON文件,保存到work目录下</span></span><br><span class="line"><span class="function">    '''</span></span><br><span class="line"><span class="function">    bs </span>= BeautifulSoup(str(table_html),<span class="string">'lxml'</span>)</span><br><span class="line">    all_trs = bs.find_all(<span class="string">'tr'</span>)</span><br><span class="line"></span><br><span class="line">    error_list = [<span class="string">'\''</span>,<span class="string">'\"'</span>]</span><br><span class="line"></span><br><span class="line">    stars = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> tr in all_trs[<span class="number">1</span>:]:</span><br><span class="line">         all_tds = tr.find_all(<span class="string">'td'</span>)</span><br><span class="line"></span><br><span class="line">         star = &#123;&#125;</span><br><span class="line"></span><br><span class="line">         #姓名</span><br><span class="line">         star[<span class="string">"name"</span>]=all_tds[<span class="number">0</span>].text</span><br><span class="line">         #个人百度百科链接</span><br><span class="line">         star[<span class="string">"link"</span>]= <span class="string">'https://baike.baidu.com'</span> + all_tds[<span class="number">0</span>].find(<span class="string">'a'</span>).get(<span class="string">'href'</span>)</span><br><span class="line">         #籍贯</span><br><span class="line">         star[<span class="string">"zone"</span>]=all_tds[<span class="number">1</span>].text</span><br><span class="line">         #星座</span><br><span class="line">         star[<span class="string">"constellation"</span>]=all_tds[<span class="number">2</span>].text</span><br><span class="line">         #身高</span><br><span class="line">         star[<span class="string">"height"</span>]=all_tds[<span class="number">3</span>].text</span><br><span class="line">         #体重</span><br><span class="line">         star[<span class="string">"weight"</span>]= all_tds[<span class="number">4</span>].text</span><br><span class="line"></span><br><span class="line">         #花语,去除掉花语中的单引号或双引号</span><br><span class="line">         flower_word = all_tds[<span class="number">5</span>].text</span><br><span class="line">         <span class="keyword">for</span> c in flower_word:</span><br><span class="line">             <span class="keyword">if</span>  c in error_list:</span><br><span class="line">                 flower_word=flower_word.replace(c,<span class="string">''</span>)</span><br><span class="line">         star[<span class="string">"flower_word"</span>]=flower_word </span><br><span class="line">         </span><br><span class="line">         #公司</span><br><span class="line">         <span class="keyword">if</span> not all_tds[<span class="number">6</span>].find(<span class="string">'a'</span>) is  None:</span><br><span class="line">             star[<span class="string">"company"</span>]= all_tds[<span class="number">6</span>].find(<span class="string">'a'</span>).text</span><br><span class="line">         <span class="keyword">else</span>:</span><br><span class="line">             star[<span class="string">"company"</span>]= all_tds[<span class="number">6</span>].text  </span><br><span class="line"></span><br><span class="line">         stars.append(star)</span><br><span class="line"></span><br><span class="line">    json_data = json.loads(str(stars).replace(<span class="string">"\'"</span>,<span class="string">"\""</span>))   </span><br><span class="line">    <span class="function">with <span class="title">open</span><span class="params">(<span class="string">'work/'</span> + today + <span class="string">'.json'</span>, <span class="string">'w'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as f:</span></span><br><span class="line"><span class="function">        json.<span class="title">dump</span><span class="params">(json_data, f, ensure_ascii=False)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>   <strong>三. 爬取每个选手的百度百科图片，并进行保存</strong></p>
+<h1 id="三-爬取每个选手的百度百科图片，并进行保存"><a href="#三-爬取每个选手的百度百科图片，并进行保存" class="headerlink" title="三. 爬取每个选手的百度百科图片，并进行保存"></a>三. 爬取每个选手的百度百科图片，并进行保存</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">crawl_pic_urls</span><span class="params">()</span>:</span></span><br><span class="line"><span class="function">    '''</span></span><br><span class="line"><span class="function">    爬取每个选手的百度百科图片，并保存</span></span><br><span class="line"><span class="function">    ''' </span></span><br><span class="line"><span class="function">    with <span class="title">open</span><span class="params">(<span class="string">'work/'</span>+ today + <span class="string">'.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as file:</span></span><br><span class="line"><span class="function">         json_array </span>= json.loads(file.read())</span><br><span class="line"></span><br><span class="line">    headers = &#123; </span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'</span> </span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> star in json_array:</span><br><span class="line"></span><br><span class="line">        name = star[<span class="string">'name'</span>]</span><br><span class="line">        link = star[<span class="string">'link'</span>]</span><br><span class="line"></span><br><span class="line">        #向选手的个人百科发送一个http get 请求   </span><br><span class="line">        response = requests.get(link,headers = headers)</span><br><span class="line"></span><br><span class="line">        #获取文档对象</span><br><span class="line">        bs = BeautifulSoup(response.text,<span class="string">'lxml'</span>)</span><br><span class="line"></span><br><span class="line">        #从选手百科页面中解析链接，该链接指向选手图片列表页面</span><br><span class="line">        pic_list_url = bs.select(<span class="string">'.summary-pic a'</span>)[<span class="number">0</span>].get(<span class="string">'href'</span>)</span><br><span class="line">        pic_list_urls = <span class="string">'https://baike.baidu.com'</span> + pic_list_url</span><br><span class="line"></span><br><span class="line">        #获取选手的http</span><br><span class="line">        pic_list_response = requests.get(pic_list_urls,headers = headers)</span><br><span class="line"></span><br><span class="line">        #对选手图片列表进行解析，获取所有图片链接</span><br><span class="line">        bs = BeautifulSoup(pic_list_response.text,<span class="string">'lxml'</span>)</span><br><span class="line">        pic_list_html = bs.select(<span class="string">'.pic-list img '</span>)</span><br><span class="line"></span><br><span class="line">        #定义图片链接存放列表</span><br><span class="line">        pic_urls = []</span><br><span class="line"></span><br><span class="line">        #获取对应的图片链接并保存在pic_urls中</span><br><span class="line">        <span class="keyword">for</span> pic_html in pic_list_html:</span><br><span class="line">            pic_url = pic_html.get(<span class="string">'src'</span>)</span><br><span class="line">            pic_urls.append(pic_url)</span><br><span class="line">            </span><br><span class="line">        #！！！根据图片链接列表pic_urls, 下载所有图片，保存在以name命名的文件夹中！！！</span><br><span class="line">        down_pic(name,pic_urls)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">down_pic</span><span class="params">(name,pic_urls)</span>:</span></span><br><span class="line"><span class="function">    '''</span></span><br><span class="line"><span class="function">    根据图片链接列表pic_urls, 下载所有图片，保存在以name命名的文件夹中,</span></span><br><span class="line"><span class="function">    '''</span></span><br><span class="line"><span class="function">    path </span>= <span class="string">'work/'</span>+<span class="string">'pics/'</span>+name+<span class="string">'/'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> not os.path.exists(path):</span><br><span class="line">      os.makedirs(path)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i, <span class="function">pic_url in <span class="title">enumerate</span><span class="params">(pic_urls)</span>:</span></span><br><span class="line"><span class="function">        <span class="keyword">try</span>:</span></span><br><span class="line"><span class="function">            pic </span>= requests.get(pic_url, timeout=<span class="number">15</span>)</span><br><span class="line">            string = str(i + <span class="number">1</span>) + <span class="string">'.jpg'</span></span><br><span class="line">            <span class="function">with <span class="title">open</span><span class="params">(path+string, <span class="string">'wb'</span>)</span> as f:</span></span><br><span class="line"><span class="function">                f.<span class="title">write</span><span class="params">(pic.content)</span></span></span><br><span class="line"><span class="function">                <span class="title">print</span><span class="params">(<span class="string">'成功下载第%s张图片: %s'</span> % (str(i + <span class="number">1</span>)</span>, <span class="title">str</span><span class="params">(pic_url)</span>))</span></span><br><span class="line"><span class="function">        except Exception as e:</span></span><br><span class="line"><span class="function">            <span class="title">print</span><span class="params">(<span class="string">'下载第%s张图片时失败: %s'</span> % (str(i + <span class="number">1</span>)</span>, <span class="title">str</span><span class="params">(pic_url)</span>))</span></span><br><span class="line"><span class="function">            <span class="title">print</span><span class="params">(e)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">continue</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="四-打印爬取的所有图片的路径"><a href="#四-打印爬取的所有图片的路径" class="headerlink" title="四.打印爬取的所有图片的路径"></a>四.打印爬取的所有图片的路径</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">show_pic_path</span><span class="params">(path)</span>:</span></span><br><span class="line"><span class="function">    '''</span></span><br><span class="line"><span class="function">    遍历所爬取的每张图片，并打印所有图片的绝对路径</span></span><br><span class="line"><span class="function">    '''</span></span><br><span class="line"><span class="function">    pic_num </span>= <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (dirpath,dirnames,filenames) in os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> filename in filenames:</span><br><span class="line">           pic_num += <span class="number">1</span></span><br><span class="line">           print(<span class="string">"第%d张照片：%s"</span> % (pic_num,os.path.join(dirpath,filename)))           </span><br><span class="line">    print(<span class="string">"共爬取《青春有你2》选手的%d照片"</span> % pic_num)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">     #爬取百度百科中《青春有你2》中参赛选手信息，返回html</span><br><span class="line">     html = crawl_wiki_data()</span><br><span class="line"></span><br><span class="line">     #解析html,得到选手信息，保存为json文件</span><br><span class="line">     parse_wiki_data(html)</span><br><span class="line"></span><br><span class="line">     #从每个选手的百度百科页面上爬取图片,并保存</span><br><span class="line">     crawl_pic_urls()</span><br><span class="line"></span><br><span class="line">     #打印所爬取的选手图片路径</span><br><span class="line">     show_pic_path(<span class="string">'/home/aistudio/work/pics/'</span>)</span><br><span class="line"></span><br><span class="line">     print(<span class="string">"所有信息爬取完成！"</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      <div>    
+       
+       
+      <ul class="post-copyright">
+        <li class="post-copyright-author">
+            <strong>本文作者：</strong>Yuqi Zhang
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文链接：</strong>
+          <a href="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/" title="青春有你信息爬取">2020/05/03/青春有你信息爬取/</a>
+        </li>
+        <li class="post-copyright-license">
+          <strong>版权： </strong>
+          本站文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！
+        </li>
+      </ul>
+      
+      </div>
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/02/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="Yuqi Zhang" />
+            
+              <p class="site-author-name" itemprop="name">Yuqi Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-爬取青春有你2中所有参赛选手的信息，返回页面数据"><span class="nav-number">1.</span> <span class="nav-text">一.爬取青春有你2中所有参赛选手的信息，返回页面数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-对爬取的页面数据进行解析，并保存为json文件"><span class="nav-number">2.</span> <span class="nav-text">二.对爬取的页面数据进行解析，并保存为json文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-爬取每个选手的百度百科图片，并进行保存"><span class="nav-number">3.</span> <span class="nav-text">三. 爬取每个选手的百度百科图片，并进行保存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-打印爬取的所有图片的路径"><span class="nav-number">4.</span> <span class="nav-text">四.打印爬取的所有图片的路径</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuqi Zhang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客啦
+</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
