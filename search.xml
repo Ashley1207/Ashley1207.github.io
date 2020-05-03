@@ -91,4 +91,66 @@
         <tag>Python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>深度学习四剑客</title>
+    <url>/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><p><strong>numpy就是用来进行矩阵计算的</strong></p>
+<p>Numpy中文网：<a href="https://www.numpy.org.cn/" target="_blank" rel="noopener">https://www.numpy.org.cn/</a></p>
+<ol>
+<li><p>创建数组</p>
+<p><code>np.array()</code></p>
+</li>
+<li><p>除了np.array之外，还有一些函数也可以新建数组：</p>
+<ol>
+<li><p>zeros和ones分别可以创建指定长度或者形状的全0或全1数组</p>
+</li>
+<li><p>Empty可以创建一个没有任何具体值的数组</p>
+</li>
+</ol>
+</li>
+<li><p>查看数组属性</p>
+<ol>
+<li>b.size——数组元素的个数</li>
+<li>B.shape—–数组形状</li>
+<li>B.ndim——数组维度</li>
+<li>B.dtype—-数组元素类型</li>
+</ol>
+</li>
+<li><p>矩阵乘法</p>
+<p>Np.dot()</p>
+</li>
+</ol>
+<h1 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h1><p><strong>pandas基于numpy，丰富并简化了numpy的操作</strong></p>
+<h2 id="Series-一维数据"><a href="#Series-一维数据" class="headerlink" title="Series(一维数据)"></a>Series(一维数据)</h2><p><strong>pandas中文网：<a href="https://www.pypandas.cn/" target="_blank" rel="noopener">https://www.pypandas.cn/</a></strong></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503234256071.png" alt="image-20200503234256071"><strong>Series的字符串表现形式为：</strong></p>
+<p>1.索引在左边，值在右边</p>
+<p>2.如果没有为数据指定索引，则自动创建一个0到N-1（N为数据的长度）的整数型索引</p>
+<p>可以通过Series的values和index属性获取其数组表示形式和索引对象</p>
+<p>4.与普通numpy数组相比，可以通过索引的方式选取Series中的单个或一组值</p>
+<h2 id="DataFrame-多特征数据，既有行索引，又有列索引"><a href="#DataFrame-多特征数据，既有行索引，又有列索引" class="headerlink" title="DataFrame(多特征数据，既有行索引，又有列索引)"></a>DataFrame(多特征数据，既有行索引，又有列索引)</h2><p>DataFrame是一个表格型的数据结构，它含有一组有序的列，每列可以是不同的值类型（数值、字符串、布尔值等）</p>
+<p>DataFrame既有行索引也有列索引，它可以被看做由Series组成的字典（共用同一个索引）</p>
+<p>跟其他类似的数据结构相比（如R语言的data.frame），DataFrame中面向行和面向列的操作基本上是平衡的  </p>
+<p>DataFrame中的数据是以一个或多个二维块存放的（而不是列表、字典或别的一维数据结构）</p>
+<p>构成DataFrame的方法很多，最常用的一种是直接传入一个由等长列表或numpy数组组成的字典</p>
+<p>DataFrame结果会自动加上索引（跟Series一样），且全部会被有序排列</p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235032148.png" alt="image-20200503235032148"></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235921318.png" alt="image-20200503235921318"></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000009032.png" alt="image-20200504000009032"></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000141684.png" alt="image-20200504000141684"></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000230798.png" alt="image-20200504000230798"></p>
+<h1 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h1><p><strong>绘图和可视化</strong></p>
+<p>Matplotlib中文网：<a href="https://www.matplotlib.org.cn" target="_blank" rel="noopener">https://www.matplotlib.org.cn</a></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235215214.png" alt="image-20200503235215214"></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235250949.png" alt="image-20200503235250949"></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235329162.png" alt="image-20200503235329162"></p>
+<h1 id="PIL"><a href="#PIL" class="headerlink" title="PIL"></a>PIL</h1><p><strong>对图像进行处理</strong></p>
+<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235410828.png" alt="image-20200503235410828"></p>
+]]></content>
+      <categories>
+        <category>deeplearning</category>
+      </categories>
+      <tags>
+        <tag>python库</tag>
+      </tags>
+  </entry>
 </search>
