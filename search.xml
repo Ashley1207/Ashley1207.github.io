@@ -217,4 +217,33 @@
         <category>算法</category>
       </categories>
   </entry>
+  <entry>
+    <title>状态压缩</title>
+    <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
+<p>却迟迟理解不了，于是上网查了很多的资料，<strong>一句话总结就是用一串二进制数来表示当前情况的状态</strong></p>
+<p>参考如下：</p>
+<p><a href="https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p>
+<p><a href="https://blog.csdn.net/fjy19950504/article/details/105929173/" target="_blank" rel="noopener">https://blog.csdn.net/fjy19950504/article/details/105929173/</a></p>
+<p><a href="https://blog.csdn.net/lu597203933/article/details/44137277" target="_blank" rel="noopener">https://blog.csdn.net/lu597203933/article/details/44137277</a></p>
+<p>状态压缩用的到知识点主要是Java中的位运算，也有一方面是自己对位运算的理解不透彻，先把位运算的知识点总结如下：</p>
+<ol>
+<li>&amp;：x&amp;y，将两个十进制数在二进制下进行<strong>与</strong>运算，然后返回其十进制下的值（规则是两个同时为1，结果为1，否则为0），例如3（11）&amp;2（10）=2（10）</li>
+<li>|：x|y，将两个十进制数在二进制下进行<strong>或</strong>运算，然后返回其十进制下的值（规则是一个为1，其值为1），例如：3（11）|2（10）=3（11）</li>
+<li>^：x ^ y：将两个十进制的值在二进制下进行<strong>异或</strong>运算，然后返回其十进制下的值（规则是相同为0，不同为1），例如：3（11）^ 2（10）=1（01）</li>
+<li>&lt;&lt;：左移操作，x&lt;&lt;2，将x在二进制下的每一位向左移动两位，最右边用0填充，相当于让x乘以4</li>
+<li>&lt;&lt;：右移操作，x&gt;&gt;1，相当于x/2，去掉x最右一位</li>
+<li><u><em>判断一个数字x二进制下第i位是不是等于1。</em></u><br><u><em>方法：if(((1&lt;&lt;(i−1))&amp;x)&gt;0)</em></u><br><u><em>将1左移i-1位，相当于制造了一个只有第i位上是1，其他位上都是0的二进制数。然后与x做与运算，如果结果&gt;0，说明x第i位上是1，反之则是0。</em></u></li>
+<li><u><em>将一个数字x二进制下第i位更改成1。</em></u><br><u><em>方法：x=x|(1&lt;&lt;(i−1))</em></u></li>
+<li><u><em>把一个数字二进制下最靠右的第一个1去掉。</em></u><br><u><em>方法：x=x&amp;(x−1)</em></u></li>
+</ol>
+<p>未完。。。。。。。</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>状态压缩</tag>
+      </tags>
+  </entry>
 </search>
