@@ -36,24 +36,32 @@
 <p><strong>Collection</strong>：集合，java容器的大部分集合的父类接口。java集合分两种，一种是Collection（只存储值的容器），一种是map（存储键值对的容器）</p>
 <p><strong>List</strong> ：顺序写数据的数组容器，内存连续</p>
 <p><strong>Queue</strong> ：先进先出队列，入队出队操作都有两种实现，一种失败抛出异常，一种返回null或者fasle，不能写入null</p>
-<p><strong>Deque</strong> ：双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
+<p><strong>Deque</strong> ：继承Queue，双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
 <p><strong>Set</strong> ：用于存放非重复元素的集合，可以插入null</p>
 <p><strong>SortedSet</strong> ：支持排序的set集合（set使用的hash存储，默认的是不支持排序）</p>
 <p><strong>NavigableSet</strong> ：提供有序集合的扩展功能，如返回大于、大于等于、小于、小于等于某个key的子集合等。</p>
 <h1 id="类简介"><a href="#类简介" class="headerlink" title="类简介"></a>类简介</h1><h2 id="List："><a href="#List：" class="headerlink" title="List："></a>List：</h2><p><strong>Stack</strong>   ：栈，先进后出，数组</p>
-<p><strong>ArrayList</strong> ：有序数组，底层是数组</p>
-<p><strong>LinkedList</strong> ：有序数组，底层是链表</p>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：</p>
-<p><strong>ArrayQueue</strong> ：</p>
-<p><strong>PriorityQueue</strong> ：优先级队列</p>
-<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong> </p>
-<p><strong>ArrayQueue</strong>  </p>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> </p>
-<p><strong>LinkedHashSet</strong> :有序的hashset</p>
-<p><strong>TreeSet</strong> ：支持排序的hashset</p>
+<p><strong>ArrayList</strong> ：有序数组，基于动态数组实现，支持随机访问</p>
+<p><strong>LinkedList</strong> ：基于双向链表实现，只能顺序访问，但可以快速的在链表中间插入和删除元素</p>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：支持双向队列</p>
+<p><strong>ArrayQueue</strong> ：使用数组实现队列</p>
+<p><strong>PriorityQueue</strong> ：优先级队列，基于堆实现</p>
+<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong>  </p>
+<p><strong>ArrayQueue</strong>    </p>
+<p><strong>ArrayDeque</strong> ：依赖可变循环数组，没有容量限制，可根据需求自动扩容，不支持值为null的元素</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> ：基于哈希实现，支持快速查找，但不支持有序操作</p>
+<p><strong>LinkedHashSet</strong> :有序的hashset，具有hashset的查找效率，内部使用链表</p>
+<p><strong>TreeSet</strong> ：支持排序的hashset，基于红黑树实现，查找效率不如hashset</p>
 <h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p><strong>TreeSet</strong> </p>
 <p><img src="/2020/07/05/java%E5%AE%B9%E5%99%A8/image-20200705233733985.png" alt="image-20200705233311885"></p>
 <p>图片截图来源：<a href="https://www.cnblogs.com/gc65/p/11220822.html" target="_blank" rel="noopener">https://www.cnblogs.com/gc65/p/11220822.html</a></p>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><strong>HashMap</strong> :基于哈希实现</p>
+<p><strong>HashTable</strong> ：线程安全，与hashmap类似</p>
+<p><strong>LinkedHashMap</strong> ：继承HashMap使用链表维护元素的顺序，hashmap是无需的，LinkedHashMap是有序的存储元素</p>
+<p><strong>TreeMap</strong> ：基于红黑树实现，TreeMap中的元素默认按照keys的自然排序排序</p>
+<p><strong>注意</strong> ：hashmap可实现快速存储和检索，但其缺点是包含的元素是无序的，这导致它在大量迭代的情况下表现不佳</p>
+<p>LinkedHashMap保留了HashMap的优势，且包含的元素是有序的，它在大量迭代的情况下会表现更好</p>
+<p>TreeMap能便捷的实现对其内部元素的各种排序，但其一般性能比前两种map差。</p>
 ]]></content>
       <categories>
         <category>java</category>
