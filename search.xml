@@ -16,6 +16,90 @@
       </tags>
   </entry>
   <entry>
+    <title>字符和字符串加法</title>
+    <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
+    <content><![CDATA[<p><strong>加法运算特点</strong></p>
+<ol>
+<li><p>加法两边是数值型数据时，进行加法运算</p>
+</li>
+<li><p>加法两边有任意一边是字符串时，进行字符串的拼接</p>
+</li>
+<li><p>字符型数据参与算术运算，是用字符在计算机中存储的数据来进行运算的</p>
+<p>‘0’——48</p>
+<p>‘a’——97</p>
+<p>‘A’——-65</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> b=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> c=(<span class="keyword">byte</span>)(a+b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line">        <span class="keyword">char</span> d=<span class="string">'a'</span>;</span><br><span class="line">        System.out.println(a+d);</span><br><span class="line">        System.out.println(<span class="string">"helloword"</span>+<span class="number">10</span>+<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>输出结果：</p>
+<p><img src="/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/image-20200711103245195.png" alt="image-20200711103245195"></p>
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>字符和字符串加法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java容器</title>
+    <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
+<h1 id="接口简介"><a href="#接口简介" class="headerlink" title="接口简介"></a>接口简介</h1><p><strong>Iterable</strong>   ：迭代器接口，用于遍历数据。</p>
+<p><strong>Collection</strong>：集合，java容器的大部分集合的父类接口。java集合分两种，一种是Collection（只存储值的容器），一种是map（存储键值对的容器）</p>
+<p><strong>List</strong> ：顺序写数据的数组容器，内存连续</p>
+<p><strong>Queue</strong> ：先进先出队列，入队出队操作都有两种实现，一种失败抛出异常，一种返回null或者fasle，不能写入null</p>
+<p><strong>Deque</strong> ：继承Queue，双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
+<p><strong>Set</strong> ：用于存放非重复元素的集合，可以插入null</p>
+<p><strong>SortedSet</strong> ：支持排序的set集合（set使用的hash存储，默认的是不支持排序）</p>
+<p><strong>NavigableSet</strong> ：提供有序集合的扩展功能，如返回大于、大于等于、小于、小于等于某个key的子集合等。</p>
+<h1 id="类简介"><a href="#类简介" class="headerlink" title="类简介"></a>类简介</h1><h2 id="List："><a href="#List：" class="headerlink" title="List："></a>List：</h2><p><strong>Stack</strong>   ：栈，先进后出，数组</p>
+<p><strong>ArrayList</strong> ：有序数组，基于动态数组实现，支持随机访问</p>
+<p><strong>LinkedList</strong> ：基于双向链表实现，只能顺序访问，但可以快速的在链表中间插入和删除元素</p>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：支持双向队列</p>
+<p><strong>ArrayQueue</strong> ：使用数组实现队列</p>
+<p><strong>PriorityQueue</strong> ：优先级队列，基于堆实现</p>
+<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong>  </p>
+<p><strong>ArrayQueue</strong>    </p>
+<p><strong>ArrayDeque</strong> ：依赖可变循环数组，没有容量限制，可根据需求自动扩容，不支持值为null的元素</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> ：基于哈希实现，支持快速查找，但不支持有序操作</p>
+<p><strong>LinkedHashSet</strong> :有序的hashset，具有hashset的查找效率，内部使用链表</p>
+<p><strong>TreeSet</strong> ：支持排序的hashset，基于红黑树实现，查找效率不如hashset</p>
+<h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p><strong>TreeSet</strong> </p>
+<p><img src="/2020/07/05/java%E5%AE%B9%E5%99%A8/image-20200705233733985.png" alt="image-20200705233311885"></p>
+<p>图片截图来源：<a href="https://www.cnblogs.com/gc65/p/11220822.html" target="_blank" rel="noopener">https://www.cnblogs.com/gc65/p/11220822.html</a></p>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><strong>HashMap</strong> :基于哈希实现</p>
+<p><strong>HashTable</strong> ：线程安全，与hashmap类似</p>
+<p><strong>LinkedHashMap</strong> ：继承HashMap使用链表维护元素的顺序，hashmap是无需的，LinkedHashMap是有序的存储元素</p>
+<p><strong>TreeMap</strong> ：基于红黑树实现，TreeMap中的元素默认按照keys的自然排序排序</p>
+<p><strong>注意</strong> ：hashmap可实现快速存储和检索，但其缺点是包含的元素是无序的，这导致它在大量迭代的情况下表现不佳</p>
+<p>LinkedHashMap保留了HashMap的优势，且包含的元素是有序的，它在大量迭代的情况下会表现更好</p>
+<p>TreeMap能便捷的实现对其内部元素的各种排序，但其一般性能比前两种map差。</p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java 容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>First Blog</title>
+    <url>/2020/04/27/zyqfirstBlog/</url>
+    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
+<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
+<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
+<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
+<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
+]]></content>
+      <tags>
+        <tag>hexo-bug</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>深度学习四剑客</title>
     <url>/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><p><strong>numpy就是用来进行矩阵计算的</strong></p>
@@ -75,61 +159,6 @@
       </categories>
       <tags>
         <tag>python库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java容器</title>
-    <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
-    <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
-<h1 id="接口简介"><a href="#接口简介" class="headerlink" title="接口简介"></a>接口简介</h1><p><strong>Iterable</strong>   ：迭代器接口，用于遍历数据。</p>
-<p><strong>Collection</strong>：集合，java容器的大部分集合的父类接口。java集合分两种，一种是Collection（只存储值的容器），一种是map（存储键值对的容器）</p>
-<p><strong>List</strong> ：顺序写数据的数组容器，内存连续</p>
-<p><strong>Queue</strong> ：先进先出队列，入队出队操作都有两种实现，一种失败抛出异常，一种返回null或者fasle，不能写入null</p>
-<p><strong>Deque</strong> ：继承Queue，双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
-<p><strong>Set</strong> ：用于存放非重复元素的集合，可以插入null</p>
-<p><strong>SortedSet</strong> ：支持排序的set集合（set使用的hash存储，默认的是不支持排序）</p>
-<p><strong>NavigableSet</strong> ：提供有序集合的扩展功能，如返回大于、大于等于、小于、小于等于某个key的子集合等。</p>
-<h1 id="类简介"><a href="#类简介" class="headerlink" title="类简介"></a>类简介</h1><h2 id="List："><a href="#List：" class="headerlink" title="List："></a>List：</h2><p><strong>Stack</strong>   ：栈，先进后出，数组</p>
-<p><strong>ArrayList</strong> ：有序数组，基于动态数组实现，支持随机访问</p>
-<p><strong>LinkedList</strong> ：基于双向链表实现，只能顺序访问，但可以快速的在链表中间插入和删除元素</p>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：支持双向队列</p>
-<p><strong>ArrayQueue</strong> ：使用数组实现队列</p>
-<p><strong>PriorityQueue</strong> ：优先级队列，基于堆实现</p>
-<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong>  </p>
-<p><strong>ArrayQueue</strong>    </p>
-<p><strong>ArrayDeque</strong> ：依赖可变循环数组，没有容量限制，可根据需求自动扩容，不支持值为null的元素</p>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> ：基于哈希实现，支持快速查找，但不支持有序操作</p>
-<p><strong>LinkedHashSet</strong> :有序的hashset，具有hashset的查找效率，内部使用链表</p>
-<p><strong>TreeSet</strong> ：支持排序的hashset，基于红黑树实现，查找效率不如hashset</p>
-<h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p><strong>TreeSet</strong> </p>
-<p><img src="/2020/07/05/java%E5%AE%B9%E5%99%A8/image-20200705233733985.png" alt="image-20200705233311885"></p>
-<p>图片截图来源：<a href="https://www.cnblogs.com/gc65/p/11220822.html" target="_blank" rel="noopener">https://www.cnblogs.com/gc65/p/11220822.html</a></p>
-<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><strong>HashMap</strong> :基于哈希实现</p>
-<p><strong>HashTable</strong> ：线程安全，与hashmap类似</p>
-<p><strong>LinkedHashMap</strong> ：继承HashMap使用链表维护元素的顺序，hashmap是无需的，LinkedHashMap是有序的存储元素</p>
-<p><strong>TreeMap</strong> ：基于红黑树实现，TreeMap中的元素默认按照keys的自然排序排序</p>
-<p><strong>注意</strong> ：hashmap可实现快速存储和检索，但其缺点是包含的元素是无序的，这导致它在大量迭代的情况下表现不佳</p>
-<p>LinkedHashMap保留了HashMap的优势，且包含的元素是有序的，它在大量迭代的情况下会表现更好</p>
-<p>TreeMap能便捷的实现对其内部元素的各种排序，但其一般性能比前两种map差。</p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java 容器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>First Blog</title>
-    <url>/2020/04/27/zyqfirstBlog/</url>
-    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
-<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
-<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
-<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
-<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
-]]></content>
-      <tags>
-        <tag>hexo-bug</tag>
       </tags>
   </entry>
   <entry>
@@ -225,6 +254,27 @@
       </tags>
   </entry>
   <entry>
+    <title>青春有你可视化</title>
+    <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p><strong>对爬取的青春有你2参赛选手的信息进行数据可视化</strong></p>
+<h1 id="一-绘制选手区域分布柱状图"><a href="#一-绘制选手区域分布柱状图" class="headerlink" title="一. 绘制选手区域分布柱状图"></a>一. 绘制选手区域分布柱状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="function">with <span class="title">open</span><span class="params">(<span class="string">'data/data31557/20200422.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as file:</span></span><br><span class="line"><span class="function">         json_array </span>= json.loads(file.read())</span><br><span class="line"></span><br><span class="line">#绘制小姐姐区域分布柱状图,x轴为地区，y轴为该区域的小姐姐数量</span><br><span class="line"></span><br><span class="line">zones = []</span><br><span class="line"><span class="keyword">for</span> star in json_array:</span><br><span class="line">    zone = star[<span class="string">'zone'</span>]</span><br><span class="line">    zones.append(zone)</span><br><span class="line">print(len(zones))</span><br><span class="line">print(zones)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">zone_list = []</span><br><span class="line">count_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> zone in zones:</span><br><span class="line">    <span class="keyword">if</span> zone not in zone_list:</span><br><span class="line">        count = zones.count(zone)</span><br><span class="line">        zone_list.append(zone)</span><br><span class="line">        count_list.append(count)</span><br><span class="line"></span><br><span class="line">print(zone_list)</span><br><span class="line">print(count_list)</span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"><span class="keyword">import</span> pandas as pd</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line">#print(df)</span><br><span class="line"></span><br><span class="line">grouped=df[<span class="string">'name'</span>].groupby(df[<span class="string">'zone'</span>])</span><br><span class="line">s = grouped.count()</span><br><span class="line"></span><br><span class="line">zone_list = s.index</span><br><span class="line">count_list = s.values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result02.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-绘制饼状图"><a href="#二-绘制饼状图" class="headerlink" title="二. 绘制饼状图"></a>二. 绘制饼状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/image-20200503230719831.png" alt="image-20200503230719831"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>python 可视化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>青春有你信息爬取</title>
     <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/</url>
     <content><![CDATA[<p><strong>写在前面</strong></p>
@@ -279,27 +329,6 @@
       <tags>
         <tag>爬虫</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>青春有你可视化</title>
-    <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p><strong>对爬取的青春有你2参赛选手的信息进行数据可视化</strong></p>
-<h1 id="一-绘制选手区域分布柱状图"><a href="#一-绘制选手区域分布柱状图" class="headerlink" title="一. 绘制选手区域分布柱状图"></a>一. 绘制选手区域分布柱状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="function">with <span class="title">open</span><span class="params">(<span class="string">'data/data31557/20200422.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as file:</span></span><br><span class="line"><span class="function">         json_array </span>= json.loads(file.read())</span><br><span class="line"></span><br><span class="line">#绘制小姐姐区域分布柱状图,x轴为地区，y轴为该区域的小姐姐数量</span><br><span class="line"></span><br><span class="line">zones = []</span><br><span class="line"><span class="keyword">for</span> star in json_array:</span><br><span class="line">    zone = star[<span class="string">'zone'</span>]</span><br><span class="line">    zones.append(zone)</span><br><span class="line">print(len(zones))</span><br><span class="line">print(zones)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">zone_list = []</span><br><span class="line">count_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> zone in zones:</span><br><span class="line">    <span class="keyword">if</span> zone not in zone_list:</span><br><span class="line">        count = zones.count(zone)</span><br><span class="line">        zone_list.append(zone)</span><br><span class="line">        count_list.append(count)</span><br><span class="line"></span><br><span class="line">print(zone_list)</span><br><span class="line">print(count_list)</span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"><span class="keyword">import</span> pandas as pd</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line">#print(df)</span><br><span class="line"></span><br><span class="line">grouped=df[<span class="string">'name'</span>].groupby(df[<span class="string">'zone'</span>])</span><br><span class="line">s = grouped.count()</span><br><span class="line"></span><br><span class="line">zone_list = s.index</span><br><span class="line">count_list = s.values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result02.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h1 id="二-绘制饼状图"><a href="#二-绘制饼状图" class="headerlink" title="二. 绘制饼状图"></a>二. 绘制饼状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/image-20200503230719831.png" alt="image-20200503230719831"></p>
-]]></content>
-      <categories>
-        <category>AI</category>
-      </categories>
-      <tags>
-        <tag>python 可视化</tag>
       </tags>
   </entry>
 </search>
