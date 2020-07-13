@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>java容器</title>
+    <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
+<h1 id="接口简介"><a href="#接口简介" class="headerlink" title="接口简介"></a>接口简介</h1><p><strong>Iterable</strong>   ：迭代器接口，用于遍历数据。</p>
+<p><strong>Collection</strong>：集合，java容器的大部分集合的父类接口。java集合分两种，一种是Collection（只存储值的容器），一种是map（存储键值对的容器）</p>
+<p><strong>List</strong> ：顺序写数据的数组容器，内存连续</p>
+<p><strong>Queue</strong> ：先进先出队列，入队出队操作都有两种实现，一种失败抛出异常，一种返回null或者fasle，不能写入null</p>
+<p><strong>Deque</strong> ：继承Queue，双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
+<p><strong>Set</strong> ：用于存放非重复元素的集合，可以插入null</p>
+<p><strong>SortedSet</strong> ：支持排序的set集合（set使用的hash存储，默认的是不支持排序）</p>
+<p><strong>NavigableSet</strong> ：提供有序集合的扩展功能，如返回大于、大于等于、小于、小于等于某个key的子集合等。</p>
+<h1 id="类简介"><a href="#类简介" class="headerlink" title="类简介"></a>类简介</h1><h2 id="List："><a href="#List：" class="headerlink" title="List："></a>List：</h2><p><strong>Stack</strong>   ：栈，先进后出，数组</p>
+<p><strong>ArrayList</strong> ：有序数组，基于动态数组实现，支持随机访问</p>
+<p><strong>LinkedList</strong> ：基于双向链表实现，只能顺序访问，但可以快速的在链表中间插入和删除元素</p>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：支持双向队列</p>
+<p><strong>ArrayQueue</strong> ：使用数组实现队列</p>
+<p><strong>PriorityQueue</strong> ：优先级队列，基于堆实现</p>
+<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong>  </p>
+<p><strong>ArrayQueue</strong>    </p>
+<p><strong>ArrayDeque</strong> ：依赖可变循环数组，没有容量限制，可根据需求自动扩容，不支持值为null的元素</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> ：基于哈希实现，支持快速查找，但不支持有序操作</p>
+<p><strong>LinkedHashSet</strong> :有序的hashset，具有hashset的查找效率，内部使用链表</p>
+<p><strong>TreeSet</strong> ：支持排序的hashset，基于红黑树实现，查找效率不如hashset</p>
+<h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p><strong>TreeSet</strong> </p>
+<p><img src="/2020/07/05/java%E5%AE%B9%E5%99%A8/image-20200705233733985.png" alt="image-20200705233311885"></p>
+<p>图片截图来源：<a href="https://www.cnblogs.com/gc65/p/11220822.html" target="_blank" rel="noopener">https://www.cnblogs.com/gc65/p/11220822.html</a></p>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><strong>HashMap</strong> :基于哈希实现</p>
+<p><strong>HashTable</strong> ：线程安全，与hashmap类似</p>
+<p><strong>LinkedHashMap</strong> ：继承HashMap使用链表维护元素的顺序，hashmap是无需的，LinkedHashMap是有序的存储元素</p>
+<p><strong>TreeMap</strong> ：基于红黑树实现，TreeMap中的元素默认按照keys的自然排序排序</p>
+<p><strong>注意</strong> ：hashmap可实现快速存储和检索，但其缺点是包含的元素是无序的，这导致它在大量迭代的情况下表现不佳</p>
+<p>LinkedHashMap保留了HashMap的优势，且包含的元素是有序的，它在大量迭代的情况下会表现更好</p>
+<p>TreeMap能便捷的实现对其内部元素的各种排序，但其一般性能比前两种map差。</p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java 容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java字符和字符串</title>
+    <url>/2020/07/11/java%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<p>‘  ‘ 单引号表示单个字符</p>
+<p>“   ”双引号表示字符串</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(<span class="string">'a'</span>);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>字符和字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>First Blog</title>
+    <url>/2020/04/27/zyqfirstBlog/</url>
+    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
+<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
+<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
+<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
+<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
+]]></content>
+      <tags>
+        <tag>hexo-bug</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多态</title>
     <url>/2020/07/13/%E5%A4%9A%E6%80%81/</url>
     <content><![CDATA[<p><strong>多态</strong>：多种状态，同一对象在不同情况下表现出不同的状态或行为<br>       <strong>实现多态的步骤：</strong><br>  要有继承或实现的关系<br>  是要方法重写<br>  父类引用指向子类对象（is a关系）</p>
@@ -50,76 +120,6 @@
       </tags>
   </entry>
   <entry>
-    <title>java字符和字符串</title>
-    <url>/2020/07/11/java%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<p>‘  ‘ 单引号表示单个字符</p>
-<p>“   ”双引号表示字符串</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(<span class="string">'a'</span>);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>字符和字符串</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>First Blog</title>
-    <url>/2020/04/27/zyqfirstBlog/</url>
-    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
-<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
-<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
-<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
-<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
-]]></content>
-      <tags>
-        <tag>hexo-bug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java容器</title>
-    <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
-    <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
-<h1 id="接口简介"><a href="#接口简介" class="headerlink" title="接口简介"></a>接口简介</h1><p><strong>Iterable</strong>   ：迭代器接口，用于遍历数据。</p>
-<p><strong>Collection</strong>：集合，java容器的大部分集合的父类接口。java集合分两种，一种是Collection（只存储值的容器），一种是map（存储键值对的容器）</p>
-<p><strong>List</strong> ：顺序写数据的数组容器，内存连续</p>
-<p><strong>Queue</strong> ：先进先出队列，入队出队操作都有两种实现，一种失败抛出异常，一种返回null或者fasle，不能写入null</p>
-<p><strong>Deque</strong> ：继承Queue，双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
-<p><strong>Set</strong> ：用于存放非重复元素的集合，可以插入null</p>
-<p><strong>SortedSet</strong> ：支持排序的set集合（set使用的hash存储，默认的是不支持排序）</p>
-<p><strong>NavigableSet</strong> ：提供有序集合的扩展功能，如返回大于、大于等于、小于、小于等于某个key的子集合等。</p>
-<h1 id="类简介"><a href="#类简介" class="headerlink" title="类简介"></a>类简介</h1><h2 id="List："><a href="#List：" class="headerlink" title="List："></a>List：</h2><p><strong>Stack</strong>   ：栈，先进后出，数组</p>
-<p><strong>ArrayList</strong> ：有序数组，基于动态数组实现，支持随机访问</p>
-<p><strong>LinkedList</strong> ：基于双向链表实现，只能顺序访问，但可以快速的在链表中间插入和删除元素</p>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：支持双向队列</p>
-<p><strong>ArrayQueue</strong> ：使用数组实现队列</p>
-<p><strong>PriorityQueue</strong> ：优先级队列，基于堆实现</p>
-<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong>  </p>
-<p><strong>ArrayQueue</strong>    </p>
-<p><strong>ArrayDeque</strong> ：依赖可变循环数组，没有容量限制，可根据需求自动扩容，不支持值为null的元素</p>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> ：基于哈希实现，支持快速查找，但不支持有序操作</p>
-<p><strong>LinkedHashSet</strong> :有序的hashset，具有hashset的查找效率，内部使用链表</p>
-<p><strong>TreeSet</strong> ：支持排序的hashset，基于红黑树实现，查找效率不如hashset</p>
-<h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p><strong>TreeSet</strong> </p>
-<p><img src="/2020/07/05/java%E5%AE%B9%E5%99%A8/image-20200705233733985.png" alt="image-20200705233311885"></p>
-<p>图片截图来源：<a href="https://www.cnblogs.com/gc65/p/11220822.html" target="_blank" rel="noopener">https://www.cnblogs.com/gc65/p/11220822.html</a></p>
-<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><strong>HashMap</strong> :基于哈希实现</p>
-<p><strong>HashTable</strong> ：线程安全，与hashmap类似</p>
-<p><strong>LinkedHashMap</strong> ：继承HashMap使用链表维护元素的顺序，hashmap是无需的，LinkedHashMap是有序的存储元素</p>
-<p><strong>TreeMap</strong> ：基于红黑树实现，TreeMap中的元素默认按照keys的自然排序排序</p>
-<p><strong>注意</strong> ：hashmap可实现快速存储和检索，但其缺点是包含的元素是无序的，这导致它在大量迭代的情况下表现不佳</p>
-<p>LinkedHashMap保留了HashMap的优势，且包含的元素是有序的，它在大量迭代的情况下会表现更好</p>
-<p>TreeMap能便捷的实现对其内部元素的各种排序，但其一般性能比前两种map差。</p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java 容器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字符和字符串加法</title>
     <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
     <content><![CDATA[<p><strong>加法运算特点</strong></p>
@@ -149,22 +149,22 @@
       </tags>
   </entry>
   <entry>
-    <title>成员变量和局部变量</title>
-    <url>/2020/07/13/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Descripttion: </span></span><br><span class="line"><span class="comment"> * @Author: Ashley</span></span><br><span class="line"><span class="comment"> * @Date: 2020-07-11 17:20:38</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 成员变量，类中方法外</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">    private一般修饰成员变量</span></span><br><span class="line"><span class="comment">    public一般修饰成员方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//提供公共的访问方法，分别设置值，获取值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 成员变量和局部变量的区别： 位置： 初始化值：成员变量有初始值，局部变量没有初始值 作用范围：成员变量再类中，局部变量在方法中</span></span><br><span class="line"><span class="comment">     * 内存中的位置：成员变量再堆中，局部变量再栈中 生命周期：成员变量随着对象的创建而存在，随着对象的消失而消失</span></span><br><span class="line"><span class="comment">     * 局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 局部变量：方法内部，或者参数列表</span></span><br><span class="line">        String name = <span class="string">"小黑"</span>;<span class="comment">// 使用变量的规则遵循就近原则，如果局部位置有，就使用，没有就去本类的成员位置找，没有，就去父类找</span></span><br><span class="line">        System.out.print(name + <span class="string">"正在学习\n"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">age</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + age + <span class="string">"了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>构造方法</title>
+    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
+<p>格式：修饰符  构造方法名（）{}</p>
+<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
+<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
+<p>若已提供构造方法，系统不再提供无参构造</p>
+<p>构造方法可以重载</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>总结：</strong></p>
-<p>成员变量和局部变量的区别： </p>
-<p><strong>位置</strong>： 成员变量在类中方法外，局部变量，方法内</p>
-<p><strong>初始化值</strong>：成员变量有初始值，局部变量没有初始值</p>
-<p> <strong>作用范围</strong>：成员变量再类中，局部变量在方法中<br>       <strong>内存中的位置</strong>：成员变量再堆中，局部变量再栈中 </p>
-<p><strong>生命周期</strong>：成员变量随着对象的创建而存在，随着对象的消失而消失<br>     <strong>局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</strong></p>
 ]]></content>
       <categories>
         <category>java基础</category>
       </categories>
       <tags>
-        <tag>成员变量  局部变量</tag>
+        <tag>构造方法</tag>
       </tags>
   </entry>
   <entry>
@@ -230,6 +230,25 @@
       </tags>
   </entry>
   <entry>
+    <title>成员变量和局部变量</title>
+    <url>/2020/07/13/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Descripttion: </span></span><br><span class="line"><span class="comment"> * @Author: Ashley</span></span><br><span class="line"><span class="comment"> * @Date: 2020-07-11 17:20:38</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 成员变量，类中方法外</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">    private一般修饰成员变量</span></span><br><span class="line"><span class="comment">    public一般修饰成员方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//提供公共的访问方法，分别设置值，获取值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 成员变量和局部变量的区别： 位置： 初始化值：成员变量有初始值，局部变量没有初始值 作用范围：成员变量再类中，局部变量在方法中</span></span><br><span class="line"><span class="comment">     * 内存中的位置：成员变量再堆中，局部变量再栈中 生命周期：成员变量随着对象的创建而存在，随着对象的消失而消失</span></span><br><span class="line"><span class="comment">     * 局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 局部变量：方法内部，或者参数列表</span></span><br><span class="line">        String name = <span class="string">"小黑"</span>;<span class="comment">// 使用变量的规则遵循就近原则，如果局部位置有，就使用，没有就去本类的成员位置找，没有，就去父类找</span></span><br><span class="line">        System.out.print(name + <span class="string">"正在学习\n"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">age</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + age + <span class="string">"了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong></p>
+<p>成员变量和局部变量的区别： </p>
+<p><strong>位置</strong>： 成员变量在类中方法外，局部变量，方法内</p>
+<p><strong>初始化值</strong>：成员变量有初始值，局部变量没有初始值</p>
+<p> <strong>作用范围</strong>：成员变量再类中，局部变量在方法中<br>       <strong>内存中的位置</strong>：成员变量再堆中，局部变量再栈中 </p>
+<p><strong>生命周期</strong>：成员变量随着对象的创建而存在，随着对象的消失而消失<br>     <strong>局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</strong></p>
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>成员变量  局部变量</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>状态压缩</title>
     <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
     <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
@@ -256,6 +275,16 @@
       <tags>
         <tag>状态压缩</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>背包九讲</title>
+    <url>/2020/05/06/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</url>
+    <content><![CDATA[<p><strong>背包九讲</strong></p>
+<p><a href="https://www.cnblogs.com/jbelial/articles/2116074.html" target="_blank" rel="noopener">https://www.cnblogs.com/jbelial/articles/2116074.html</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
   </entry>
   <entry>
     <title>继承</title>
@@ -287,33 +316,60 @@
       </tags>
   </entry>
   <entry>
-    <title>构造方法</title>
-    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
-<p>格式：修饰符  构造方法名（）{}</p>
-<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
-<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
-<p>若已提供构造方法，系统不再提供无参构造</p>
-<p>构造方法可以重载</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+    <title>重载和重写</title>
+    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
+    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
+<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
+<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
+<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
+<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
+<p><strong>注意：</strong></p>
+<p>父类私有方法无法重写</p>
+<p>子类方法访问权限不能小于父类方法</p>
+<p>子类不能比父类抛出更大的异常</p>
+<p>使用场景：扩展父类功能</p>
+<p>父类功能过时，重新实现父类的功能 </p>
 ]]></content>
       <categories>
         <category>java基础</category>
       </categories>
       <tags>
-        <tag>构造方法</tag>
+        <tag>重载 重写</tag>
       </tags>
   </entry>
   <entry>
-    <title>背包九讲</title>
-    <url>/2020/05/06/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</url>
-    <content><![CDATA[<p><strong>背包九讲</strong></p>
-<p><a href="https://www.cnblogs.com/jbelial/articles/2116074.html" target="_blank" rel="noopener">https://www.cnblogs.com/jbelial/articles/2116074.html</a></p>
+    <title>集合和泛型</title>
+    <url>/2020/07/14/%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="集合和数组的区别："><a href="#集合和数组的区别：" class="headerlink" title="集合和数组的区别："></a>集合和数组的区别：</h1><p>元素类型：<br>集合：引用类型（存储基本类型时自动装箱）<br>数组：基本类型，引用类型<br>元素个数：<br>集合：不固定，可任意扩容<br>数组：固定，不能改变容量<br>集合的好处：<br>不受容器大小限制，可以随意添加删除元素<br>提供了大量操作元素的方法（判断获取等）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">单列集合（Collection）之List集合：</span></span><br><span class="line"><span class="comment">特点：有序（元素的存取顺序一致），可重复</span></span><br><span class="line"><span class="comment">注意：list是接口，所以通过创建其子类对象来完成该接口的实例化</span></span><br><span class="line"><span class="comment">List list=new ArrayList();</span></span><br><span class="line"><span class="comment">使用集合的步骤：</span></span><br><span class="line"><span class="comment">1创建集合对象</span></span><br><span class="line"><span class="comment">2创建集合元素</span></span><br><span class="line"><span class="comment">3将元素添加到集合对象中</span></span><br><span class="line"><span class="comment">4遍历集合</span></span><br><span class="line"><span class="comment">list接口中的成员方法：</span></span><br><span class="line"><span class="comment">public boolean add(E s)&#123;&#125;   将数据添加到集合的末尾</span></span><br><span class="line"><span class="comment">public E get(int index)&#123;&#125;  根据索引获取对应的元素</span></span><br><span class="line"><span class="comment">public int size()&#123;&#125;获取集合的长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        List list=<span class="keyword">new</span> ArrayList();</span><br><span class="line">        Str stu1=<span class="keyword">new</span> Str(<span class="string">"aa"</span>, <span class="number">26</span>);</span><br><span class="line">        Str stu2=<span class="keyword">new</span> Str(<span class="string">"aa"</span>, <span class="number">26</span>);</span><br><span class="line">        Str stu3=<span class="keyword">new</span> Str(<span class="string">"bb"</span>, <span class="number">33</span>);</span><br><span class="line">        Str stu4=<span class="keyword">new</span> Str(<span class="string">"aa"</span>, <span class="number">36</span>);</span><br><span class="line">        list.add(stu1);</span><br><span class="line">        list.add(stu2);</span><br><span class="line">        list.add(stu3);</span><br><span class="line">        list.add(stu4);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        Object obj=list.get(<span class="number">2</span>);</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        System.out.println(<span class="string">"-------------------"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">            Object obj2=list.get(i);</span><br><span class="line">            System.out.println(<span class="string">"索引为"</span>+i+<span class="string">"是"</span>+obj2);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//增强for循环</span></span><br><span class="line">        <span class="keyword">for</span>(Object obj3:list)&#123;</span><br><span class="line">            System.out.println(obj3);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        List list2=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list2.add(<span class="number">10</span>);</span><br><span class="line">        list2.add(<span class="number">20</span>);</span><br><span class="line">        list2.add(<span class="number">30</span>);</span><br><span class="line">        list2.add(<span class="number">40</span>);</span><br><span class="line">        <span class="keyword">for</span> (Object obj4 : list2) &#123;</span><br><span class="line">            <span class="comment">//ojj4是集合中的元素，其本身应该是Integer类型的元素，转换，可以使用Integer类型找那个的方法</span></span><br><span class="line">            Integer ii=(Integer)obj4;</span><br><span class="line">            System.out.println(obj4);</span><br><span class="line">            System.out.println(ii);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestCollections</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="number">1</span>);</span><br><span class="line">        list.add(<span class="number">1</span>);</span><br><span class="line">        list.add(<span class="number">3</span>);</span><br><span class="line">        list.add(<span class="number">4</span>);</span><br><span class="line">        list.add(<span class="number">5</span>);</span><br><span class="line">        list.add(<span class="number">4</span>);</span><br><span class="line">        list.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        Integer in=Collections.max(list);</span><br><span class="line">        System.out.println(in);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        Collections.sort(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        Collections.reverse(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        <span class="comment">//随机置换，相当于洗牌</span></span><br><span class="line">        Collections.shuffle(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Set&lt;Student&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();<span class="comment">// 无序，唯一</span></span><br><span class="line">        Student stu1 = <span class="keyword">new</span> Student(<span class="string">"aa"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu2 = <span class="keyword">new</span> Student(<span class="string">"aa"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu3 = <span class="keyword">new</span> Student(<span class="string">"bb"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu4 = <span class="keyword">new</span> Student(<span class="string">"cc"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu5 = <span class="keyword">new</span> Student(<span class="string">"dd"</span>, <span class="number">1</span>);</span><br><span class="line">        set.add(stu1);</span><br><span class="line">        set.add(stu2);</span><br><span class="line">        set.add(stu3);</span><br><span class="line">        set.add(stu4);</span><br><span class="line">        set.add(stu5);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 没有去重，因为set集合保证元素的唯一性依赖equals()和hashcode()两个方法</span></span><br><span class="line"><span class="comment">         * 没有在student中重写这两个方法，默认调用的是object类找那个的这两个方法 而object类中的equals（）默认比较的是地址值</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(set);</span><br><span class="line">        System.out.println(<span class="string">"-------------------"</span>);</span><br><span class="line">        Iterator&lt;Student&gt; it = set.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            Student s = it.next();</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"-------------------"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Student ss : set) &#123;</span><br><span class="line">            System.out.print(ss);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="迭代器："><a href="#迭代器：" class="headerlink" title="迭代器："></a>迭代器：</h1><p>对过程的重复，称为迭代<br>迭代器是遍历Collection集合的通用方式，可以在对集合遍历的同事进行添加删除等操作<br>迭代器的常用方法：<br>next（）：返回迭代的下一个元素<br>hasNext（）：如果仍有元素可以迭代，返回true</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestIter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line">        Iterator it = list.iterator();<span class="comment">// 迭代器</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * while(it.hasNext())&#123; String s=(String)it.next(); System.out.println(s); &#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">"-----------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            String s = (String) it.next();</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"b"</span>.equals(s)) &#123;<span class="comment">// 这样写可以规避空指针异常</span></span><br><span class="line">                <span class="comment">// list.add("java");//这样写错误，会报并发修改异常</span></span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"-----------------"</span>);</span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        普通迭代器在遍历集合的同时不能添加或删除元素，否则会报并发修改异常</span></span><br><span class="line"><span class="comment">        列表迭代器在遍历集合的同事可以修改集合中的元素（添加修改等），必须使用列表迭代器中的方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        ListIterator lit = list.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (lit.hasNext()) &#123;</span><br><span class="line">            String ss = (String) lit.next();</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"b"</span>.equals(ss)) &#123;</span><br><span class="line">                lit.add(<span class="string">"java"</span>);<span class="comment">//必须调用列表迭代器中的方法</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(ss);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestIter2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List list=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line"></span><br><span class="line">        ListIterator lit=list.listIterator();</span><br><span class="line">        <span class="keyword">while</span>(lit.hasNext())&#123;</span><br><span class="line">            String s=(String)lit.next();</span><br><span class="line">            <span class="keyword">if</span>(<span class="string">"b"</span>.equals(s))&#123;</span><br><span class="line">                lit.add(<span class="string">"java"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="泛型："><a href="#泛型：" class="headerlink" title="泛型："></a>泛型：</h1><p>泛指任意类型，又叫参数化类型<br>对具体类型的使用起到辅助作用，类似于方法的参数<br>集合类泛型的解释：<br>表示该集合中存放指定类型的元素<br>List<String> list=new ArrayList&lt;&gt;();<br><strong>泛型的安全：</strong><br>类型安全<br>避免了类型转换<br>总结：泛型一般只和集合类相使用<br>泛型是jdk5的新特性，但是jdk7开始后面的泛型可以不用写具体的数据类型了</String></p>
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>java基础</category>
       </categories>
+      <tags>
+        <tag>集合  泛型</tag>
+      </tags>
   </entry>
   <entry>
     <title>青春有你2五人识别</title>
@@ -367,30 +423,6 @@
       </categories>
       <tags>
         <tag>python 图像识别</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重载和重写</title>
-    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
-    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
-<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
-<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
-<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
-<p><strong>注意：</strong></p>
-<p>父类私有方法无法重写</p>
-<p>子类方法访问权限不能小于父类方法</p>
-<p>子类不能比父类抛出更大的异常</p>
-<p>使用场景：扩展父类功能</p>
-<p>父类功能过时，重新实现父类的功能 </p>
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>重载 重写</tag>
       </tags>
   </entry>
   <entry>

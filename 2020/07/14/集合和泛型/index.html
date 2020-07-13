@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python库," />
+  <meta name="keywords" content="集合  泛型," />
 
 
 
@@ -79,28 +79,17 @@
 
 
 
-<meta name="description" content="Numpynumpy就是用来进行矩阵计算的 Numpy中文网：https:&#x2F;&#x2F;www.numpy.org.cn&#x2F;  创建数组 np.array()  除了np.array之外，还有一些函数也可以新建数组：  zeros和ones分别可以创建指定长度或者形状的全0或全1数组  Empty可以创建一个没有任何具体值的数组    查看数组属性  b.size——数组元素的个数 B.shape—–数组形状">
+<meta name="description" content="集合和数组的区别：元素类型：集合：引用类型（存储基本类型时自动装箱）数组：基本类型，引用类型元素个数：集合：不固定，可任意扩容数组：固定，不能改变容量集合的好处：不受容器大小限制，可以随意添加删除元素提供了大量操作元素的方法（判断获取等） 12345678910111213141516171819202122232425262728293031323334353637383940414243444">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习四剑客">
-<meta property="og:url" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/index.html">
+<meta property="og:title" content="集合和泛型">
+<meta property="og:url" content="http://yoursite.com/2020/07/14/%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B/index.html">
 <meta property="og:site_name" content="小章鱼 Blog">
-<meta property="og:description" content="Numpynumpy就是用来进行矩阵计算的 Numpy中文网：https:&#x2F;&#x2F;www.numpy.org.cn&#x2F;  创建数组 np.array()  除了np.array之外，还有一些函数也可以新建数组：  zeros和ones分别可以创建指定长度或者形状的全0或全1数组  Empty可以创建一个没有任何具体值的数组    查看数组属性  b.size——数组元素的个数 B.shape—–数组形状">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503234256071.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235032148.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235921318.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000009032.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000141684.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000230798.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235215214.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235250949.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235329162.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235410828.png">
-<meta property="article:published_time" content="2020-05-03T15:16:02.000Z">
-<meta property="article:modified_time" content="2020-05-03T16:02:49.741Z">
+<meta property="og:description" content="集合和数组的区别：元素类型：集合：引用类型（存储基本类型时自动装箱）数组：基本类型，引用类型元素个数：集合：不固定，可任意扩容数组：固定，不能改变容量集合的好处：不受容器大小限制，可以随意添加删除元素提供了大量操作元素的方法（判断获取等） 12345678910111213141516171819202122232425262728293031323334353637383940414243444">
+<meta property="article:published_time" content="2020-07-13T16:06:36.000Z">
+<meta property="article:modified_time" content="2020-07-13T16:13:17.293Z">
 <meta property="article:author" content="小章鱼">
-<meta property="article:tag" content="python库">
+<meta property="article:tag" content="集合  泛型">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503234256071.png">
 
 
 
@@ -130,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/03/深度学习四剑客/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/14/集合和泛型/"/>
 
 
 
 
 
-  <title>深度学习四剑客 | 小章鱼 Blog</title>
+  <title>集合和泛型 | 小章鱼 Blog</title>
   
 
 
@@ -307,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小章鱼">
@@ -324,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深度学习四剑客</h1>
+          <h1 class="post-title" itemprop="name headline">集合和泛型</h1>
         
 
         <div class="post-meta">
@@ -336,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-03T23:16:02+08:00">
-                2020-05-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T00:06:36+08:00">
+                2020-07-14
               </time>
             
 
@@ -359,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/deeplearning/" itemprop="url" rel="index">
-                    <span itemprop="name">deeplearning</span>
+                  <a href="/categories/java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
                   </a>
                 </span>
 
@@ -401,57 +390,27 @@
       
 
       
-        <h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><p><strong>numpy就是用来进行矩阵计算的</strong></p>
-<p>Numpy中文网：<a href="https://www.numpy.org.cn/" target="_blank" rel="noopener">https://www.numpy.org.cn/</a></p>
-<ol>
-<li><p>创建数组</p>
-<p><code>np.array()</code></p>
-</li>
-<li><p>除了np.array之外，还有一些函数也可以新建数组：</p>
-<ol>
-<li><p>zeros和ones分别可以创建指定长度或者形状的全0或全1数组</p>
-</li>
-<li><p>Empty可以创建一个没有任何具体值的数组</p>
-</li>
-</ol>
-</li>
-<li><p>查看数组属性</p>
-<ol>
-<li>b.size——数组元素的个数</li>
-<li>B.shape—–数组形状</li>
-<li>B.ndim——数组维度</li>
-<li>B.dtype—-数组元素类型</li>
-</ol>
-</li>
-<li><p>矩阵乘法</p>
-<p>Np.dot()</p>
-</li>
-</ol>
-<h1 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h1><p><strong>pandas基于numpy，丰富并简化了numpy的操作</strong></p>
-<h2 id="Series-一维数据"><a href="#Series-一维数据" class="headerlink" title="Series(一维数据)"></a>Series(一维数据)</h2><p><strong>pandas中文网：<a href="https://www.pypandas.cn/" target="_blank" rel="noopener">https://www.pypandas.cn/</a></strong></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503234256071.png" alt="image-20200503234256071"><strong>Series的字符串表现形式为：</strong></p>
-<p>1.索引在左边，值在右边</p>
-<p>2.如果没有为数据指定索引，则自动创建一个0到N-1（N为数据的长度）的整数型索引</p>
-<p>可以通过Series的values和index属性获取其数组表示形式和索引对象</p>
-<p>4.与普通numpy数组相比，可以通过索引的方式选取Series中的单个或一组值</p>
-<h2 id="DataFrame-多特征数据，既有行索引，又有列索引"><a href="#DataFrame-多特征数据，既有行索引，又有列索引" class="headerlink" title="DataFrame(多特征数据，既有行索引，又有列索引)"></a>DataFrame(多特征数据，既有行索引，又有列索引)</h2><p>DataFrame是一个表格型的数据结构，它含有一组有序的列，每列可以是不同的值类型（数值、字符串、布尔值等）</p>
-<p>DataFrame既有行索引也有列索引，它可以被看做由Series组成的字典（共用同一个索引）</p>
-<p>跟其他类似的数据结构相比（如R语言的data.frame），DataFrame中面向行和面向列的操作基本上是平衡的  </p>
-<p>DataFrame中的数据是以一个或多个二维块存放的（而不是列表、字典或别的一维数据结构）</p>
-<p>构成DataFrame的方法很多，最常用的一种是直接传入一个由等长列表或numpy数组组成的字典</p>
-<p>DataFrame结果会自动加上索引（跟Series一样），且全部会被有序排列</p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235032148.png" alt="image-20200503235032148"></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235921318.png" alt="image-20200503235921318"></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000009032.png" alt="image-20200504000009032"></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000141684.png" alt="image-20200504000141684"></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200504000230798.png" alt="image-20200504000230798"></p>
-<h1 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h1><p><strong>绘图和可视化</strong></p>
-<p>Matplotlib中文网：<a href="https://www.matplotlib.org.cn" target="_blank" rel="noopener">https://www.matplotlib.org.cn</a></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235215214.png" alt="image-20200503235215214"></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235250949.png" alt="image-20200503235250949"></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235329162.png" alt="image-20200503235329162"></p>
-<h1 id="PIL"><a href="#PIL" class="headerlink" title="PIL"></a>PIL</h1><p><strong>对图像进行处理</strong></p>
-<p><img src="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/image-20200503235410828.png" alt="image-20200503235410828"></p>
+        <h1 id="集合和数组的区别："><a href="#集合和数组的区别：" class="headerlink" title="集合和数组的区别："></a>集合和数组的区别：</h1><p>元素类型：<br>集合：引用类型（存储基本类型时自动装箱）<br>数组：基本类型，引用类型<br>元素个数：<br>集合：不固定，可任意扩容<br>数组：固定，不能改变容量<br>集合的好处：<br>不受容器大小限制，可以随意添加删除元素<br>提供了大量操作元素的方法（判断获取等）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">单列集合（Collection）之List集合：</span></span><br><span class="line"><span class="comment">特点：有序（元素的存取顺序一致），可重复</span></span><br><span class="line"><span class="comment">注意：list是接口，所以通过创建其子类对象来完成该接口的实例化</span></span><br><span class="line"><span class="comment">List list=new ArrayList();</span></span><br><span class="line"><span class="comment">使用集合的步骤：</span></span><br><span class="line"><span class="comment">1创建集合对象</span></span><br><span class="line"><span class="comment">2创建集合元素</span></span><br><span class="line"><span class="comment">3将元素添加到集合对象中</span></span><br><span class="line"><span class="comment">4遍历集合</span></span><br><span class="line"><span class="comment">list接口中的成员方法：</span></span><br><span class="line"><span class="comment">public boolean add(E s)&#123;&#125;   将数据添加到集合的末尾</span></span><br><span class="line"><span class="comment">public E get(int index)&#123;&#125;  根据索引获取对应的元素</span></span><br><span class="line"><span class="comment">public int size()&#123;&#125;获取集合的长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        List list=<span class="keyword">new</span> ArrayList();</span><br><span class="line">        Str stu1=<span class="keyword">new</span> Str(<span class="string">"aa"</span>, <span class="number">26</span>);</span><br><span class="line">        Str stu2=<span class="keyword">new</span> Str(<span class="string">"aa"</span>, <span class="number">26</span>);</span><br><span class="line">        Str stu3=<span class="keyword">new</span> Str(<span class="string">"bb"</span>, <span class="number">33</span>);</span><br><span class="line">        Str stu4=<span class="keyword">new</span> Str(<span class="string">"aa"</span>, <span class="number">36</span>);</span><br><span class="line">        list.add(stu1);</span><br><span class="line">        list.add(stu2);</span><br><span class="line">        list.add(stu3);</span><br><span class="line">        list.add(stu4);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        Object obj=list.get(<span class="number">2</span>);</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        System.out.println(<span class="string">"-------------------"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list.size();i++)&#123;</span><br><span class="line">            Object obj2=list.get(i);</span><br><span class="line">            System.out.println(<span class="string">"索引为"</span>+i+<span class="string">"是"</span>+obj2);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//增强for循环</span></span><br><span class="line">        <span class="keyword">for</span>(Object obj3:list)&#123;</span><br><span class="line">            System.out.println(obj3);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        List list2=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list2.add(<span class="number">10</span>);</span><br><span class="line">        list2.add(<span class="number">20</span>);</span><br><span class="line">        list2.add(<span class="number">30</span>);</span><br><span class="line">        list2.add(<span class="number">40</span>);</span><br><span class="line">        <span class="keyword">for</span> (Object obj4 : list2) &#123;</span><br><span class="line">            <span class="comment">//ojj4是集合中的元素，其本身应该是Integer类型的元素，转换，可以使用Integer类型找那个的方法</span></span><br><span class="line">            Integer ii=(Integer)obj4;</span><br><span class="line">            System.out.println(obj4);</span><br><span class="line">            System.out.println(ii);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestCollections</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="number">1</span>);</span><br><span class="line">        list.add(<span class="number">1</span>);</span><br><span class="line">        list.add(<span class="number">3</span>);</span><br><span class="line">        list.add(<span class="number">4</span>);</span><br><span class="line">        list.add(<span class="number">5</span>);</span><br><span class="line">        list.add(<span class="number">4</span>);</span><br><span class="line">        list.add(<span class="number">9</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        Integer in=Collections.max(list);</span><br><span class="line">        System.out.println(in);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        Collections.sort(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        Collections.reverse(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line">        <span class="comment">//随机置换，相当于洗牌</span></span><br><span class="line">        Collections.shuffle(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Set&lt;Student&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();<span class="comment">// 无序，唯一</span></span><br><span class="line">        Student stu1 = <span class="keyword">new</span> Student(<span class="string">"aa"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu2 = <span class="keyword">new</span> Student(<span class="string">"aa"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu3 = <span class="keyword">new</span> Student(<span class="string">"bb"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu4 = <span class="keyword">new</span> Student(<span class="string">"cc"</span>, <span class="number">1</span>);</span><br><span class="line">        Student stu5 = <span class="keyword">new</span> Student(<span class="string">"dd"</span>, <span class="number">1</span>);</span><br><span class="line">        set.add(stu1);</span><br><span class="line">        set.add(stu2);</span><br><span class="line">        set.add(stu3);</span><br><span class="line">        set.add(stu4);</span><br><span class="line">        set.add(stu5);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 没有去重，因为set集合保证元素的唯一性依赖equals()和hashcode()两个方法</span></span><br><span class="line"><span class="comment">         * 没有在student中重写这两个方法，默认调用的是object类找那个的这两个方法 而object类中的equals（）默认比较的是地址值</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(set);</span><br><span class="line">        System.out.println(<span class="string">"-------------------"</span>);</span><br><span class="line">        Iterator&lt;Student&gt; it = set.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            Student s = it.next();</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"-------------------"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Student ss : set) &#123;</span><br><span class="line">            System.out.print(ss);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="迭代器："><a href="#迭代器：" class="headerlink" title="迭代器："></a>迭代器：</h1><p>对过程的重复，称为迭代<br>迭代器是遍历Collection集合的通用方式，可以在对集合遍历的同事进行添加删除等操作<br>迭代器的常用方法：<br>next（）：返回迭代的下一个元素<br>hasNext（）：如果仍有元素可以迭代，返回true</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestIter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line">        Iterator it = list.iterator();<span class="comment">// 迭代器</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * while(it.hasNext())&#123; String s=(String)it.next(); System.out.println(s); &#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">"-----------------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            String s = (String) it.next();</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"b"</span>.equals(s)) &#123;<span class="comment">// 这样写可以规避空指针异常</span></span><br><span class="line">                <span class="comment">// list.add("java");//这样写错误，会报并发修改异常</span></span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"-----------------"</span>);</span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        普通迭代器在遍历集合的同时不能添加或删除元素，否则会报并发修改异常</span></span><br><span class="line"><span class="comment">        列表迭代器在遍历集合的同事可以修改集合中的元素（添加修改等），必须使用列表迭代器中的方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        ListIterator lit = list.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (lit.hasNext()) &#123;</span><br><span class="line">            String ss = (String) lit.next();</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">"b"</span>.equals(ss)) &#123;</span><br><span class="line">                lit.add(<span class="string">"java"</span>);<span class="comment">//必须调用列表迭代器中的方法</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(ss);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestIter2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List list=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"a"</span>);</span><br><span class="line">        list.add(<span class="string">"b"</span>);</span><br><span class="line">        list.add(<span class="string">"c"</span>);</span><br><span class="line"></span><br><span class="line">        ListIterator lit=list.listIterator();</span><br><span class="line">        <span class="keyword">while</span>(lit.hasNext())&#123;</span><br><span class="line">            String s=(String)lit.next();</span><br><span class="line">            <span class="keyword">if</span>(<span class="string">"b"</span>.equals(s))&#123;</span><br><span class="line">                lit.add(<span class="string">"java"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="泛型："><a href="#泛型：" class="headerlink" title="泛型："></a>泛型：</h1><p>泛指任意类型，又叫参数化类型<br>对具体类型的使用起到辅助作用，类似于方法的参数<br>集合类泛型的解释：<br>表示该集合中存放指定类型的元素<br>List<String> list=new ArrayList&lt;&gt;();<br><strong>泛型的安全：</strong><br>类型安全<br>避免了类型转换<br>总结：泛型一般只和集合类相使用<br>泛型是jdk5的新特性，但是jdk7开始后面的泛型可以不用写具体的数据类型了</String></p>
 
       
     </div>
@@ -469,7 +428,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python%E5%BA%93/" rel="tag"># python库</a>
+            <a href="/tags/%E9%9B%86%E5%90%88-%E6%B3%9B%E5%9E%8B/" rel="tag"># 集合  泛型</a>
           
         </div>
       
@@ -483,7 +442,7 @@
         </li>
         <li class="post-copyright-link">
           <strong>本文链接：</strong>
-          <a href="/2020/05/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9B%9B%E5%89%91%E5%AE%A2/" title="深度学习四剑客">2020/05/03/深度学习四剑客/</a>
+          <a href="/2020/07/14/%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B/" title="集合和泛型">2020/07/14/集合和泛型/</a>
         </li>
         <li class="post-copyright-license">
           <strong>版权： </strong>
@@ -501,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="next" title="青春有你可视化">
-                <i class="fa fa-chevron-left"></i> 青春有你可视化
+              <a href="/2020/07/13/%E5%A4%9A%E6%80%81/" rel="next" title="多态">
+                <i class="fa fa-chevron-left"></i> 多态
               </a>
             
           </div>
@@ -510,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/05/04/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A02%E4%BA%94%E4%BA%BA%E8%AF%86%E5%88%AB/" rel="prev" title="青春有你2五人识别">
-                青春有你2五人识别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -649,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Numpy"><span class="nav-number">1.</span> <span class="nav-text">Numpy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pandas"><span class="nav-number">2.</span> <span class="nav-text">pandas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Series-一维数据"><span class="nav-number">2.1.</span> <span class="nav-text">Series(一维数据)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DataFrame-多特征数据，既有行索引，又有列索引"><span class="nav-number">2.2.</span> <span class="nav-text">DataFrame(多特征数据，既有行索引，又有列索引)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matplotlib"><span class="nav-number">3.</span> <span class="nav-text">Matplotlib</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PIL"><span class="nav-number">4.</span> <span class="nav-text">PIL</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#集合和数组的区别："><span class="nav-number">1.</span> <span class="nav-text">集合和数组的区别：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器："><span class="nav-number">2.</span> <span class="nav-text">迭代器：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型："><span class="nav-number">3.</span> <span class="nav-text">泛型：</span></a></li></ol></div>
             
 
           </div>
