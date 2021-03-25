@@ -518,4 +518,34 @@
         <tag>无聊琐事</tag>
       </tags>
   </entry>
+  <entry>
+    <title>排序链表去重</title>
+    <url>/2021/03/25/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%8E%BB%E9%87%8D/</url>
+    <content><![CDATA[<ol>
+<li><p>82.删除排序链表中的重复元素</p>
+<p>存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。</p>
+<p>返回同样按升序排列的结果链表。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span> || head.next==<span class="keyword">null</span>)<span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ListNode newHead=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">            newHead.next=head;</span><br><span class="line">            ListNode pre=newHead;</span><br><span class="line">            ListNode cur=head;</span><br><span class="line">            ListNode next=<span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">while</span>(cur!=<span class="keyword">null</span> &amp;&amp; cur.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                next=cur.next;</span><br><span class="line">                <span class="keyword">if</span>(cur.val==next.val)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(next!=<span class="keyword">null</span> &amp;&amp; cur.val==next.val)&#123;</span><br><span class="line">                        next=next.next;</span><br><span class="line">                        cur=cur.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre.next=next;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    pre=cur;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> newHead.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode tail = dummy;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 进入循环时，确保了 head 不会与上一节点相同</span></span><br><span class="line">            <span class="keyword">if</span> (head.next == <span class="keyword">null</span> || head.val != head.next.val) &#123;</span><br><span class="line">                tail.next = head;</span><br><span class="line">                tail = head;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果 head 与下一节点相同，跳过相同节点</span></span><br><span class="line">            <span class="keyword">while</span> (head.next != <span class="keyword">null</span> &amp;&amp; head.val == head.next.val) head = head.next;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        tail.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>83  删除排序链表中的重复节点—保留重复节点</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode();</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        ListNode a = head, b = a.next;</span><br><span class="line">        <span class="keyword">while</span> (b != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a.val != b.val) &#123;</span><br><span class="line">                a.next = b;</span><br><span class="line">                a = a.next;</span><br><span class="line">            &#125;</span><br><span class="line">            b = b.next;</span><br><span class="line">        &#125;</span><br><span class="line">        a.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
 </search>
