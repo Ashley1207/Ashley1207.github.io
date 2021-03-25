@@ -120,36 +120,6 @@
       </tags>
   </entry>
   <entry>
-    <title>排序链表去重</title>
-    <url>/2021/03/25/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%8E%BB%E9%87%8D/</url>
-    <content><![CDATA[<ol>
-<li><p>82.删除排序链表中的重复元素</p>
-<p>存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。</p>
-<p>返回同样按升序排列的结果链表。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span> || head.next==<span class="keyword">null</span>)<span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ListNode newHead=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">            newHead.next=head;</span><br><span class="line">            ListNode pre=newHead;</span><br><span class="line">            ListNode cur=head;</span><br><span class="line">            ListNode next=<span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">while</span>(cur!=<span class="keyword">null</span> &amp;&amp; cur.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                next=cur.next;</span><br><span class="line">                <span class="keyword">if</span>(cur.val==next.val)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(next!=<span class="keyword">null</span> &amp;&amp; cur.val==next.val)&#123;</span><br><span class="line">                        next=next.next;</span><br><span class="line">                        cur=cur.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre.next=next;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    pre=cur;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> newHead.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode tail = dummy;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 进入循环时，确保了 head 不会与上一节点相同</span></span><br><span class="line">            <span class="keyword">if</span> (head.next == <span class="keyword">null</span> || head.val != head.next.val) &#123;</span><br><span class="line">                tail.next = head;</span><br><span class="line">                tail = head;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果 head 与下一节点相同，跳过相同节点</span></span><br><span class="line">            <span class="keyword">while</span> (head.next != <span class="keyword">null</span> &amp;&amp; head.val == head.next.val) head = head.next;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        tail.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>83  删除排序链表中的重复节点—保留重复节点</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode slow=head;</span><br><span class="line">        ListNode fast=head.next;</span><br><span class="line">        <span class="keyword">while</span> (fast!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast.val!=slow.val)&#123;</span><br><span class="line">                slow.next=fast;</span><br><span class="line">                slow=slow.next;</span><br><span class="line">            &#125;</span><br><span class="line">            fast=fast.next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow.next=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字符和字符串加法</title>
     <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
     <content><![CDATA[<p><strong>加法运算特点</strong></p>
@@ -213,6 +183,38 @@
       </tags>
   </entry>
   <entry>
+    <title>排序链表去重</title>
+    <url>/2021/03/25/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%8E%BB%E9%87%8D/</url>
+    <content><![CDATA[<ol>
+<li><p>82.删除排序链表中的重复元素</p>
+<p>存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。</p>
+<p>返回同样按升序排列的结果链表。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span> || head.next==<span class="keyword">null</span>)<span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ListNode newHead=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">            newHead.next=head;</span><br><span class="line">            ListNode pre=newHead;</span><br><span class="line">            ListNode cur=head;</span><br><span class="line">            ListNode next=<span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">while</span>(cur!=<span class="keyword">null</span> &amp;&amp; cur.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                next=cur.next;</span><br><span class="line">                <span class="keyword">if</span>(cur.val==next.val)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(next!=<span class="keyword">null</span> &amp;&amp; cur.val==next.val)&#123;</span><br><span class="line">                        next=next.next;</span><br><span class="line">                        cur=cur.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre.next=next;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    pre=cur;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> newHead.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode tail = dummy;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 进入循环时，确保了 head 不会与上一节点相同</span></span><br><span class="line">            <span class="keyword">if</span> (head.next == <span class="keyword">null</span> || head.val != head.next.val) &#123;</span><br><span class="line">                tail.next = head;</span><br><span class="line">                tail = head;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果 head 与下一节点相同，跳过相同节点</span></span><br><span class="line">            <span class="keyword">while</span> (head.next != <span class="keyword">null</span> &amp;&amp; head.val == head.next.val) head = head.next;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        tail.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>83  删除排序链表中的重复节点—保留重复节点</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode slow=head;</span><br><span class="line">        ListNode fast=head.next;</span><br><span class="line">        <span class="keyword">while</span> (fast!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast.val!=slow.val)&#123;</span><br><span class="line">                slow.next=fast;</span><br><span class="line">                slow=slow.next;</span><br><span class="line">            &#125;</span><br><span class="line">            fast=fast.next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow.next=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>构造方法</title>
     <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
@@ -229,34 +231,6 @@
       </categories>
       <tags>
         <tag>构造方法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>状态压缩</title>
-    <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
-<p>却迟迟理解不了，于是上网查了很多的资料，<strong>一句话总结就是用一串二进制数来表示当前情况的状态</strong></p>
-<p>参考如下：</p>
-<p><a href="https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p>
-<p><a href="https://blog.csdn.net/fjy19950504/article/details/105929173/" target="_blank" rel="noopener">https://blog.csdn.net/fjy19950504/article/details/105929173/</a></p>
-<p><a href="https://blog.csdn.net/lu597203933/article/details/44137277" target="_blank" rel="noopener">https://blog.csdn.net/lu597203933/article/details/44137277</a></p>
-<p>状态压缩用的到知识点主要是Java中的位运算，也有一方面是自己对位运算的理解不透彻，先把位运算的知识点总结如下：</p>
-<ol>
-<li>&amp;：x&amp;y，将两个十进制数在二进制下进行<strong>与</strong>运算，然后返回其十进制下的值（规则是两个同时为1，结果为1，否则为0），例如3（11）&amp;2（10）=2（10）</li>
-<li>|：x|y，将两个十进制数在二进制下进行<strong>或</strong>运算，然后返回其十进制下的值（规则是一个为1，其值为1），例如：3（11）|2（10）=3（11）</li>
-<li>^：x ^ y：将两个十进制的值在二进制下进行<strong>异或</strong>运算，然后返回其十进制下的值（规则是相同为0，不同为1），例如：3（11）^ 2（10）=1（01）</li>
-<li>&lt;&lt;：左移操作，x&lt;&lt;2，将x在二进制下的每一位向左移动两位，最右边用0填充，相当于让x乘以4</li>
-<li>&lt;&lt;：右移操作，x&gt;&gt;1，相当于x/2，去掉x最右一位</li>
-<li><u><em>判断一个数字x二进制下第i位是不是等于1。</em></u><br><u><em>方法：if(((1&lt;&lt;(i−1))&amp;x)&gt;0)</em></u><br><u><em>将1左移i-1位，相当于制造了一个只有第i位上是1，其他位上都是0的二进制数。然后与x做与运算，如果结果&gt;0，说明x第i位上是1，反之则是0。</em></u></li>
-<li><u><em>将一个数字x二进制下第i位更改成1。</em></u><br><u><em>方法：x=x|(1&lt;&lt;(i−1))</em></u></li>
-<li><u><em>把一个数字二进制下最靠右的第一个1去掉。</em></u><br><u><em>方法：x=x&amp;(x−1)</em></u></li>
-</ol>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>状态压缩</tag>
       </tags>
   </entry>
   <entry>
@@ -322,6 +296,34 @@
       </tags>
   </entry>
   <entry>
+    <title>状态压缩</title>
+    <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
+<p>却迟迟理解不了，于是上网查了很多的资料，<strong>一句话总结就是用一串二进制数来表示当前情况的状态</strong></p>
+<p>参考如下：</p>
+<p><a href="https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p>
+<p><a href="https://blog.csdn.net/fjy19950504/article/details/105929173/" target="_blank" rel="noopener">https://blog.csdn.net/fjy19950504/article/details/105929173/</a></p>
+<p><a href="https://blog.csdn.net/lu597203933/article/details/44137277" target="_blank" rel="noopener">https://blog.csdn.net/lu597203933/article/details/44137277</a></p>
+<p>状态压缩用的到知识点主要是Java中的位运算，也有一方面是自己对位运算的理解不透彻，先把位运算的知识点总结如下：</p>
+<ol>
+<li>&amp;：x&amp;y，将两个十进制数在二进制下进行<strong>与</strong>运算，然后返回其十进制下的值（规则是两个同时为1，结果为1，否则为0），例如3（11）&amp;2（10）=2（10）</li>
+<li>|：x|y，将两个十进制数在二进制下进行<strong>或</strong>运算，然后返回其十进制下的值（规则是一个为1，其值为1），例如：3（11）|2（10）=3（11）</li>
+<li>^：x ^ y：将两个十进制的值在二进制下进行<strong>异或</strong>运算，然后返回其十进制下的值（规则是相同为0，不同为1），例如：3（11）^ 2（10）=1（01）</li>
+<li>&lt;&lt;：左移操作，x&lt;&lt;2，将x在二进制下的每一位向左移动两位，最右边用0填充，相当于让x乘以4</li>
+<li>&lt;&lt;：右移操作，x&gt;&gt;1，相当于x/2，去掉x最右一位</li>
+<li><u><em>判断一个数字x二进制下第i位是不是等于1。</em></u><br><u><em>方法：if(((1&lt;&lt;(i−1))&amp;x)&gt;0)</em></u><br><u><em>将1左移i-1位，相当于制造了一个只有第i位上是1，其他位上都是0的二进制数。然后与x做与运算，如果结果&gt;0，说明x第i位上是1，反之则是0。</em></u></li>
+<li><u><em>将一个数字x二进制下第i位更改成1。</em></u><br><u><em>方法：x=x|(1&lt;&lt;(i−1))</em></u></li>
+<li><u><em>把一个数字二进制下最靠右的第一个1去掉。</em></u><br><u><em>方法：x=x&amp;(x−1)</em></u></li>
+</ol>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>状态压缩</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>继承</title>
     <url>/2020/07/13/%E7%BB%A7%E6%89%BF/</url>
     <content><![CDATA[<p>子类拥有了父类的非私有成员（成员变量，成员方法）</p>
@@ -361,6 +363,30 @@
       </categories>
   </entry>
   <entry>
+    <title>重载和重写</title>
+    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
+    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
+<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
+<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
+<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
+<p><strong>注意：</strong></p>
+<p>父类私有方法无法重写</p>
+<p>子类方法访问权限不能小于父类方法</p>
+<p>子类不能比父类抛出更大的异常</p>
+<p>使用场景：扩展父类功能</p>
+<p>父类功能过时，重新实现父类的功能 </p>
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>重载 重写</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>集合和泛型</title>
     <url>/2020/07/14/%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="集合和数组的区别："><a href="#集合和数组的区别：" class="headerlink" title="集合和数组的区别："></a>集合和数组的区别：</h1><p>元素类型：<br>集合：引用类型（存储基本类型时自动装箱）<br>数组：基本类型，引用类型<br>元素个数：<br>集合：不固定，可任意扩容<br>数组：固定，不能改变容量<br>集合的好处：<br>不受容器大小限制，可以随意添加删除元素<br>提供了大量操作元素的方法（判断获取等）</p>
@@ -390,30 +416,6 @@
       </categories>
       <tags>
         <tag>集合  泛型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重载和重写</title>
-    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
-    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
-<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
-<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
-<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
-<p><strong>注意：</strong></p>
-<p>父类私有方法无法重写</p>
-<p>子类方法访问权限不能小于父类方法</p>
-<p>子类不能比父类抛出更大的异常</p>
-<p>使用场景：扩展父类功能</p>
-<p>父类功能过时，重新实现父类的功能 </p>
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>重载 重写</tag>
       </tags>
   </entry>
   <entry>
@@ -471,27 +473,6 @@
       </tags>
   </entry>
   <entry>
-    <title>青春有你可视化</title>
-    <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p><strong>对爬取的青春有你2参赛选手的信息进行数据可视化</strong></p>
-<h1 id="一-绘制选手区域分布柱状图"><a href="#一-绘制选手区域分布柱状图" class="headerlink" title="一. 绘制选手区域分布柱状图"></a>一. 绘制选手区域分布柱状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="function">with <span class="title">open</span><span class="params">(<span class="string">'data/data31557/20200422.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as file:</span></span><br><span class="line"><span class="function">         json_array </span>= json.loads(file.read())</span><br><span class="line"></span><br><span class="line">#绘制小姐姐区域分布柱状图,x轴为地区，y轴为该区域的小姐姐数量</span><br><span class="line"></span><br><span class="line">zones = []</span><br><span class="line"><span class="keyword">for</span> star in json_array:</span><br><span class="line">    zone = star[<span class="string">'zone'</span>]</span><br><span class="line">    zones.append(zone)</span><br><span class="line">print(len(zones))</span><br><span class="line">print(zones)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">zone_list = []</span><br><span class="line">count_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> zone in zones:</span><br><span class="line">    <span class="keyword">if</span> zone not in zone_list:</span><br><span class="line">        count = zones.count(zone)</span><br><span class="line">        zone_list.append(zone)</span><br><span class="line">        count_list.append(count)</span><br><span class="line"></span><br><span class="line">print(zone_list)</span><br><span class="line">print(count_list)</span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"><span class="keyword">import</span> pandas as pd</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line">#print(df)</span><br><span class="line"></span><br><span class="line">grouped=df[<span class="string">'name'</span>].groupby(df[<span class="string">'zone'</span>])</span><br><span class="line">s = grouped.count()</span><br><span class="line"></span><br><span class="line">zone_list = s.index</span><br><span class="line">count_list = s.values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result02.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h1 id="二-绘制饼状图"><a href="#二-绘制饼状图" class="headerlink" title="二. 绘制饼状图"></a>二. 绘制饼状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/image-20200503230719831.png" alt="image-20200503230719831"></p>
-]]></content>
-      <categories>
-        <category>AI</category>
-      </categories>
-      <tags>
-        <tag>python 可视化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>青春有你信息爬取</title>
     <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/</url>
     <content><![CDATA[<p><strong>写在前面</strong></p>
@@ -546,6 +527,27 @@
       <tags>
         <tag>爬虫</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>青春有你可视化</title>
+    <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p><strong>对爬取的青春有你2参赛选手的信息进行数据可视化</strong></p>
+<h1 id="一-绘制选手区域分布柱状图"><a href="#一-绘制选手区域分布柱状图" class="headerlink" title="一. 绘制选手区域分布柱状图"></a>一. 绘制选手区域分布柱状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="function">with <span class="title">open</span><span class="params">(<span class="string">'data/data31557/20200422.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as file:</span></span><br><span class="line"><span class="function">         json_array </span>= json.loads(file.read())</span><br><span class="line"></span><br><span class="line">#绘制小姐姐区域分布柱状图,x轴为地区，y轴为该区域的小姐姐数量</span><br><span class="line"></span><br><span class="line">zones = []</span><br><span class="line"><span class="keyword">for</span> star in json_array:</span><br><span class="line">    zone = star[<span class="string">'zone'</span>]</span><br><span class="line">    zones.append(zone)</span><br><span class="line">print(len(zones))</span><br><span class="line">print(zones)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">zone_list = []</span><br><span class="line">count_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> zone in zones:</span><br><span class="line">    <span class="keyword">if</span> zone not in zone_list:</span><br><span class="line">        count = zones.count(zone)</span><br><span class="line">        zone_list.append(zone)</span><br><span class="line">        count_list.append(count)</span><br><span class="line"></span><br><span class="line">print(zone_list)</span><br><span class="line">print(count_list)</span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"><span class="keyword">import</span> pandas as pd</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line">#print(df)</span><br><span class="line"></span><br><span class="line">grouped=df[<span class="string">'name'</span>].groupby(df[<span class="string">'zone'</span>])</span><br><span class="line">s = grouped.count()</span><br><span class="line"></span><br><span class="line">zone_list = s.index</span><br><span class="line">count_list = s.values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result02.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-绘制饼状图"><a href="#二-绘制饼状图" class="headerlink" title="二. 绘制饼状图"></a>二. 绘制饼状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/image-20200503230719831.png" alt="image-20200503230719831"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>python 可视化</tag>
       </tags>
   </entry>
 </search>
