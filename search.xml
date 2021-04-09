@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>First Blog</title>
+    <url>/2020/04/27/zyqfirstBlog/</url>
+    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
+<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
+<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
+<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
+<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
+]]></content>
+      <tags>
+        <tag>hexo-bug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>时间复杂度</title>
+    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
+<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
+<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
+<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
+<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
+<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
+<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
+<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
+<p>我们主要关心的还是一般情况下的数据形式。</p>
+<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
+<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
+<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
+<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
+<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
+<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
+<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
+<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
+<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
+<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
+<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
+<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
+<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
+</li>
+<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
+<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
+</li>
+<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
+<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+</li>
+<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
+</li>
+</ol>
+<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+<ol start="5">
+<li>递归复杂度计算</li>
+</ol>
+<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java字符和字符串</title>
     <url>/2020/07/11/java%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<p>‘  ‘ 单引号表示单个字符</p>
@@ -55,19 +116,6 @@
       </categories>
       <tags>
         <tag>java 容器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>First Blog</title>
-    <url>/2020/04/27/zyqfirstBlog/</url>
-    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
-<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
-<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
-<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
-<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
-]]></content>
-      <tags>
-        <tag>hexo-bug</tag>
       </tags>
   </entry>
   <entry>
@@ -149,6 +197,17 @@
       </tags>
   </entry>
   <entry>
+    <title>并查集</title>
+    <url>/2021/03/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实习一个月总结</title>
     <url>/2020/09/17/%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%B8%AA%E6%9C%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>从八月十九号入职爱奇艺会员业务部门成为一名java开发实习生，到今天为止差不多快一个月了。从刚开始的熟悉代码画流程图，到实习业务之后开始写Python脚本，接触项目，开发监控系统和管理数据系统，每一项对我来说都是陌生和全新的，有的时候忙到一天没时间吃饭，有的时候轻松到一天都可以看文档学习。偶尔也会有担心，担心自己写不出来代码，担心自己写出来代码后又被批评代码写的太垃圾，后来安慰自己本来到这里就是来学习的，如果我一开始我就杨洋做的很好，那么我到这里的意义在哪里呢？我的目标是来学习，把他们的本领学到手，而不倒任务完成的有多漂亮，工作做的有多好。偶尔反思自己，我需要摆正自己的心态，认清自己的不足，不会的就多学习，不能怕丢脸，自己本来就是一个菜鸟，想成为大神，想明年进入理想的公司，这些都是必经之路。</p>
@@ -183,6 +242,63 @@
       </tags>
   </entry>
   <entry>
+    <title>构造方法</title>
+    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
+<p>格式：修饰符  构造方法名（）{}</p>
+<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
+<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
+<p>若已提供构造方法，系统不再提供无参构造</p>
+<p>构造方法可以重载</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>构造方法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>空间复杂度</title>
+    <url>/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>什么是空间复杂度呢？</p>
+<p>是对一个算法在运行过程中占用内存空间大小的量度，记做S(n)=O(f(n)。</p>
+<p>空间复杂度(Space Complexity)记作S(n) 依然使用大O来表示。利用程序的空间复杂度，可以对程序运行中需要多少内存有个预先估计。</p>
+<p>关注空间复杂度有两个常见的相关问题</p>
+<ol>
+<li>空间复杂度是考虑程序（可执行文件）的大小吗？</li>
+</ol>
+<p><strong>空间复杂度是考虑程序运行时占用内存的大小，而不是可执行文件的大小。</strong></p>
+<ol start="2">
+<li><p>空间复杂度是准确算出程序运行时所占用的内存吗？</p>
+<p>不要以为空间复杂度就已经精准的掌握了程序的内存使用大小，很有多因素会影响程序真正内存使用大小，例如<strong>编译器的内存对齐，编程语言容器的底层实现</strong>等等这些都会影响到程序内存的开销。</p>
+<p>所以空间复杂度是预先大体评估程序内存使用的大小。</p>
+<p>说到空间复杂度，大家在OJ（online judge）上应该遇到过这种错误，就是超出内存限制，一般OJ对程序运行时的所消耗的内存都有一个限制。</p>
+<p>为了避免内存超出限制，这也需要我们对算法占用多大的内存有一个大体的预估。</p>
+<p>同样在工程实践中，计算机的内存空间也不是无限的，需要工程师对软件运行时所使用的内存有一个大体评估，这都需要用到算法空间复杂度的分析。</p>
+</li>
+</ol>
+<p>那么什么时候空间复杂度是O(1)呢？</p>
+<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155057641.png" alt="image-20210409155057641"></p>
+<p>第一段代码可以看出，随着n的变化，所需开辟的内存空间并不会随着n的变化而变化。即此算法空间复杂度为一个常量，所以表示为大 O(1)。</p>
+<p>什么时候的空间复杂度是O(n)呢？</p>
+<p>当小号空间和输入参数n保持线性增长，这样的空间复杂度为O(n)</p>
+<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155209893.png" alt="image-20210409155209893"></p>
+<p>我们定义了一个数组出来，这个数组占用的大小为n，虽然有一个for循环，但没有再分配新的空间，因此，这段代码的空间复杂度主要看第一行即可，随着n的增大，开辟的内存大小呈线性增长，即 O(n)。</p>
+<p>什么时候的空间复杂度为 <strong>O(logn)呢？</strong></p>
+<p>空间复杂度是logn的情况确实有些特殊，其实是在<strong>递归的时候，会出现空间复杂度为logn的情况</strong>。</p>
+<p>参考：<a href="https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw</a></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>空间复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>排序链表去重</title>
     <url>/2021/03/25/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%8E%BB%E9%87%8D/</url>
     <content><![CDATA[<ol>
@@ -212,25 +328,6 @@
       </categories>
       <tags>
         <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>构造方法</title>
-    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
-<p>格式：修饰符  构造方法名（）{}</p>
-<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
-<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
-<p>若已提供构造方法，系统不再提供无参构造</p>
-<p>构造方法可以重载</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>构造方法</tag>
       </tags>
   </entry>
   <entry>
@@ -548,103 +645,6 @@
       </categories>
       <tags>
         <tag>python 可视化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>并查集</title>
-    <url>/2021/03/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>空间复杂度</title>
-    <url>/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>什么是空间复杂度呢？</p>
-<p>是对一个算法在运行过程中占用内存空间大小的量度，记做S(n)=O(f(n)。</p>
-<p>空间复杂度(Space Complexity)记作S(n) 依然使用大O来表示。利用程序的空间复杂度，可以对程序运行中需要多少内存有个预先估计。</p>
-<p>关注空间复杂度有两个常见的相关问题</p>
-<ol>
-<li>空间复杂度是考虑程序（可执行文件）的大小吗？</li>
-</ol>
-<p><strong>空间复杂度是考虑程序运行时占用内存的大小，而不是可执行文件的大小。</strong></p>
-<ol start="2">
-<li><p>空间复杂度是准确算出程序运行时所占用的内存吗？</p>
-<p>不要以为空间复杂度就已经精准的掌握了程序的内存使用大小，很有多因素会影响程序真正内存使用大小，例如<strong>编译器的内存对齐，编程语言容器的底层实现</strong>等等这些都会影响到程序内存的开销。</p>
-<p>所以空间复杂度是预先大体评估程序内存使用的大小。</p>
-<p>说到空间复杂度，大家在OJ（online judge）上应该遇到过这种错误，就是超出内存限制，一般OJ对程序运行时的所消耗的内存都有一个限制。</p>
-<p>为了避免内存超出限制，这也需要我们对算法占用多大的内存有一个大体的预估。</p>
-<p>同样在工程实践中，计算机的内存空间也不是无限的，需要工程师对软件运行时所使用的内存有一个大体评估，这都需要用到算法空间复杂度的分析。</p>
-</li>
-</ol>
-<p>那么什么时候空间复杂度是O(1)呢？</p>
-<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155057641.png" alt="image-20210409155057641"></p>
-<p>第一段代码可以看出，随着n的变化，所需开辟的内存空间并不会随着n的变化而变化。即此算法空间复杂度为一个常量，所以表示为大 O(1)。</p>
-<p>什么时候的空间复杂度是O(n)呢？</p>
-<p>当小号空间和输入参数n保持线性增长，这样的空间复杂度为O(n)</p>
-<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155209893.png" alt="image-20210409155209893"></p>
-<p>我们定义了一个数组出来，这个数组占用的大小为n，虽然有一个for循环，但没有再分配新的空间，因此，这段代码的空间复杂度主要看第一行即可，随着n的增大，开辟的内存大小呈线性增长，即 O(n)。</p>
-<p>什么时候的空间复杂度为 <strong>O(logn)呢？</strong></p>
-<p>空间复杂度是logn的情况确实有些特殊，其实是在<strong>递归的时候，会出现空间复杂度为logn的情况</strong>。</p>
-<p>参考：<a href="https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw</a></p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>空间复杂度</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>时间复杂度</title>
-    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
-<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
-<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
-<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
-<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
-<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
-<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
-<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
-<p>我们主要关心的还是一般情况下的数据形式。</p>
-<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
-<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
-<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
-<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
-<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
-<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
-<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
-<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
-<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
-<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
-<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
-<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
-<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
-</li>
-<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
-<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
-</li>
-<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
-<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-</li>
-<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
-</li>
-</ol>
-<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-<ol start="5">
-<li>递归复杂度计算</li>
-</ol>
-<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>复杂度</tag>
       </tags>
   </entry>
 </search>
