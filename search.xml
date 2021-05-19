@@ -647,4 +647,64 @@
         <tag>python 可视化</tag>
       </tags>
   </entry>
+  <entry>
+    <title>二分查找</title>
+    <url>/2021/05/19/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<h4 id="基本思想–减而治之"><a href="#基本思想–减而治之" class="headerlink" title="基本思想–减而治之"></a>基本思想–减而治之</h4><p>这里「减」是「减少问题」规模的意思，治是「解决」的意思。「减治思想」从另一个角度说，是「排除法」，意即：每一轮排除掉一定不存在目标元素的区间，在剩下 可能 存在目标元素的区间里继续查找。每一次我们通过一些判断和操作，使得问题的规模逐渐减少。又由于问题的规模是有限的，我们通过有限次的操作，一定可以解决这个问题。</p>
+<h4 id="应用范围"><a href="#应用范围" class="headerlink" title="应用范围"></a>应用范围</h4><ol>
+<li>在二分数组里进行查找一个数—-二分下标</li>
+<li>在整数范围里查找一个整数—二分答案</li>
+</ol>
+<h4 id="两种思路"><a href="#两种思路" class="headerlink" title="两种思路"></a>两种思路</h4><ol>
+<li><p>在循环体查找元素</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> len = nums.length;</span><br><span class="line">   </span><br><span class="line">       <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> right = len - <span class="number">1</span>;</span><br><span class="line">       <span class="comment">// 目标元素可能存在在区间 [left, right]</span></span><br><span class="line">       <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">           <span class="comment">// 推荐的写法是 int mid = left + (right - left) / 2;</span></span><br><span class="line">           <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">           <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">               <span class="keyword">return</span> mid;</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">               <span class="comment">// 目标元素可能存在在区间 [mid + 1, right]</span></span><br><span class="line">               left = mid + <span class="number">1</span>;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="comment">// 目标元素可能存在在区间 [left, mid - 1]</span></span><br><span class="line">               right = mid - <span class="number">1</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>   <strong>细节</strong>：</p>
+<ol>
+<li><p>while (left &lt;= right)  表示在区间里只剩下一个元素的时候，我们还需要继续查找，因此循环可以继续的条件是 left&lt;=right </p>
+</li>
+<li><p>取中间数的代码int mid = (left + right) / 2 可能会在成整型溢出，推荐</p>
+<p>​               int mid = left + (right - left) / 2;</p>
+</li>
+</ol>
+<ol start="2">
+<li>在循环体中排除目标元素一定不存在的区间</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> len = nums.length;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> right = len - <span class="number">1</span>;</span><br><span class="line">       <span class="comment">// 目标元素可能存在在区间 [left, right]</span></span><br><span class="line">       <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">         <span class="comment">//向下取整</span></span><br><span class="line">           <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">           <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">               <span class="comment">// 下一轮搜索区间是 [mid + 1, right]</span></span><br><span class="line">               left = mid + <span class="number">1</span>;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="comment">// 下一轮搜索区间是 [left, mid]</span></span><br><span class="line">               right = mid;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (nums[left] == target) &#123;</span><br><span class="line">           <span class="keyword">return</span> left;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = nums.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">          <span class="comment">//向上取整</span></span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">                <span class="comment">// 下一轮搜索区间是 [left, mid - 1]</span></span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 下一轮搜索区间是 [mid, right]</span></span><br><span class="line">                left = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (nums[left] == target) &#123;</span><br><span class="line">            <span class="keyword">return</span> left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>细节</strong>：</p>
+<ol>
+<li><p>while (left &lt; right)  表示退出循环的时候只剩下一个元素</p>
+</li>
+<li><p>在循环体内考虑如何缩减待搜索区间，也就是在待搜索区间内排除一定不存在目标元素的区间</p>
+</li>
+<li><p>根据中间数被分到左边和右边区间，来调整中间数的行为</p>
+</li>
+<li><p>如何缩小待搜索的区间，一个有效的办法：从nums[mid] 满足什么条件的时候一定不是目标元素去考虑，进而考虑mid 的左边元素和右边元素哪一边可能存在目标元素，一个结论是：当看到left==mid的时候，取中间数需要向上取整，这一点是为了避免死循环</p>
+</li>
+<li><p>退出循环的时候，根题意看是否需要单独判断最后剩下的那个数是不是目标元素</p>
+</li>
+<li><p>边界设置的两种写法：</p>
+<p>right = mid 和 left = mid + 1 和 int mid = left + (right - left) / 2; 一定是配对出现的；<br>right = mid - 1 和 left = mid 和 int mid = left + (right - left + 1) / 2; 一定是配对出现的。</p>
+</li>
+</ol>
+<p><strong>使用范围：</strong></p>
+<p>适合于查找边界问题</p>
+<p><strong>对于以上两种思路：</strong></p>
+<p><strong>如果这个二分查找的问题比较简单，在输入数组里不同元素的个数只有一个，使用第一种</strong></p>
+<p><strong>如果这个二分查找的问题比较复杂，要你找一个可能在数组里不存在，或者找边界这样的问题，使用第二种，在循环体内排除一定不存在目标元素的区间会比较简单一些。</strong></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>二分 算法</tag>
+      </tags>
+  </entry>
 </search>
