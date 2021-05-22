@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="复杂度," />
+  <meta name="keywords" content="排序 归并," />
 
 
 
@@ -79,23 +79,17 @@
 
 
 
-<meta name="description" content="时间复杂度时间复杂度是一个函数，它定性来描述该算法的运行时间。 那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。 假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度 什么是大O算法导论给出的解释">
+<meta name="description" content="基本思想归并，就是将两个或两个以上的有序序列合并成一个新的有序序列的过程。 说明：这里的序列指的是线性结构的序列，可以是数组，也可以是链表 ​          两个数组分别有序是归并得以有效进行的前提 具体步骤1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515">
 <meta property="og:type" content="article">
-<meta property="og:title" content="时间复杂度">
-<meta property="og:url" content="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
+<meta property="og:title" content="归并排序">
+<meta property="og:url" content="http://yoursite.com/2021/05/22/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="小章鱼 Blog">
-<meta property="og:description" content="时间复杂度时间复杂度是一个函数，它定性来描述该算法的运行时间。 那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。 假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度 什么是大O算法导论给出的解释">
-<meta property="og:image" content="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png">
-<meta property="og:image" content="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png">
-<meta property="article:published_time" content="2021-04-09T06:39:17.000Z">
-<meta property="article:modified_time" content="2021-04-09T07:45:06.119Z">
+<meta property="og:description" content="基本思想归并，就是将两个或两个以上的有序序列合并成一个新的有序序列的过程。 说明：这里的序列指的是线性结构的序列，可以是数组，也可以是链表 ​          两个数组分别有序是归并得以有效进行的前提 具体步骤1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515">
+<meta property="article:published_time" content="2021-05-22T07:45:16.000Z">
+<meta property="article:modified_time" content="2021-05-22T13:04:17.683Z">
 <meta property="article:author" content="小章鱼">
-<meta property="article:tag" content="复杂度">
+<meta property="article:tag" content="排序 归并">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png">
 
 
 
@@ -125,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/04/09/复杂度/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/05/22/归并排序/"/>
 
 
 
 
 
-  <title>时间复杂度 | 小章鱼 Blog</title>
+  <title>归并排序 | 小章鱼 Blog</title>
   
 
 
@@ -302,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/22/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小章鱼">
@@ -319,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">时间复杂度</h1>
+          <h1 class="post-title" itemprop="name headline">归并排序</h1>
         
 
         <div class="post-meta">
@@ -331,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-09T14:39:17+08:00">
-                2021-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-22T15:45:16+08:00">
+                2021-05-22
               </time>
             
 
@@ -396,43 +390,26 @@
       
 
       
-        <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
-<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
-<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
-<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
-<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
-<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
-<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
-<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
-<p>我们主要关心的还是一般情况下的数据形式。</p>
-<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
-<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
-<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
-<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
-<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
-<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
-<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
-<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
-<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
-<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
-<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
-<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
-<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
-</li>
-<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
-<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
-</li>
-<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
-<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-</li>
-<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
-</li>
-</ol>
-<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-<ol start="5">
-<li>递归复杂度计算</li>
-</ol>
-<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
+        <h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4><p>归并，就是将两个或两个以上的有序序列合并成一个新的有序序列的过程。</p>
+<p>说明：这里的序列指的是线性结构的序列，可以是数组，也可以是链表</p>
+<p>​          两个数组分别有序是归并得以有效进行的前提</p>
+<h4 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 合并两个有序数组：先把值赋值到临时数组，在合并回去</span></span><br><span class="line"><span class="comment">     * 子区间长度：right-left+1</span></span><br><span class="line"><span class="comment">     * 分别用i和j表示当前子区间第一部分的第一个元素的下标和第二部分的第一个元素的下标</span></span><br><span class="line"><span class="comment">     * 用下标k表示马上要赋值回去的那个下标的位置，每次从temp数组中比较，赋值会nums数组，每次比较的时候，都看i和j指向的元素哪个更小</span></span><br><span class="line"><span class="comment">     * 因此，首先是temp[i]&lt;=temp[j]，第一部分先被选出</span></span><br><span class="line"><span class="comment">     * 对于数组下标越界：i和j各自扫描完了的情况</span></span><br><span class="line"><span class="comment">     * 如果i来到了第二部分的第一个元素的位置，此时我们就一直把j指向的元素从前到后依次赋值</span></span><br><span class="line"><span class="comment">     * 如果j来到了第二部分的最后一个元素的后面，此时我们就一直把i指向的元素从前到后依次赋值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> mid [left,mid]有序，[mid+1,right]有序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeOfTwoSortedArray</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=right-left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] temp=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">            temp[i]=nums[left+i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//i和j分别指向前有序数组和后有序数组的起始位置</span></span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j=mid-left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;len;k++)&#123;</span><br><span class="line">            <span class="comment">//i和j的越界情况</span></span><br><span class="line">            <span class="keyword">if</span> (i==mid-left+<span class="number">1</span>)&#123;</span><br><span class="line">                nums[left+k]=temp[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (j==right-left+<span class="number">1</span>)&#123;</span><br><span class="line">                nums[left+k]=temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp[i]&lt;=temp[j])&#123;<span class="comment">//一定是小于等于，保持稳定性</span></span><br><span class="line">                nums[left+k]=temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                nums[left+k]=temp[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 对数组nums的子区间[left...right]进行归并排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left==right)<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        mergeSort(nums,left,mid);</span><br><span class="line">        mergeSort(nums,mid+<span class="number">1</span>,right);</span><br><span class="line">        mergeOfTwoSortedArray(nums,left,mid,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        mergeSort(nums,<span class="number">0</span>,len-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度：<em>O</em>(<em>N</em>log<em>N</em>)</p>
+<p>空间复杂度：<em>O</em>(<em>N</em>)</p>
+<h4 id="归并排序的优化"><a href="#归并排序的优化" class="headerlink" title="归并排序的优化"></a>归并排序的优化</h4><h5 id="优化一-：在小区间里使用插入排序"><a href="#优化一-：在小区间里使用插入排序" class="headerlink" title="优化一 ：在小区间里使用插入排序"></a>优化一 ：在小区间里使用插入排序</h5><p>可以使用插入排序的原因：</p>
+<p>​     首先，操作的指令数更少；</p>
+<p>​     其次，插入排序也是稳定的排序算法，修改成插入排序并不影响归并排序的稳定性</p>
+<p>当然这个子区间不能很大，子区间在多长的时候呀可以使用插入排序，目前java语言的库函数将它定义为47</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 对数组给定的部分使用插入排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp=arr[i];</span><br><span class="line">            <span class="keyword">int</span> j=i;</span><br><span class="line">            <span class="keyword">while</span> (j&gt;left &amp;&amp; arr[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">                arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="优化二：子区间本身有序则无需归并"><a href="#优化二：子区间本身有序则无需归并" class="headerlink" title="优化二：子区间本身有序则无需归并"></a>优化二：子区间本身有序则无需归并</h5><p>如果这个子区间本身是有序的，我们没有必要执行归并的过程</p>
+<p>在代码上只需要判断第一部分的最后一个元素是不是大于第二部分的第一个元素</p>
+<p><code>if arr[mid]&lt;=arr[mid+1]return;</code></p>
+<h5 id="优化三：在整个归并的过程中，使用同一个辅助数组"><a href="#优化三：在整个归并的过程中，使用同一个辅助数组" class="headerlink" title="优化三：在整个归并的过程中，使用同一个辅助数组"></a>优化三：在整个归并的过程中，使用同一个辅助数组</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INSERTION_SORT_THRESHOLD=<span class="number">47</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 对数组给定的部分使用插入排序</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right;i++)&#123;</span><br><span class="line">           <span class="keyword">int</span> temp=arr[i];</span><br><span class="line">           <span class="keyword">int</span> j=i;</span><br><span class="line">           <span class="keyword">while</span> (j&gt;left &amp;&amp; arr[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">               arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">               j--;</span><br><span class="line">           &#125;</span><br><span class="line">           arr[j]=temp;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeOfTwoSortedArray</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right,<span class="keyword">int</span>[] temp)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=left;i&lt;=right;i++)temp[i]=arr[i];</span><br><span class="line">       <span class="keyword">int</span> i=left;</span><br><span class="line">       <span class="keyword">int</span> j=mid+<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> k=left;k&lt;=right;k++)&#123;</span><br><span class="line">           <span class="keyword">if</span> (i==mid+<span class="number">1</span>)&#123;</span><br><span class="line">               arr[k]=temp[j];</span><br><span class="line">               j++;</span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (j==right+<span class="number">1</span>)&#123;</span><br><span class="line">               arr[k]=temp[i];</span><br><span class="line">               i++;</span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp[i]&lt;=temp[j])&#123;</span><br><span class="line">               arr[k]=temp[i];</span><br><span class="line">               i++;</span><br><span class="line">           &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">               arr[k]=temp[j];</span><br><span class="line">               j++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span>[] temp)</span></span>&#123;</span><br><span class="line">       <span class="comment">//优化1  小区间使用插入排序</span></span><br><span class="line">       <span class="keyword">if</span> (right-left&lt;=INSERTION_SORT_THRESHOLD)&#123;</span><br><span class="line">           insertionSort(arr,left,right);</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">       mergeSort(arr,left,mid,temp);</span><br><span class="line">       mergeSort(arr,mid+<span class="number">1</span>,right,temp);</span><br><span class="line">       <span class="comment">//优化2 数组已经有序的情况下，不会合并</span></span><br><span class="line">       <span class="keyword">if</span> (arr[mid]&lt;=arr[mid+<span class="number">1</span>])<span class="keyword">return</span>;</span><br><span class="line">       mergeOfTwoSortedArray(arr,left,mid,right,temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray2(<span class="keyword">int</span>[] arr)&#123;</span><br><span class="line">       <span class="keyword">int</span> len=arr.length;</span><br><span class="line">       <span class="comment">//优化3 全局使用一份临时数组</span></span><br><span class="line">        <span class="keyword">int</span>[] temp=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        mergeSort(arr,<span class="number">0</span>,len-<span class="number">1</span>,temp);</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -450,7 +427,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%A4%8D%E6%9D%82%E5%BA%A6/" rel="tag"># 复杂度</a>
+            <a href="/tags/%E6%8E%92%E5%BA%8F-%E5%BD%92%E5%B9%B6/" rel="tag"># 排序 归并</a>
           
         </div>
       
@@ -464,7 +441,7 @@
         </li>
         <li class="post-copyright-link">
           <strong>本文链接：</strong>
-          <a href="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/" title="时间复杂度">2021/04/09/复杂度/</a>
+          <a href="/2021/05/22/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="归并排序">2021/05/22/归并排序/</a>
         </li>
         <li class="post-copyright-license">
           <strong>版权： </strong>
@@ -482,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/03/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="next" title="并查集">
-                <i class="fa fa-chevron-left"></i> 并查集
+              <a href="/2021/05/22/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" rel="next" title="插入排序">
+                <i class="fa fa-chevron-left"></i> 插入排序
               </a>
             
           </div>
@@ -491,10 +468,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" rel="prev" title="空间复杂度">
-                空间复杂度 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -630,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是大O"><span class="nav-number">2.</span> <span class="nav-text">什么是大O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同数据规模的差异"><span class="nav-number">3.</span> <span class="nav-text">不同数据规模的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度计算"><span class="nav-number">4.</span> <span class="nav-text">时间复杂度计算</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本思想"><span class="nav-number">1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体步骤"><span class="nav-number">2.</span> <span class="nav-text">具体步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂度分析"><span class="nav-number">3.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序的优化"><span class="nav-number">4.</span> <span class="nav-text">归并排序的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优化一-：在小区间里使用插入排序"><span class="nav-number">4.1.</span> <span class="nav-text">优化一 ：在小区间里使用插入排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化二：子区间本身有序则无需归并"><span class="nav-number">4.2.</span> <span class="nav-text">优化二：子区间本身有序则无需归并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化三：在整个归并的过程中，使用同一个辅助数组"><span class="nav-number">4.3.</span> <span class="nav-text">优化三：在整个归并的过程中，使用同一个辅助数组</span></a></li></ol></li></ol></div>
             
 
           </div>
