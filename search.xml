@@ -16,6 +16,109 @@
       </tags>
   </entry>
   <entry>
+    <title>First Blog</title>
+    <url>/2020/04/27/zyqfirstBlog/</url>
+    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
+<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
+<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
+<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
+<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
+]]></content>
+      <tags>
+        <tag>hexo-bug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java容器</title>
+    <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
+<h1 id="接口简介"><a href="#接口简介" class="headerlink" title="接口简介"></a>接口简介</h1><p><strong>Iterable</strong>   ：迭代器接口，用于遍历数据。</p>
+<p><strong>Collection</strong>：集合，java容器的大部分集合的父类接口。java集合分两种，一种是Collection（只存储值的容器），一种是map（存储键值对的容器）</p>
+<p><strong>List</strong> ：顺序写数据的数组容器，内存连续</p>
+<p><strong>Queue</strong> ：先进先出队列，入队出队操作都有两种实现，一种失败抛出异常，一种返回null或者fasle，不能写入null</p>
+<p><strong>Deque</strong> ：继承Queue，双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
+<p><strong>Set</strong> ：用于存放非重复元素的集合，可以插入null</p>
+<p><strong>SortedSet</strong> ：支持排序的set集合（set使用的hash存储，默认的是不支持排序）</p>
+<p><strong>NavigableSet</strong> ：提供有序集合的扩展功能，如返回大于、大于等于、小于、小于等于某个key的子集合等。</p>
+<h1 id="类简介"><a href="#类简介" class="headerlink" title="类简介"></a>类简介</h1><h2 id="List："><a href="#List：" class="headerlink" title="List："></a>List：</h2><p><strong>Stack</strong>   ：栈，先进后出，数组</p>
+<p><strong>ArrayList</strong> ：有序数组，基于动态数组实现，支持随机访问</p>
+<p><strong>LinkedList</strong> ：基于双向链表实现，只能顺序访问，但可以快速的在链表中间插入和删除元素</p>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：支持双向队列</p>
+<p><strong>ArrayQueue</strong> ：使用数组实现队列</p>
+<p><strong>PriorityQueue</strong> ：优先级队列，基于堆实现</p>
+<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong>  </p>
+<p><strong>ArrayQueue</strong>    </p>
+<p><strong>ArrayDeque</strong> ：依赖可变循环数组，没有容量限制，可根据需求自动扩容，不支持值为null的元素</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> ：基于哈希实现，支持快速查找，但不支持有序操作</p>
+<p><strong>LinkedHashSet</strong> :有序的hashset，具有hashset的查找效率，内部使用链表</p>
+<p><strong>TreeSet</strong> ：支持排序的hashset，基于红黑树实现，查找效率不如hashset</p>
+<h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p><strong>TreeSet</strong> </p>
+<p><img src="/2020/07/05/java%E5%AE%B9%E5%99%A8/image-20200705233733985.png" alt="image-20200705233311885"></p>
+<p>图片截图来源：<a href="https://www.cnblogs.com/gc65/p/11220822.html" target="_blank" rel="noopener">https://www.cnblogs.com/gc65/p/11220822.html</a></p>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><strong>HashMap</strong> :基于哈希实现</p>
+<p><strong>HashTable</strong> ：线程安全，与hashmap类似</p>
+<p><strong>LinkedHashMap</strong> ：继承HashMap使用链表维护元素的顺序，hashmap是无需的，LinkedHashMap是有序的存储元素</p>
+<p><strong>TreeMap</strong> ：基于红黑树实现，TreeMap中的元素默认按照keys的自然排序排序</p>
+<p><strong>注意</strong> ：hashmap可实现快速存储和检索，但其缺点是包含的元素是无序的，这导致它在大量迭代的情况下表现不佳</p>
+<p>LinkedHashMap保留了HashMap的优势，且包含的元素是有序的，它在大量迭代的情况下会表现更好</p>
+<p>TreeMap能便捷的实现对其内部元素的各种排序，但其一般性能比前两种map差。</p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java 容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>时间复杂度</title>
+    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
+<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
+<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
+<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
+<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
+<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
+<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
+<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
+<p>我们主要关心的还是一般情况下的数据形式。</p>
+<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
+<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
+<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
+<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
+<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
+<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
+<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
+<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
+<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
+<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
+<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
+<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
+<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
+</li>
+<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
+<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
+</li>
+<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
+<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+</li>
+<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
+</li>
+</ol>
+<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+<ol start="5">
+<li>递归复杂度计算</li>
+</ol>
+<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二分查找</title>
     <url>/2021/05/19/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
     <content><![CDATA[<h4 id="基本思想–减而治之"><a href="#基本思想–减而治之" class="headerlink" title="基本思想–减而治之"></a>基本思想–减而治之</h4><p>这里「减」是「减少问题」规模的意思，治是「解决」的意思。「减治思想」从另一个角度说，是「排除法」，意即：每一轮排除掉一定不存在目标元素的区间，在剩下 可能 存在目标元素的区间里继续查找。每一次我们通过一些判断和操作，使得问题的规模逐渐减少。又由于问题的规模是有限的，我们通过有限次的操作，一定可以解决这个问题。</p>
@@ -76,58 +179,32 @@
       </tags>
   </entry>
   <entry>
-    <title>First Blog</title>
-    <url>/2020/04/27/zyqfirstBlog/</url>
-    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
-<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
-<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
-<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
-<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
-]]></content>
-      <tags>
-        <tag>hexo-bug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java容器</title>
-    <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
-    <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
-<h1 id="接口简介"><a href="#接口简介" class="headerlink" title="接口简介"></a>接口简介</h1><p><strong>Iterable</strong>   ：迭代器接口，用于遍历数据。</p>
-<p><strong>Collection</strong>：集合，java容器的大部分集合的父类接口。java集合分两种，一种是Collection（只存储值的容器），一种是map（存储键值对的容器）</p>
-<p><strong>List</strong> ：顺序写数据的数组容器，内存连续</p>
-<p><strong>Queue</strong> ：先进先出队列，入队出队操作都有两种实现，一种失败抛出异常，一种返回null或者fasle，不能写入null</p>
-<p><strong>Deque</strong> ：继承Queue，双端队列，不再是先进先出，前后两端都可以插入和删除，不能从中间插入，不能写入null</p>
-<p><strong>Set</strong> ：用于存放非重复元素的集合，可以插入null</p>
-<p><strong>SortedSet</strong> ：支持排序的set集合（set使用的hash存储，默认的是不支持排序）</p>
-<p><strong>NavigableSet</strong> ：提供有序集合的扩展功能，如返回大于、大于等于、小于、小于等于某个key的子集合等。</p>
-<h1 id="类简介"><a href="#类简介" class="headerlink" title="类简介"></a>类简介</h1><h2 id="List："><a href="#List：" class="headerlink" title="List："></a>List：</h2><p><strong>Stack</strong>   ：栈，先进后出，数组</p>
-<p><strong>ArrayList</strong> ：有序数组，基于动态数组实现，支持随机访问</p>
-<p><strong>LinkedList</strong> ：基于双向链表实现，只能顺序访问，但可以快速的在链表中间插入和删除元素</p>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p><strong>LinkedList</strong> ：支持双向队列</p>
-<p><strong>ArrayQueue</strong> ：使用数组实现队列</p>
-<p><strong>PriorityQueue</strong> ：优先级队列，基于堆实现</p>
-<h2 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h2><p><strong>LinkedList</strong>  </p>
-<p><strong>ArrayQueue</strong>    </p>
-<p><strong>ArrayDeque</strong> ：依赖可变循环数组，没有容量限制，可根据需求自动扩容，不支持值为null的元素</p>
-<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><strong>HashSet</strong> ：基于哈希实现，支持快速查找，但不支持有序操作</p>
-<p><strong>LinkedHashSet</strong> :有序的hashset，具有hashset的查找效率，内部使用链表</p>
-<p><strong>TreeSet</strong> ：支持排序的hashset，基于红黑树实现，查找效率不如hashset</p>
-<h2 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h2><p><strong>TreeSet</strong> </p>
-<p><img src="/2020/07/05/java%E5%AE%B9%E5%99%A8/image-20200705233733985.png" alt="image-20200705233311885"></p>
-<p>图片截图来源：<a href="https://www.cnblogs.com/gc65/p/11220822.html" target="_blank" rel="noopener">https://www.cnblogs.com/gc65/p/11220822.html</a></p>
-<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><strong>HashMap</strong> :基于哈希实现</p>
-<p><strong>HashTable</strong> ：线程安全，与hashmap类似</p>
-<p><strong>LinkedHashMap</strong> ：继承HashMap使用链表维护元素的顺序，hashmap是无需的，LinkedHashMap是有序的存储元素</p>
-<p><strong>TreeMap</strong> ：基于红黑树实现，TreeMap中的元素默认按照keys的自然排序排序</p>
-<p><strong>注意</strong> ：hashmap可实现快速存储和检索，但其缺点是包含的元素是无序的，这导致它在大量迭代的情况下表现不佳</p>
-<p>LinkedHashMap保留了HashMap的优势，且包含的元素是有序的，它在大量迭代的情况下会表现更好</p>
-<p>TreeMap能便捷的实现对其内部元素的各种排序，但其一般性能比前两种map差。</p>
+    <title>字符和字符串加法</title>
+    <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
+    <content><![CDATA[<p><strong>加法运算特点</strong></p>
+<ol>
+<li><p>加法两边是数值型数据时，进行加法运算</p>
+</li>
+<li><p>加法两边有任意一边是字符串时，进行字符串的拼接</p>
+</li>
+<li><p>字符型数据参与算术运算，是用字符在计算机中存储的数据来进行运算的</p>
+<p>‘0’——48</p>
+<p>‘a’——97</p>
+<p>‘A’——-65</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> b=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> c=(<span class="keyword">byte</span>)(a+b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line">        <span class="keyword">char</span> d=<span class="string">'a'</span>;</span><br><span class="line">        System.out.println(a+d);</span><br><span class="line">        System.out.println(<span class="string">"helloword"</span>+<span class="number">10</span>+<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>输出结果：</p>
+<p><img src="/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/image-20200711103245195.png" alt="image-20200711103245195"></p>
 ]]></content>
       <categories>
-        <category>java</category>
+        <category>java基础</category>
       </categories>
       <tags>
-        <tag>java 容器</tag>
+        <tag>字符和字符串加法</tag>
       </tags>
   </entry>
   <entry>
@@ -180,35 +257,6 @@
       </tags>
   </entry>
   <entry>
-    <title>字符和字符串加法</title>
-    <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
-    <content><![CDATA[<p><strong>加法运算特点</strong></p>
-<ol>
-<li><p>加法两边是数值型数据时，进行加法运算</p>
-</li>
-<li><p>加法两边有任意一边是字符串时，进行字符串的拼接</p>
-</li>
-<li><p>字符型数据参与算术运算，是用字符在计算机中存储的数据来进行运算的</p>
-<p>‘0’——48</p>
-<p>‘a’——97</p>
-<p>‘A’——-65</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> b=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> c=(<span class="keyword">byte</span>)(a+b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line">        <span class="keyword">char</span> d=<span class="string">'a'</span>;</span><br><span class="line">        System.out.println(a+d);</span><br><span class="line">        System.out.println(<span class="string">"helloword"</span>+<span class="number">10</span>+<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<p>输出结果：</p>
-<p><img src="/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/image-20200711103245195.png" alt="image-20200711103245195"></p>
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>字符和字符串加法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实习一个月总结</title>
     <url>/2020/09/17/%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%B8%AA%E6%9C%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>从八月十九号入职爱奇艺会员业务部门成为一名java开发实习生，到今天为止差不多快一个月了。从刚开始的熟悉代码画流程图，到实习业务之后开始写Python脚本，接触项目，开发监控系统和管理数据系统，每一项对我来说都是陌生和全新的，有的时候忙到一天没时间吃饭，有的时候轻松到一天都可以看文档学习。偶尔也会有担心，担心自己写不出来代码，担心自己写出来代码后又被批评代码写的太垃圾，后来安慰自己本来到这里就是来学习的，如果我一开始我就杨洋做的很好，那么我到这里的意义在哪里呢？我的目标是来学习，把他们的本领学到手，而不倒任务完成的有多漂亮，工作做的有多好。偶尔反思自己，我需要摆正自己的心态，认清自己的不足，不会的就多学习，不能怕丢脸，自己本来就是一个菜鸟，想成为大神，想明年进入理想的公司，这些都是必经之路。</p>
@@ -221,54 +269,6 @@
       </categories>
       <tags>
         <tag>无聊琐事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>时间复杂度</title>
-    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
-<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
-<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
-<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
-<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
-<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
-<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
-<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
-<p>我们主要关心的还是一般情况下的数据形式。</p>
-<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
-<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
-<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
-<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
-<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
-<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
-<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
-<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
-<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
-<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
-<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
-<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
-<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
-</li>
-<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
-<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
-</li>
-<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
-<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-</li>
-<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
-</li>
-</ol>
-<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-<ol start="5">
-<li>递归复杂度计算</li>
-</ol>
-<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>复杂度</tag>
       </tags>
   </entry>
   <entry>
@@ -302,6 +302,25 @@
       </tags>
   </entry>
   <entry>
+    <title>构造方法</title>
+    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
+<p>格式：修饰符  构造方法名（）{}</p>
+<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
+<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
+<p>若已提供构造方法，系统不再提供无参构造</p>
+<p>构造方法可以重载</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>构造方法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>排序链表去重</title>
     <url>/2021/03/25/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%8E%BB%E9%87%8D/</url>
     <content><![CDATA[<ol>
@@ -331,25 +350,6 @@
       </categories>
       <tags>
         <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>构造方法</title>
-    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
-<p>格式：修饰符  构造方法名（）{}</p>
-<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
-<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
-<p>若已提供构造方法，系统不再提供无参构造</p>
-<p>构造方法可以重载</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>构造方法</tag>
       </tags>
   </entry>
   <entry>
@@ -479,6 +479,29 @@
       </categories>
       <tags>
         <tag>继承</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>选择排序</title>
+    <url>/2021/05/22/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="选择排序的基本思想"><a href="#选择排序的基本思想" class="headerlink" title="选择排序的基本思想"></a>选择排序的基本思想</h4><p>从小到大一次选出第一个元素，第二个元素，通过交换达到选择和排序的目的</p>
+<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     * 每一轮都选取为排定部分的最小元素，然后将它交换到未排定的部分的第一个位置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] selectSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="comment">//最后一轮只有一个元素，一定是最大元素，因此是len-1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex=i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&lt;nums[minIndex])&#123;</span><br><span class="line">                    minIndex=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums,minIndex,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度:O(n*n)</p>
+<p>空间复杂度：O(1)</p>
+<h4 id="选择排序的特点"><a href="#选择排序的特点" class="headerlink" title="选择排序的特点"></a>选择排序的特点</h4><p><strong>交换的次数最少</strong></p>
+<p>如果一个排序任务交换的成本很高，可以考虑使用选择排序</p>
+<p><strong>运行时间与输入无关</strong></p>
+<p>每一趟扫描，除了扫描的元素比上一轮上了一个意外与，选择排序没有记住更多的信息。一个极端的例子是：已经是排好序的数组，选择排序还需要一次又一次的扫描</p>
+<p><strong>这两点是选择排序区别其他排序算的特点</strong></p>
+<h4 id="选择排序体现的算法思想"><a href="#选择排序体现的算法思想" class="headerlink" title="选择排序体现的算法思想"></a>选择排序体现的算法思想</h4><p>贪心算法</p>
+<p>减而治之</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>排序 选择</tag>
       </tags>
   </entry>
   <entry>
@@ -705,29 +728,6 @@
       </categories>
       <tags>
         <tag>python 可视化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>选择排序</title>
-    <url>/2021/05/22/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="选择排序的基本思想"><a href="#选择排序的基本思想" class="headerlink" title="选择排序的基本思想"></a>选择排序的基本思想</h4><p>从小到大一次选出第一个元素，第二个元素，通过交换达到选择和排序的目的</p>
-<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     * 每一轮都选取为排定部分的最小元素，然后将它交换到未排定的部分的第一个位置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] selectSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="comment">//最后一轮只有一个元素，一定是最大元素，因此是len-1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex=i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&lt;nums[minIndex])&#123;</span><br><span class="line">                    minIndex=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums,minIndex,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度:O(n*n)</p>
-<p>空间复杂度：O(1)</p>
-<h4 id="选择排序的特点"><a href="#选择排序的特点" class="headerlink" title="选择排序的特点"></a>选择排序的特点</h4><p><strong>交换的次数最少</strong></p>
-<p>如果一个排序任务交换的成本很高，可以考虑使用选择排序</p>
-<p><strong>运行时间与输入无关</strong></p>
-<p>每一趟扫描，除了扫描的元素比上一轮上了一个意外与，选择排序没有记住更多的信息。一个极端的例子是：已经是排好序的数组，选择排序还需要一次又一次的扫描</p>
-<p><strong>这两点是选择排序区别其他排序算的特点</strong></p>
-<h4 id="选择排序体现的算法思想"><a href="#选择排序体现的算法思想" class="headerlink" title="选择排序体现的算法思想"></a>选择排序体现的算法思想</h4><p>贪心算法</p>
-<p>减而治之</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>排序 选择</tag>
       </tags>
   </entry>
 </search>
