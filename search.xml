@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>java字符和字符串</title>
-    <url>/2020/07/11/java%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<p>‘  ‘ 单引号表示单个字符</p>
-<p>“   ”双引号表示字符串</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(<span class="string">'a'</span>);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>字符和字符串</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java容器</title>
     <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
     <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
@@ -71,51 +56,18 @@
       </tags>
   </entry>
   <entry>
-    <title>时间复杂度</title>
-    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
-<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
-<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
-<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
-<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
-<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
-<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
-<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
-<p>我们主要关心的还是一般情况下的数据形式。</p>
-<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
-<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
-<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
-<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
-<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
-<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
-<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
-<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
-<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
-<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
-<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
-<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
-<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
-</li>
-<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
-<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
-</li>
-<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
-<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-</li>
-<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
-</li>
-</ol>
-<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-<ol start="5">
-<li>递归复杂度计算</li>
-</ol>
-<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
+    <title>java字符和字符串</title>
+    <url>/2020/07/11/java%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<p>‘  ‘ 单引号表示单个字符</p>
+<p>“   ”双引号表示字符串</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(<span class="string">"abc"</span>);</span><br><span class="line">System.out.println(<span class="string">'a'</span>);</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>leetcode</category>
+        <category>java基础</category>
       </categories>
       <tags>
-        <tag>复杂度</tag>
+        <tag>字符和字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -179,6 +131,54 @@
       </tags>
   </entry>
   <entry>
+    <title>时间复杂度</title>
+    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
+<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
+<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
+<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
+<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
+<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
+<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
+<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
+<p>我们主要关心的还是一般情况下的数据形式。</p>
+<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
+<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
+<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
+<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
+<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
+<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
+<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
+<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
+<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
+<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
+<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
+<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
+<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
+</li>
+<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
+<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
+</li>
+<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
+<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+</li>
+<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
+</li>
+</ol>
+<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+<ol start="5">
+<li>递归复杂度计算</li>
+</ol>
+<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字符和字符串加法</title>
     <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
     <content><![CDATA[<p><strong>加法运算特点</strong></p>
@@ -208,37 +208,6 @@
       </tags>
   </entry>
   <entry>
-    <title>归并排序</title>
-    <url>/2021/05/22/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4><p>归并，就是将两个或两个以上的有序序列合并成一个新的有序序列的过程。</p>
-<p>说明：这里的序列指的是线性结构的序列，可以是数组，也可以是链表</p>
-<p>​          两个数组分别有序是归并得以有效进行的前提</p>
-<h4 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 合并两个有序数组：先把值赋值到临时数组，在合并回去</span></span><br><span class="line"><span class="comment">     * 子区间长度：right-left+1</span></span><br><span class="line"><span class="comment">     * 分别用i和j表示当前子区间第一部分的第一个元素的下标和第二部分的第一个元素的下标</span></span><br><span class="line"><span class="comment">     * 用下标k表示马上要赋值回去的那个下标的位置，每次从temp数组中比较，赋值会nums数组，每次比较的时候，都看i和j指向的元素哪个更小</span></span><br><span class="line"><span class="comment">     * 因此，首先是temp[i]&lt;=temp[j]，第一部分先被选出</span></span><br><span class="line"><span class="comment">     * 对于数组下标越界：i和j各自扫描完了的情况</span></span><br><span class="line"><span class="comment">     * 如果i来到了第二部分的第一个元素的位置，此时我们就一直把j指向的元素从前到后依次赋值</span></span><br><span class="line"><span class="comment">     * 如果j来到了第二部分的最后一个元素的后面，此时我们就一直把i指向的元素从前到后依次赋值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> mid [left,mid]有序，[mid+1,right]有序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeOfTwoSortedArray</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=right-left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] temp=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">            temp[i]=nums[left+i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//i和j分别指向前有序数组和后有序数组的起始位置</span></span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j=mid-left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;len;k++)&#123;</span><br><span class="line">            <span class="comment">//i和j的越界情况</span></span><br><span class="line">            <span class="keyword">if</span> (i==mid-left+<span class="number">1</span>)&#123;</span><br><span class="line">                nums[left+k]=temp[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (j==right-left+<span class="number">1</span>)&#123;</span><br><span class="line">                nums[left+k]=temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp[i]&lt;=temp[j])&#123;<span class="comment">//一定是小于等于，保持稳定性</span></span><br><span class="line">                nums[left+k]=temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                nums[left+k]=temp[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 对数组nums的子区间[left...right]进行归并排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left==right)<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        mergeSort(nums,left,mid);</span><br><span class="line">        mergeSort(nums,mid+<span class="number">1</span>,right);</span><br><span class="line">        mergeOfTwoSortedArray(nums,left,mid,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        mergeSort(nums,<span class="number">0</span>,len-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度：<em>O</em>(<em>N</em>log<em>N</em>)</p>
-<p>空间复杂度：<em>O</em>(<em>N</em>)</p>
-<h4 id="归并排序的优化"><a href="#归并排序的优化" class="headerlink" title="归并排序的优化"></a>归并排序的优化</h4><h5 id="优化一-：在小区间里使用插入排序"><a href="#优化一-：在小区间里使用插入排序" class="headerlink" title="优化一 ：在小区间里使用插入排序"></a>优化一 ：在小区间里使用插入排序</h5><p>可以使用插入排序的原因：</p>
-<p>​     首先，操作的指令数更少；</p>
-<p>​     其次，插入排序也是稳定的排序算法，修改成插入排序并不影响归并排序的稳定性</p>
-<p>当然这个子区间不能很大，子区间在多长的时候呀可以使用插入排序，目前java语言的库函数将它定义为47</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 对数组给定的部分使用插入排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp=arr[i];</span><br><span class="line">            <span class="keyword">int</span> j=i;</span><br><span class="line">            <span class="keyword">while</span> (j&gt;left &amp;&amp; arr[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">                arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="优化二：子区间本身有序则无需归并"><a href="#优化二：子区间本身有序则无需归并" class="headerlink" title="优化二：子区间本身有序则无需归并"></a>优化二：子区间本身有序则无需归并</h5><p>如果这个子区间本身是有序的，我们没有必要执行归并的过程</p>
-<p>在代码上只需要判断第一部分的最后一个元素是不是大于第二部分的第一个元素</p>
-<p><code>if arr[mid]&lt;=arr[mid+1]return;</code></p>
-<h5 id="优化三：在整个归并的过程中，使用同一个辅助数组"><a href="#优化三：在整个归并的过程中，使用同一个辅助数组" class="headerlink" title="优化三：在整个归并的过程中，使用同一个辅助数组"></a>优化三：在整个归并的过程中，使用同一个辅助数组</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INSERTION_SORT_THRESHOLD=<span class="number">47</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 对数组给定的部分使用插入排序</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right;i++)&#123;</span><br><span class="line">           <span class="keyword">int</span> temp=arr[i];</span><br><span class="line">           <span class="keyword">int</span> j=i;</span><br><span class="line">           <span class="keyword">while</span> (j&gt;left &amp;&amp; arr[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">               arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">               j--;</span><br><span class="line">           &#125;</span><br><span class="line">           arr[j]=temp;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeOfTwoSortedArray</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right,<span class="keyword">int</span>[] temp)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=left;i&lt;=right;i++)temp[i]=arr[i];</span><br><span class="line">       <span class="keyword">int</span> i=left;</span><br><span class="line">       <span class="keyword">int</span> j=mid+<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> k=left;k&lt;=right;k++)&#123;</span><br><span class="line">           <span class="keyword">if</span> (i==mid+<span class="number">1</span>)&#123;</span><br><span class="line">               arr[k]=temp[j];</span><br><span class="line">               j++;</span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (j==right+<span class="number">1</span>)&#123;</span><br><span class="line">               arr[k]=temp[i];</span><br><span class="line">               i++;</span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp[i]&lt;=temp[j])&#123;</span><br><span class="line">               arr[k]=temp[i];</span><br><span class="line">               i++;</span><br><span class="line">           &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">               arr[k]=temp[j];</span><br><span class="line">               j++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span>[] temp)</span></span>&#123;</span><br><span class="line">       <span class="comment">//优化1  小区间使用插入排序</span></span><br><span class="line">       <span class="keyword">if</span> (right-left&lt;=INSERTION_SORT_THRESHOLD)&#123;</span><br><span class="line">           insertionSort(arr,left,right);</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">       mergeSort(arr,left,mid,temp);</span><br><span class="line">       mergeSort(arr,mid+<span class="number">1</span>,right,temp);</span><br><span class="line">       <span class="comment">//优化2 数组已经有序的情况下，不会合并</span></span><br><span class="line">       <span class="keyword">if</span> (arr[mid]&lt;=arr[mid+<span class="number">1</span>])<span class="keyword">return</span>;</span><br><span class="line">       mergeOfTwoSortedArray(arr,left,mid,right,temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray2(<span class="keyword">int</span>[] arr)&#123;</span><br><span class="line">       <span class="keyword">int</span> len=arr.length;</span><br><span class="line">       <span class="comment">//优化3 全局使用一份临时数组</span></span><br><span class="line">        <span class="keyword">int</span>[] temp=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        mergeSort(arr,<span class="number">0</span>,len-<span class="number">1</span>,temp);</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>排序 归并</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实习一个月总结</title>
     <url>/2020/09/17/%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%B8%AA%E6%9C%88%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>从八月十九号入职爱奇艺会员业务部门成为一名java开发实习生，到今天为止差不多快一个月了。从刚开始的熟悉代码画流程图，到实习业务之后开始写Python脚本，接触项目，开发监控系统和管理数据系统，每一项对我来说都是陌生和全新的，有的时候忙到一天没时间吃饭，有的时候轻松到一天都可以看文档学习。偶尔也会有担心，担心自己写不出来代码，担心自己写出来代码后又被批评代码写的太垃圾，后来安慰自己本来到这里就是来学习的，如果我一开始我就杨洋做的很好，那么我到这里的意义在哪里呢？我的目标是来学习，把他们的本领学到手，而不倒任务完成的有多漂亮，工作做的有多好。偶尔反思自己，我需要摆正自己的心态，认清自己的不足，不会的就多学习，不能怕丢脸，自己本来就是一个菜鸟，想成为大神，想明年进入理想的公司，这些都是必经之路。</p>
@@ -251,6 +220,17 @@
       </categories>
       <tags>
         <tag>无聊琐事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>并查集</title>
+    <url>/2021/03/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
@@ -303,14 +283,91 @@
       </tags>
   </entry>
   <entry>
-    <title>并查集</title>
-    <url>/2021/03/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[]]></content>
+    <title>快速排序</title>
+    <url>/2021/05/22/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h5 id="划分"><a href="#划分" class="headerlink" title="划分"></a>划分</h5><p>划分是先选取一个元素作为基准元素（这个基准元素通常是随机选择的），以数组[4,5,1,6,7,3,2]为例，将4作为基准元素，通过一次划分，把数组分为两部分，其中一部分小于基本元素4，另一部分大于等于基准元素4，此时4就位于了它排序以后最终在的位置，因为它前面的元素都不大于它，它后面的元素都不小于它。</p>
+<p>接下来需要对4前面的部分和4后面的部分，分别执行划分，每一次划分总可以排定一个元素，最终可以得到一个有序的数组。</p>
+<p>左右两边分别执行划分的过程是递归进行的，快排也使用了分而治之的思想。与归并排序不同的是，快排重点在【分】的上面，每次划分总可以确定一个元素，因此它没有【治】的过程</p>
+<p>划分的过程：大放过，小操作，遇到大于等于的元素就什么都不做，继续遍历，而遇到小的元素，就把它们依次交换到数组的前面去。</p>
+<h4 id="循环不变量"><a href="#循环不变量" class="headerlink" title="循环不变量"></a>循环不变量</h4><p>我们定义在子区间 [left,right] 里执行划分的过程，其中pivot=nums[left] ，i在一开始位于left+1的位置。</p>
+<p>j的定义如下：j 在循环变量i 右移的过程中保持不变的性质是：在i 向右遍历的过程中，总有[left+1,j] &lt; pivot 并且 [j+1,i] &gt;= pivot 成立，在遇到一个比基准元素小的元素，总想方设法把它放到数组的前面去，因此我们更关注小的元素。</p>
+<p>初始化，j 的初始值，为了使得初始的区间 [left+1,j] 和区间[j+1,i] 都为空，设置j==left</p>
+<p>在i 向右遍历的时候，因为需要保持j以及j之前的元素都小于基准元素，因此：</p>
+<ol>
+<li>如果i 指向的元素大于等于基准元素pivot的时候，什么都不用做</li>
+<li>如果i 指向的元素小于基准元素pivot的时候，j 先向后移动一位，然后交换j和i的值，然后i 再 向前移动</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] sortArray3(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">       <span class="keyword">int</span> len=nums.length;</span><br><span class="line">       quickSort(nums,<span class="number">0</span>,len-<span class="number">1</span>);</span><br><span class="line">       <span class="keyword">return</span> nums;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">       <span class="comment">//注意这里包括大于的情况</span></span><br><span class="line">       <span class="keyword">if</span> (left&gt;=right)<span class="keyword">return</span>;</span><br><span class="line">       <span class="keyword">int</span> partition = partition(nums, left, right);</span><br><span class="line">       quickSort(nums,left,partition-<span class="number">1</span>);</span><br><span class="line">       quickSort(nums,partition+<span class="number">1</span>,right);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">       <span class="keyword">int</span> pivot=nums[left];</span><br><span class="line">       <span class="comment">//循环不变量lt:less than  严格小于</span></span><br><span class="line">       <span class="comment">//[left+1,lt]&lt;pivot  [lt+1,i]&gt;=pivot</span></span><br><span class="line">       <span class="keyword">int</span> lt=left;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right;i++)&#123;</span><br><span class="line">           <span class="keyword">if</span> (nums[i]&lt;pivot)&#123;</span><br><span class="line">               lt++;</span><br><span class="line">               swap(nums,i,lt);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       swap(nums,left,lt);</span><br><span class="line">       <span class="keyword">return</span> lt;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：越有序的数组，快排消耗的时间越长，与插入排序正好相反</p>
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度：   最坏：O(n<em>n)        最好：*O</em>(<em>N</em>log<em>N</em>)         平均时间复杂度：<em>O</em>(<em>N</em>log<em>N</em>)</p>
+<p>空间复杂度：<em>O</em>(<em>log*N</em>)</p>
+<p>稳定性：不稳定</p>
+<h4 id="针对数组中有很多重复元素的解决方案"><a href="#针对数组中有很多重复元素的解决方案" class="headerlink" title="针对数组中有很多重复元素的解决方案"></a>针对数组中有很多重复元素的解决方案</h4><p><strong>方法一：把与pivot相等的元素平均分配到数组的两侧</strong></p>
+<p><img src="/2021/05/22/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-20210523102439954.png" alt="image-20210523102439954"></p>
+<p>这两种切分不管哪一种，和切分元素相等的元素都券别被划分到了一侧，都会是递归树失衡，理想情况是让与切分元素相等的元素分散到数组的两侧</p>
+<h5 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h5><p>循环不变量，在循环过程中，总有 <strong>[left+1,le）</strong>&lt;=pivot 并且 <strong>（ge,right]</strong>&gt;=pivot 成立；</p>
+<p>le 的初始值的left+1,ge 的初始值是right+1，这样上面两个区间都是空区间。</p>
+<ul>
+<li>le  严格小于pivot 的元素的时候自增，知道遇到一个元素大于等于pivot 的时候停下；</li>
+<li>ge  遇到严格大于pivot 的元素的时候自减，直到遇到一个元素小于等于pivot 的时候停下</li>
+</ul>
+<p>此时 le 来到了第一个大于等于pivot 的位置，ge 来到了第一个小于等于pivot的位置，此时把它们交换，交换以后，它们各自再向中间走一步，重复这样的过程直到它们相遇为止。</p>
+<p>注意：当le&gt;ge的时候停止</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] sortArray3(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        quickSort(nums,<span class="number">0</span>,len-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="comment">//注意这里包括大于的情况</span></span><br><span class="line">        <span class="keyword">if</span> (left&gt;=right)<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> partition = partition2(nums, left, right);</span><br><span class="line">        quickSort(nums,left,partition-<span class="number">1</span>);</span><br><span class="line">        quickSort(nums,partition+<span class="number">1</span>,right);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Random RANDOM = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 目标：与切分元素相等的元素均匀的分布在切分元素最终所在为止的两侧</span></span><br><span class="line"><span class="comment">     * [left+1,i]全部小于基准元素</span></span><br><span class="line"><span class="comment">     * [j,right]全部大于基准元素</span></span><br><span class="line"><span class="comment">     * 在指针对撞的过程中，和基准元素相同的元素就被挤到了中间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">partition2</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line"><span class="comment">//        int randomIndex=left+RANDOM.nextInt(right-left+1);</span></span><br><span class="line"><span class="comment">//        swap(nums,randomIndex,left);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// all in [left + 1, le) &lt;= pivot</span></span><br><span class="line">        <span class="comment">// all in (ge, right] &gt;= pivot</span></span><br><span class="line">        <span class="comment">// le &gt; ge 的时候终止</span></span><br><span class="line">        <span class="keyword">int</span> pivot=nums[left];</span><br><span class="line">        <span class="keyword">int</span> le=left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> ge=right;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="comment">// 注意：这里一定是 nums[le] &lt; pivot，等于 pivot 的元素是被交换过来得到的</span></span><br><span class="line">            <span class="keyword">while</span> (le&lt;=ge &amp;&amp; nums[le]&lt;pivot)le++;</span><br><span class="line">            <span class="comment">// 此时 le 来到第 1 个大于等于 pivot 的位置</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (le&lt;=ge &amp; nums[ge]&gt;pivot)ge--;</span><br><span class="line">            <span class="comment">// 此时 ge 来到第 1 个小于等于 pivot 的位置</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (le&gt;ge)<span class="keyword">break</span>;</span><br><span class="line">            swap(nums,le,ge);</span><br><span class="line">            le++;</span><br><span class="line">            ge--;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums,le,ge);</span><br><span class="line">        <span class="keyword">return</span> ge;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二：把与pivot相等的元素分配到数组的中间</strong></p>
+<p><img src="/2021/05/22/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/image-20210523110046213.png" alt="image-20210523110046213"></p>
+<p>在循环过程中，总有 [left+1,lt]&lt;pivot, [lt+1,i）=pivot, [gt,right]&gt;=pivot 成立</p>
+<p>初始化：i=left+1   lt=left   gt=right+1</p>
+<p>遍历到一个元素的时候：</p>
+<ul>
+<li>如果等于pivot，什么都不做，i 向右移动一格即可</li>
+<li>如果严格小于pivot，先把 lt 向右一格，然后交换 lt 与i ，然后i 再向右移动一格</li>
+<li>如果严格大于pivot，先把gt 向左移动一格，然后交换gt 与i，此时i 无需移动，因为交换过来的元素还没有看到，可以在下一轮循环中再根据它的带下执行相应的操作。</li>
+</ul>
+<p>循环终止的时候：</p>
+<p>i = gt。因为 [lt + 1, i) 不包括 i。因此，这三个区间正好铺满了整个除了基准元素的那个区间，最后，我们交换一下 left 和 lt 的位置就好了。<br>接下来，我们对区间 [left, lt - 1] （注意这里是 lt - 1）和区间 [gt, right] 分别递归执行下去即可。</p>
+<p>三向切分的快速排序能加速排序的原因是：如果执行 partition 的子区间当中，有很多元素都和基准元素相等，那么这些元素都能够在这一轮 partition 中被排定。由于和 pivot 相等的元素都被挤到了中间，它们前面的元素都比 pivot 小，它们后面的元素都比 pivot 大，因此它们就位于排序以后最终应该在的位置。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort3</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left&gt;=right)<span class="keyword">return</span>;</span><br><span class="line">        <span class="comment">// all in [left + 1, lt] &lt; pivot</span></span><br><span class="line">        <span class="comment">// all in [lt + 1, i) = pivot</span></span><br><span class="line">        <span class="comment">// all in [gt, right] &gt; pivot</span></span><br><span class="line">        <span class="keyword">int</span> pivot=nums[left];</span><br><span class="line">        <span class="keyword">int</span> lt=left;</span><br><span class="line">        <span class="keyword">int</span> gt=right;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i=left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;gt)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&lt;pivot)&#123;</span><br><span class="line">                lt++;</span><br><span class="line">                swap(nums,i,lt);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (nums[i]==pivot)i++;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                gt--;</span><br><span class="line">                swap(nums,i,gt);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums,left,lt);</span><br><span class="line">        quickSort3(nums,left,lt);</span><br><span class="line">        quickSort3(nums,gt,right);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>并查集</tag>
+        <tag>排序 快排</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>归并排序</title>
+    <url>/2021/05/22/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4><p>归并，就是将两个或两个以上的有序序列合并成一个新的有序序列的过程。</p>
+<p>说明：这里的序列指的是线性结构的序列，可以是数组，也可以是链表</p>
+<p>​          两个数组分别有序是归并得以有效进行的前提</p>
+<h4 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 合并两个有序数组：先把值赋值到临时数组，在合并回去</span></span><br><span class="line"><span class="comment">     * 子区间长度：right-left+1</span></span><br><span class="line"><span class="comment">     * 分别用i和j表示当前子区间第一部分的第一个元素的下标和第二部分的第一个元素的下标</span></span><br><span class="line"><span class="comment">     * 用下标k表示马上要赋值回去的那个下标的位置，每次从temp数组中比较，赋值会nums数组，每次比较的时候，都看i和j指向的元素哪个更小</span></span><br><span class="line"><span class="comment">     * 因此，首先是temp[i]&lt;=temp[j]，第一部分先被选出</span></span><br><span class="line"><span class="comment">     * 对于数组下标越界：i和j各自扫描完了的情况</span></span><br><span class="line"><span class="comment">     * 如果i来到了第二部分的第一个元素的位置，此时我们就一直把j指向的元素从前到后依次赋值</span></span><br><span class="line"><span class="comment">     * 如果j来到了第二部分的最后一个元素的后面，此时我们就一直把i指向的元素从前到后依次赋值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> mid [left,mid]有序，[mid+1,right]有序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeOfTwoSortedArray</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=right-left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] temp=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">            temp[i]=nums[left+i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//i和j分别指向前有序数组和后有序数组的起始位置</span></span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j=mid-left+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;len;k++)&#123;</span><br><span class="line">            <span class="comment">//i和j的越界情况</span></span><br><span class="line">            <span class="keyword">if</span> (i==mid-left+<span class="number">1</span>)&#123;</span><br><span class="line">                nums[left+k]=temp[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (j==right-left+<span class="number">1</span>)&#123;</span><br><span class="line">                nums[left+k]=temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp[i]&lt;=temp[j])&#123;<span class="comment">//一定是小于等于，保持稳定性</span></span><br><span class="line">                nums[left+k]=temp[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                nums[left+k]=temp[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 对数组nums的子区间[left...right]进行归并排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left==right)<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        mergeSort(nums,left,mid);</span><br><span class="line">        mergeSort(nums,mid+<span class="number">1</span>,right);</span><br><span class="line">        mergeOfTwoSortedArray(nums,left,mid,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        mergeSort(nums,<span class="number">0</span>,len-<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度：<em>O</em>(<em>N</em>log<em>N</em>)</p>
+<p>空间复杂度：<em>O</em>(<em>N</em>)</p>
+<h4 id="归并排序的优化"><a href="#归并排序的优化" class="headerlink" title="归并排序的优化"></a>归并排序的优化</h4><h5 id="优化一-：在小区间里使用插入排序"><a href="#优化一-：在小区间里使用插入排序" class="headerlink" title="优化一 ：在小区间里使用插入排序"></a>优化一 ：在小区间里使用插入排序</h5><p>可以使用插入排序的原因：</p>
+<p>​     首先，操作的指令数更少；</p>
+<p>​     其次，插入排序也是稳定的排序算法，修改成插入排序并不影响归并排序的稳定性</p>
+<p>当然这个子区间不能很大，子区间在多长的时候呀可以使用插入排序，目前java语言的库函数将它定义为47</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 对数组给定的部分使用插入排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp=arr[i];</span><br><span class="line">            <span class="keyword">int</span> j=i;</span><br><span class="line">            <span class="keyword">while</span> (j&gt;left &amp;&amp; arr[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">                arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="优化二：子区间本身有序则无需归并"><a href="#优化二：子区间本身有序则无需归并" class="headerlink" title="优化二：子区间本身有序则无需归并"></a>优化二：子区间本身有序则无需归并</h5><p>如果这个子区间本身是有序的，我们没有必要执行归并的过程</p>
+<p>在代码上只需要判断第一部分的最后一个元素是不是大于第二部分的第一个元素</p>
+<p><code>if arr[mid]&lt;=arr[mid+1]return;</code></p>
+<h5 id="优化三：在整个归并的过程中，使用同一个辅助数组"><a href="#优化三：在整个归并的过程中，使用同一个辅助数组" class="headerlink" title="优化三：在整个归并的过程中，使用同一个辅助数组"></a>优化三：在整个归并的过程中，使用同一个辅助数组</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INSERTION_SORT_THRESHOLD=<span class="number">47</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 对数组给定的部分使用插入排序</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> arr</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>;i&lt;=right;i++)&#123;</span><br><span class="line">           <span class="keyword">int</span> temp=arr[i];</span><br><span class="line">           <span class="keyword">int</span> j=i;</span><br><span class="line">           <span class="keyword">while</span> (j&gt;left &amp;&amp; arr[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">               arr[j]=arr[j-<span class="number">1</span>];</span><br><span class="line">               j--;</span><br><span class="line">           &#125;</span><br><span class="line">           arr[j]=temp;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeOfTwoSortedArray</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> mid,<span class="keyword">int</span> right,<span class="keyword">int</span>[] temp)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=left;i&lt;=right;i++)temp[i]=arr[i];</span><br><span class="line">       <span class="keyword">int</span> i=left;</span><br><span class="line">       <span class="keyword">int</span> j=mid+<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> k=left;k&lt;=right;k++)&#123;</span><br><span class="line">           <span class="keyword">if</span> (i==mid+<span class="number">1</span>)&#123;</span><br><span class="line">               arr[k]=temp[j];</span><br><span class="line">               j++;</span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (j==right+<span class="number">1</span>)&#123;</span><br><span class="line">               arr[k]=temp[i];</span><br><span class="line">               i++;</span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp[i]&lt;=temp[j])&#123;</span><br><span class="line">               arr[k]=temp[i];</span><br><span class="line">               i++;</span><br><span class="line">           &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">               arr[k]=temp[j];</span><br><span class="line">               j++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right,<span class="keyword">int</span>[] temp)</span></span>&#123;</span><br><span class="line">       <span class="comment">//优化1  小区间使用插入排序</span></span><br><span class="line">       <span class="keyword">if</span> (right-left&lt;=INSERTION_SORT_THRESHOLD)&#123;</span><br><span class="line">           insertionSort(arr,left,right);</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">       mergeSort(arr,left,mid,temp);</span><br><span class="line">       mergeSort(arr,mid+<span class="number">1</span>,right,temp);</span><br><span class="line">       <span class="comment">//优化2 数组已经有序的情况下，不会合并</span></span><br><span class="line">       <span class="keyword">if</span> (arr[mid]&lt;=arr[mid+<span class="number">1</span>])<span class="keyword">return</span>;</span><br><span class="line">       mergeOfTwoSortedArray(arr,left,mid,right,temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] sortArray2(<span class="keyword">int</span>[] arr)&#123;</span><br><span class="line">       <span class="keyword">int</span> len=arr.length;</span><br><span class="line">       <span class="comment">//优化3 全局使用一份临时数组</span></span><br><span class="line">        <span class="keyword">int</span>[] temp=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        mergeSort(arr,<span class="number">0</span>,len-<span class="number">1</span>,temp);</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>排序 归并</tag>
       </tags>
   </entry>
   <entry>
@@ -330,6 +387,25 @@
       </categories>
       <tags>
         <tag>成员变量  局部变量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>构造方法</title>
+    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
+<p>格式：修饰符  构造方法名（）{}</p>
+<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
+<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
+<p>若已提供构造方法，系统不再提供无参构造</p>
+<p>构造方法可以重载</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>构造方法</tag>
       </tags>
   </entry>
   <entry>
@@ -365,25 +441,6 @@
       </tags>
   </entry>
   <entry>
-    <title>构造方法</title>
-    <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
-<p>格式：修饰符  构造方法名（）{}</p>
-<p>要求：方法名必须与类名相同；  没有返回值；没有返回值类型</p>
-<p>注意：若未提供任何构造方法，系统会提供默认无参构造</p>
-<p>若已提供构造方法，系统不再提供无参构造</p>
-<p>构造方法可以重载</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Stu</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>构造方法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>插入排序</title>
     <url>/2021/05/22/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4><p>将一个元素插入到有序数组中，使之成为更长的有序数组</p>
@@ -411,158 +468,6 @@
       </categories>
       <tags>
         <tag>排序 插入</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>继承</title>
-    <url>/2020/07/13/%E7%BB%A7%E6%89%BF/</url>
-    <content><![CDATA[<p>子类拥有了父类的非私有成员（成员变量，成员方法）</p>
-<p>多个类中存在相同的属性和行为时，可以将这些内容提取出来放到一个新类中</p>
-<p>让这些类和新类产生父子关系，实现代码的复用</p>
-<p><strong>继承关系中成员变量使用结论：</strong></p>
-<p>查找变量的原则：<strong>就近原则</strong></p>
-<p>查找变量的顺序：局部变量–》成员变量–》父类–》更高的父类–》。。。object</p>
-<p>访问父类变量的方式：super.父类变量名</p>
-<p>super：当前对象父类的引用（父类内存空间的标识）</p>
-<p>对象初始化顺序：先初始化父类内容，再初始化子类内容</p>
-<p><strong>java中继承的特点</strong><br><strong>单继承</strong>：java只支持类的单继承，但是支持多层继承<br>       java支持接口的多继承，语法为：<br>       接口A extends 接口B，接口C，。。。<br><strong>私有成员不能继承</strong>：<br>            只能继承父类的非私有成员（成员变量，成员方法）<br><strong>构造方法不能被继承</strong>：<br>            构造方法用于初始化本类对象<br>            创造子类对象时，需要调用父类构造初始化该对象的父类内容，若父类<br>            可以被继承，该操作会造成调用的混乱<br><strong>继承体现了 is a 的关系：</strong><br>子类符合 is a (是一个)父类的情况，才使用继承，其他情况不建议使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/* 创建子类对象时，优先调用父类的构造方法</span></span><br><span class="line"><span class="comment">           子类构造方法的第一行，隐含语句super()，用于调用父类的类默认无参构造</span></span><br><span class="line"><span class="comment">           </span></span><br><span class="line"><span class="comment">           如果父类不存在默认无参构造，须手动调用父类其他构造*/</span></span><br><span class="line">        <span class="comment">//super();//调用父类默认无参构造,用于初始化父类成员，必须在第一行</span></span><br><span class="line">        <span class="comment">//super("Ashley");</span></span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        System.out.println(<span class="string">"worker"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ublic <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> num=<span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Child extends Parent&#123;</span><br><span class="line"></span><br><span class="line">    int num&#x3D;20;</span><br><span class="line"></span><br><span class="line">    public void show()&#123;&#x2F;&#x2F;注意输出的顺序</span><br><span class="line">        int num&#x3D;10;</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        System.out.println(this.num);</span><br><span class="line">        System.out.println(super.num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>继承</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>状态压缩</title>
-    <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
-<p>却迟迟理解不了，于是上网查了很多的资料，<strong>一句话总结就是用一串二进制数来表示当前情况的状态</strong></p>
-<p>参考如下：</p>
-<p><a href="https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p>
-<p><a href="https://blog.csdn.net/fjy19950504/article/details/105929173/" target="_blank" rel="noopener">https://blog.csdn.net/fjy19950504/article/details/105929173/</a></p>
-<p><a href="https://blog.csdn.net/lu597203933/article/details/44137277" target="_blank" rel="noopener">https://blog.csdn.net/lu597203933/article/details/44137277</a></p>
-<p>状态压缩用的到知识点主要是Java中的位运算，也有一方面是自己对位运算的理解不透彻，先把位运算的知识点总结如下：</p>
-<ol>
-<li>&amp;：x&amp;y，将两个十进制数在二进制下进行<strong>与</strong>运算，然后返回其十进制下的值（规则是两个同时为1，结果为1，否则为0），例如3（11）&amp;2（10）=2（10）</li>
-<li>|：x|y，将两个十进制数在二进制下进行<strong>或</strong>运算，然后返回其十进制下的值（规则是一个为1，其值为1），例如：3（11）|2（10）=3（11）</li>
-<li>^：x ^ y：将两个十进制的值在二进制下进行<strong>异或</strong>运算，然后返回其十进制下的值（规则是相同为0，不同为1），例如：3（11）^ 2（10）=1（01）</li>
-<li>&lt;&lt;：左移操作，x&lt;&lt;2，将x在二进制下的每一位向左移动两位，最右边用0填充，相当于让x乘以4</li>
-<li>&lt;&lt;：右移操作，x&gt;&gt;1，相当于x/2，去掉x最右一位</li>
-<li><u><em>判断一个数字x二进制下第i位是不是等于1。</em></u><br><u><em>方法：if(((1&lt;&lt;(i−1))&amp;x)&gt;0)</em></u><br><u><em>将1左移i-1位，相当于制造了一个只有第i位上是1，其他位上都是0的二进制数。然后与x做与运算，如果结果&gt;0，说明x第i位上是1，反之则是0。</em></u></li>
-<li><u><em>将一个数字x二进制下第i位更改成1。</em></u><br><u><em>方法：x=x|(1&lt;&lt;(i−1))</em></u></li>
-<li><u><em>把一个数字二进制下最靠右的第一个1去掉。</em></u><br><u><em>方法：x=x&amp;(x−1)</em></u></li>
-</ol>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>状态压缩</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>背包九讲</title>
-    <url>/2020/05/06/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</url>
-    <content><![CDATA[<p><strong>背包九讲</strong></p>
-<p><a href="https://www.cnblogs.com/jbelial/articles/2116074.html" target="_blank" rel="noopener">https://www.cnblogs.com/jbelial/articles/2116074.html</a></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>选择排序</title>
-    <url>/2021/05/22/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="选择排序的基本思想"><a href="#选择排序的基本思想" class="headerlink" title="选择排序的基本思想"></a>选择排序的基本思想</h4><p>从小到大一次选出第一个元素，第二个元素，通过交换达到选择和排序的目的</p>
-<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     * 每一轮都选取为排定部分的最小元素，然后将它交换到未排定的部分的第一个位置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] selectSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="comment">//最后一轮只有一个元素，一定是最大元素，因此是len-1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex=i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&lt;nums[minIndex])&#123;</span><br><span class="line">                    minIndex=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums,minIndex,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度:O(n*n)</p>
-<p>空间复杂度：O(1)</p>
-<h4 id="选择排序的特点"><a href="#选择排序的特点" class="headerlink" title="选择排序的特点"></a>选择排序的特点</h4><p><strong>交换的次数最少</strong></p>
-<p>如果一个排序任务交换的成本很高，可以考虑使用选择排序</p>
-<p><strong>运行时间与输入无关</strong></p>
-<p>每一趟扫描，除了扫描的元素比上一轮上了一个意外与，选择排序没有记住更多的信息。一个极端的例子是：已经是排好序的数组，选择排序还需要一次又一次的扫描</p>
-<p><strong>这两点是选择排序区别其他排序算的特点</strong></p>
-<h4 id="选择排序体现的算法思想"><a href="#选择排序体现的算法思想" class="headerlink" title="选择排序体现的算法思想"></a>选择排序体现的算法思想</h4><p>贪心算法</p>
-<p>减而治之</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>排序 选择</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重载和重写</title>
-    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
-    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
-<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
-<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
-<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
-<p><strong>注意：</strong></p>
-<p>父类私有方法无法重写</p>
-<p>子类方法访问权限不能小于父类方法</p>
-<p>子类不能比父类抛出更大的异常</p>
-<p>使用场景：扩展父类功能</p>
-<p>父类功能过时，重新实现父类的功能 </p>
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>重载 重写</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>空间复杂度</title>
-    <url>/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>什么是空间复杂度呢？</p>
-<p>是对一个算法在运行过程中占用内存空间大小的量度，记做S(n)=O(f(n)。</p>
-<p>空间复杂度(Space Complexity)记作S(n) 依然使用大O来表示。利用程序的空间复杂度，可以对程序运行中需要多少内存有个预先估计。</p>
-<p>关注空间复杂度有两个常见的相关问题</p>
-<ol>
-<li>空间复杂度是考虑程序（可执行文件）的大小吗？</li>
-</ol>
-<p><strong>空间复杂度是考虑程序运行时占用内存的大小，而不是可执行文件的大小。</strong></p>
-<ol start="2">
-<li><p>空间复杂度是准确算出程序运行时所占用的内存吗？</p>
-<p>不要以为空间复杂度就已经精准的掌握了程序的内存使用大小，很有多因素会影响程序真正内存使用大小，例如<strong>编译器的内存对齐，编程语言容器的底层实现</strong>等等这些都会影响到程序内存的开销。</p>
-<p>所以空间复杂度是预先大体评估程序内存使用的大小。</p>
-<p>说到空间复杂度，大家在OJ（online judge）上应该遇到过这种错误，就是超出内存限制，一般OJ对程序运行时的所消耗的内存都有一个限制。</p>
-<p>为了避免内存超出限制，这也需要我们对算法占用多大的内存有一个大体的预估。</p>
-<p>同样在工程实践中，计算机的内存空间也不是无限的，需要工程师对软件运行时所使用的内存有一个大体评估，这都需要用到算法空间复杂度的分析。</p>
-</li>
-</ol>
-<p>那么什么时候空间复杂度是O(1)呢？</p>
-<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155057641.png" alt="image-20210409155057641"></p>
-<p>第一段代码可以看出，随着n的变化，所需开辟的内存空间并不会随着n的变化而变化。即此算法空间复杂度为一个常量，所以表示为大 O(1)。</p>
-<p>什么时候的空间复杂度是O(n)呢？</p>
-<p>当小号空间和输入参数n保持线性增长，这样的空间复杂度为O(n)</p>
-<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155209893.png" alt="image-20210409155209893"></p>
-<p>我们定义了一个数组出来，这个数组占用的大小为n，虽然有一个for循环，但没有再分配新的空间，因此，这段代码的空间复杂度主要看第一行即可，随着n的增大，开辟的内存大小呈线性增长，即 O(n)。</p>
-<p>什么时候的空间复杂度为 <strong>O(logn)呢？</strong></p>
-<p>空间复杂度是logn的情况确实有些特殊，其实是在<strong>递归的时候，会出现空间复杂度为logn的情况</strong>。</p>
-<p>参考：<a href="https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw</a></p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>空间复杂度</tag>
       </tags>
   </entry>
   <entry>
@@ -628,6 +533,135 @@
       </tags>
   </entry>
   <entry>
+    <title>空间复杂度</title>
+    <url>/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>什么是空间复杂度呢？</p>
+<p>是对一个算法在运行过程中占用内存空间大小的量度，记做S(n)=O(f(n)。</p>
+<p>空间复杂度(Space Complexity)记作S(n) 依然使用大O来表示。利用程序的空间复杂度，可以对程序运行中需要多少内存有个预先估计。</p>
+<p>关注空间复杂度有两个常见的相关问题</p>
+<ol>
+<li>空间复杂度是考虑程序（可执行文件）的大小吗？</li>
+</ol>
+<p><strong>空间复杂度是考虑程序运行时占用内存的大小，而不是可执行文件的大小。</strong></p>
+<ol start="2">
+<li><p>空间复杂度是准确算出程序运行时所占用的内存吗？</p>
+<p>不要以为空间复杂度就已经精准的掌握了程序的内存使用大小，很有多因素会影响程序真正内存使用大小，例如<strong>编译器的内存对齐，编程语言容器的底层实现</strong>等等这些都会影响到程序内存的开销。</p>
+<p>所以空间复杂度是预先大体评估程序内存使用的大小。</p>
+<p>说到空间复杂度，大家在OJ（online judge）上应该遇到过这种错误，就是超出内存限制，一般OJ对程序运行时的所消耗的内存都有一个限制。</p>
+<p>为了避免内存超出限制，这也需要我们对算法占用多大的内存有一个大体的预估。</p>
+<p>同样在工程实践中，计算机的内存空间也不是无限的，需要工程师对软件运行时所使用的内存有一个大体评估，这都需要用到算法空间复杂度的分析。</p>
+</li>
+</ol>
+<p>那么什么时候空间复杂度是O(1)呢？</p>
+<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155057641.png" alt="image-20210409155057641"></p>
+<p>第一段代码可以看出，随着n的变化，所需开辟的内存空间并不会随着n的变化而变化。即此算法空间复杂度为一个常量，所以表示为大 O(1)。</p>
+<p>什么时候的空间复杂度是O(n)呢？</p>
+<p>当小号空间和输入参数n保持线性增长，这样的空间复杂度为O(n)</p>
+<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155209893.png" alt="image-20210409155209893"></p>
+<p>我们定义了一个数组出来，这个数组占用的大小为n，虽然有一个for循环，但没有再分配新的空间，因此，这段代码的空间复杂度主要看第一行即可，随着n的增大，开辟的内存大小呈线性增长，即 O(n)。</p>
+<p>什么时候的空间复杂度为 <strong>O(logn)呢？</strong></p>
+<p>空间复杂度是logn的情况确实有些特殊，其实是在<strong>递归的时候，会出现空间复杂度为logn的情况</strong>。</p>
+<p>参考：<a href="https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw</a></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>空间复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>继承</title>
+    <url>/2020/07/13/%E7%BB%A7%E6%89%BF/</url>
+    <content><![CDATA[<p>子类拥有了父类的非私有成员（成员变量，成员方法）</p>
+<p>多个类中存在相同的属性和行为时，可以将这些内容提取出来放到一个新类中</p>
+<p>让这些类和新类产生父子关系，实现代码的复用</p>
+<p><strong>继承关系中成员变量使用结论：</strong></p>
+<p>查找变量的原则：<strong>就近原则</strong></p>
+<p>查找变量的顺序：局部变量–》成员变量–》父类–》更高的父类–》。。。object</p>
+<p>访问父类变量的方式：super.父类变量名</p>
+<p>super：当前对象父类的引用（父类内存空间的标识）</p>
+<p>对象初始化顺序：先初始化父类内容，再初始化子类内容</p>
+<p><strong>java中继承的特点</strong><br><strong>单继承</strong>：java只支持类的单继承，但是支持多层继承<br>       java支持接口的多继承，语法为：<br>       接口A extends 接口B，接口C，。。。<br><strong>私有成员不能继承</strong>：<br>            只能继承父类的非私有成员（成员变量，成员方法）<br><strong>构造方法不能被继承</strong>：<br>            构造方法用于初始化本类对象<br>            创造子类对象时，需要调用父类构造初始化该对象的父类内容，若父类<br>            可以被继承，该操作会造成调用的混乱<br><strong>继承体现了 is a 的关系：</strong><br>子类符合 is a (是一个)父类的情况，才使用继承，其他情况不建议使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">/* 创建子类对象时，优先调用父类的构造方法</span></span><br><span class="line"><span class="comment">           子类构造方法的第一行，隐含语句super()，用于调用父类的类默认无参构造</span></span><br><span class="line"><span class="comment">           </span></span><br><span class="line"><span class="comment">           如果父类不存在默认无参构造，须手动调用父类其他构造*/</span></span><br><span class="line">        <span class="comment">//super();//调用父类默认无参构造,用于初始化父类成员，必须在第一行</span></span><br><span class="line">        <span class="comment">//super("Ashley");</span></span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        System.out.println(<span class="string">"worker"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ublic <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">int</span> num=<span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Child extends Parent&#123;</span><br><span class="line"></span><br><span class="line">    int num&#x3D;20;</span><br><span class="line"></span><br><span class="line">    public void show()&#123;&#x2F;&#x2F;注意输出的顺序</span><br><span class="line">        int num&#x3D;10;</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        System.out.println(this.num);</span><br><span class="line">        System.out.println(super.num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>继承</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>背包九讲</title>
+    <url>/2020/05/06/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</url>
+    <content><![CDATA[<p><strong>背包九讲</strong></p>
+<p><a href="https://www.cnblogs.com/jbelial/articles/2116074.html" target="_blank" rel="noopener">https://www.cnblogs.com/jbelial/articles/2116074.html</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>状态压缩</title>
+    <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
+<p>却迟迟理解不了，于是上网查了很多的资料，<strong>一句话总结就是用一串二进制数来表示当前情况的状态</strong></p>
+<p>参考如下：</p>
+<p><a href="https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p>
+<p><a href="https://blog.csdn.net/fjy19950504/article/details/105929173/" target="_blank" rel="noopener">https://blog.csdn.net/fjy19950504/article/details/105929173/</a></p>
+<p><a href="https://blog.csdn.net/lu597203933/article/details/44137277" target="_blank" rel="noopener">https://blog.csdn.net/lu597203933/article/details/44137277</a></p>
+<p>状态压缩用的到知识点主要是Java中的位运算，也有一方面是自己对位运算的理解不透彻，先把位运算的知识点总结如下：</p>
+<ol>
+<li>&amp;：x&amp;y，将两个十进制数在二进制下进行<strong>与</strong>运算，然后返回其十进制下的值（规则是两个同时为1，结果为1，否则为0），例如3（11）&amp;2（10）=2（10）</li>
+<li>|：x|y，将两个十进制数在二进制下进行<strong>或</strong>运算，然后返回其十进制下的值（规则是一个为1，其值为1），例如：3（11）|2（10）=3（11）</li>
+<li>^：x ^ y：将两个十进制的值在二进制下进行<strong>异或</strong>运算，然后返回其十进制下的值（规则是相同为0，不同为1），例如：3（11）^ 2（10）=1（01）</li>
+<li>&lt;&lt;：左移操作，x&lt;&lt;2，将x在二进制下的每一位向左移动两位，最右边用0填充，相当于让x乘以4</li>
+<li>&lt;&lt;：右移操作，x&gt;&gt;1，相当于x/2，去掉x最右一位</li>
+<li><u><em>判断一个数字x二进制下第i位是不是等于1。</em></u><br><u><em>方法：if(((1&lt;&lt;(i−1))&amp;x)&gt;0)</em></u><br><u><em>将1左移i-1位，相当于制造了一个只有第i位上是1，其他位上都是0的二进制数。然后与x做与运算，如果结果&gt;0，说明x第i位上是1，反之则是0。</em></u></li>
+<li><u><em>将一个数字x二进制下第i位更改成1。</em></u><br><u><em>方法：x=x|(1&lt;&lt;(i−1))</em></u></li>
+<li><u><em>把一个数字二进制下最靠右的第一个1去掉。</em></u><br><u><em>方法：x=x&amp;(x−1)</em></u></li>
+</ol>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>状态压缩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重载和重写</title>
+    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
+    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
+<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
+<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
+<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
+<p><strong>注意：</strong></p>
+<p>父类私有方法无法重写</p>
+<p>子类方法访问权限不能小于父类方法</p>
+<p>子类不能比父类抛出更大的异常</p>
+<p>使用场景：扩展父类功能</p>
+<p>父类功能过时，重新实现父类的功能 </p>
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>重载 重写</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>集合和泛型</title>
     <url>/2020/07/14/%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="集合和数组的区别："><a href="#集合和数组的区别：" class="headerlink" title="集合和数组的区别："></a>集合和数组的区别：</h1><p>元素类型：<br>集合：引用类型（存储基本类型时自动装箱）<br>数组：基本类型，引用类型<br>元素个数：<br>集合：不固定，可任意扩容<br>数组：固定，不能改变容量<br>集合的好处：<br>不受容器大小限制，可以随意添加删除元素<br>提供了大量操作元素的方法（判断获取等）</p>
@@ -657,6 +691,29 @@
       </categories>
       <tags>
         <tag>集合  泛型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>选择排序</title>
+    <url>/2021/05/22/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="选择排序的基本思想"><a href="#选择排序的基本思想" class="headerlink" title="选择排序的基本思想"></a>选择排序的基本思想</h4><p>从小到大一次选出第一个元素，第二个元素，通过交换达到选择和排序的目的</p>
+<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     * 每一轮都选取为排定部分的最小元素，然后将它交换到未排定的部分的第一个位置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] selectSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="comment">//最后一轮只有一个元素，一定是最大元素，因此是len-1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex=i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&lt;nums[minIndex])&#123;</span><br><span class="line">                    minIndex=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums,minIndex,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度:O(n*n)</p>
+<p>空间复杂度：O(1)</p>
+<h4 id="选择排序的特点"><a href="#选择排序的特点" class="headerlink" title="选择排序的特点"></a>选择排序的特点</h4><p><strong>交换的次数最少</strong></p>
+<p>如果一个排序任务交换的成本很高，可以考虑使用选择排序</p>
+<p><strong>运行时间与输入无关</strong></p>
+<p>每一趟扫描，除了扫描的元素比上一轮上了一个意外与，选择排序没有记住更多的信息。一个极端的例子是：已经是排好序的数组，选择排序还需要一次又一次的扫描</p>
+<p><strong>这两点是选择排序区别其他排序算的特点</strong></p>
+<h4 id="选择排序体现的算法思想"><a href="#选择排序体现的算法思想" class="headerlink" title="选择排序体现的算法思想"></a>选择排序体现的算法思想</h4><p>贪心算法</p>
+<p>减而治之</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>排序 选择</tag>
       </tags>
   </entry>
   <entry>
@@ -714,27 +771,6 @@
       </tags>
   </entry>
   <entry>
-    <title>青春有你可视化</title>
-    <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p><strong>对爬取的青春有你2参赛选手的信息进行数据可视化</strong></p>
-<h1 id="一-绘制选手区域分布柱状图"><a href="#一-绘制选手区域分布柱状图" class="headerlink" title="一. 绘制选手区域分布柱状图"></a>一. 绘制选手区域分布柱状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="function">with <span class="title">open</span><span class="params">(<span class="string">'data/data31557/20200422.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as file:</span></span><br><span class="line"><span class="function">         json_array </span>= json.loads(file.read())</span><br><span class="line"></span><br><span class="line">#绘制小姐姐区域分布柱状图,x轴为地区，y轴为该区域的小姐姐数量</span><br><span class="line"></span><br><span class="line">zones = []</span><br><span class="line"><span class="keyword">for</span> star in json_array:</span><br><span class="line">    zone = star[<span class="string">'zone'</span>]</span><br><span class="line">    zones.append(zone)</span><br><span class="line">print(len(zones))</span><br><span class="line">print(zones)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">zone_list = []</span><br><span class="line">count_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> zone in zones:</span><br><span class="line">    <span class="keyword">if</span> zone not in zone_list:</span><br><span class="line">        count = zones.count(zone)</span><br><span class="line">        zone_list.append(zone)</span><br><span class="line">        count_list.append(count)</span><br><span class="line"></span><br><span class="line">print(zone_list)</span><br><span class="line">print(count_list)</span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"><span class="keyword">import</span> pandas as pd</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line">#print(df)</span><br><span class="line"></span><br><span class="line">grouped=df[<span class="string">'name'</span>].groupby(df[<span class="string">'zone'</span>])</span><br><span class="line">s = grouped.count()</span><br><span class="line"></span><br><span class="line">zone_list = s.index</span><br><span class="line">count_list = s.values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result02.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h1 id="二-绘制饼状图"><a href="#二-绘制饼状图" class="headerlink" title="二. 绘制饼状图"></a>二. 绘制饼状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/image-20200503230719831.png" alt="image-20200503230719831"></p>
-]]></content>
-      <categories>
-        <category>AI</category>
-      </categories>
-      <tags>
-        <tag>python 可视化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>青春有你信息爬取</title>
     <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E4%BF%A1%E6%81%AF%E7%88%AC%E5%8F%96/</url>
     <content><![CDATA[<p><strong>写在前面</strong></p>
@@ -789,6 +825,27 @@
       <tags>
         <tag>爬虫</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>青春有你可视化</title>
+    <url>/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p><strong>对爬取的青春有你2参赛选手的信息进行数据可视化</strong></p>
+<h1 id="一-绘制选手区域分布柱状图"><a href="#一-绘制选手区域分布柱状图" class="headerlink" title="一. 绘制选手区域分布柱状图"></a>一. 绘制选手区域分布柱状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="function">with <span class="title">open</span><span class="params">(<span class="string">'data/data31557/20200422.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>)</span> as file:</span></span><br><span class="line"><span class="function">         json_array </span>= json.loads(file.read())</span><br><span class="line"></span><br><span class="line">#绘制小姐姐区域分布柱状图,x轴为地区，y轴为该区域的小姐姐数量</span><br><span class="line"></span><br><span class="line">zones = []</span><br><span class="line"><span class="keyword">for</span> star in json_array:</span><br><span class="line">    zone = star[<span class="string">'zone'</span>]</span><br><span class="line">    zones.append(zone)</span><br><span class="line">print(len(zones))</span><br><span class="line">print(zones)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">zone_list = []</span><br><span class="line">count_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> zone in zones:</span><br><span class="line">    <span class="keyword">if</span> zone not in zone_list:</span><br><span class="line">        count = zones.count(zone)</span><br><span class="line">        zone_list.append(zone)</span><br><span class="line">        count_list.append(count)</span><br><span class="line"></span><br><span class="line">print(zone_list)</span><br><span class="line">print(count_list)</span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"><span class="keyword">import</span> pandas as pd</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line">#print(df)</span><br><span class="line"></span><br><span class="line">grouped=df[<span class="string">'name'</span>].groupby(df[<span class="string">'zone'</span>])</span><br><span class="line">s = grouped.count()</span><br><span class="line"></span><br><span class="line">zone_list = s.index</span><br><span class="line">count_list = s.values</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 设置显示中文</span><br><span class="line">plt.rcParams['font.sans-serif'] = ['SimHei'] # 指定默认字体</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">20</span>,<span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.bar(range(len(count_list)), count_list,color=<span class="string">'r'</span>,tick_label=zone_list,facecolor=<span class="string">'#9999ff'</span>,edgecolor=<span class="string">'white'</span>)</span><br><span class="line"></span><br><span class="line"># 这里是调节横坐标的倾斜度，rotation是度数，以及设置刻度字体大小</span><br><span class="line">plt.xticks(rotation=<span class="number">45</span>,fontsize=<span class="number">20</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/bar_result02.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-绘制饼状图"><a href="#二-绘制饼状图" class="headerlink" title="二. 绘制饼状图"></a>二. 绘制饼状图</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager as font_manager</span><br><span class="line"></span><br><span class="line">#显示matplotlib生成的图形</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">df = pd.read_json(<span class="string">'data/data31557/20200422.json'</span>)</span><br><span class="line"></span><br><span class="line">weights = df[<span class="string">'weight'</span>]</span><br><span class="line">arrs = weights.values</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(len(arrs)</span>):</span></span><br><span class="line"><span class="function">    arrs[i] </span>= <span class="keyword">float</span>(arrs[i] [<span class="number">0</span>:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">bin = [<span class="number">0</span>,<span class="number">45</span>,<span class="number">50</span>,<span class="number">55</span>,<span class="number">100</span>]</span><br><span class="line">sel = pd.cut(arrs,bin)</span><br><span class="line"></span><br><span class="line">#pandas的value_counts()函数可以对series里面的每个值进行计数并且排序</span><br><span class="line">pd.value_counts(sel)</span><br><span class="line"></span><br><span class="line">labels = <span class="string">'&lt;= 45kg'</span>,<span class="string">'45~50kg'</span>,<span class="string">'50~55kg'</span>,<span class="string">'&gt;55kg'</span></span><br><span class="line">sizes = pd.value_counts(sel)</span><br><span class="line">explode = (<span class="number">0.1</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">fig1,ax1 = plt.subplots()</span><br><span class="line">ax1.pie(sizes,explode = explode, labels = labels, autopct = <span class="string">'%1.1f%%'</span>,shadow = True,startangle = <span class="number">90</span>)</span><br><span class="line">ax1.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">"best"</span>)</span><br><span class="line">plt.title(<span class="string">''</span><span class="string">'《青春有你2》参赛选手'</span><span class="string">''</span>,fontsize = <span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'/home/aistudio/work/result/pie_result.jpg'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/03/%E9%9D%92%E6%98%A5%E6%9C%89%E4%BD%A0%E5%8F%AF%E8%A7%86%E5%8C%96/image-20200503230719831.png" alt="image-20200503230719831"></p>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>python 可视化</tag>
       </tags>
   </entry>
 </search>
