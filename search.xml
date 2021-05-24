@@ -16,6 +16,19 @@
       </tags>
   </entry>
   <entry>
+    <title>First Blog</title>
+    <url>/2020/04/27/zyqfirstBlog/</url>
+    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
+<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
+<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
+<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
+<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
+]]></content>
+      <tags>
+        <tag>hexo-bug</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java容器</title>
     <url>/2020/07/05/java%E5%AE%B9%E5%99%A8/</url>
     <content><![CDATA[<p>最近准备找实习刷力扣的时候总是会碰到各种各样的java容器，所以在网上找了很多的资料复习了一下java这个基础的知识点。写到博客里防止自己再次混淆。</p>
@@ -58,16 +71,51 @@
       </tags>
   </entry>
   <entry>
-    <title>First Blog</title>
-    <url>/2020/04/27/zyqfirstBlog/</url>
-    <content><![CDATA[<p>首次使用hexo出现的错误—-报空格错误<br><img src="/2020/04/27/zyqfirstBlog/2020-05-02-15-30-33.png" alt><br>原因是自己最上面加了注释，才导致博客一直发布不了，搞的自己差点放弃,好在结局是好的，搞了两天总算是把自己的博客给搭建好了，很开心，还专门买了一个域名玩玩。</p>
-<p>本次搭建hexo博客主要是参考<a href="https://www.jianshu.com/p/77db3862595c" target="_blank" rel="noopener">https://www.jianshu.com/p/77db3862595c</a>，修改了主题，加入了访问量，但是评论还没加，等有时间再搞吧。</p>
-<p>购买了阿里的域名，9块钱一年的，还挺便宜，域名的设置是参考<a href="https://www.jianshu.com/p/1dc893a05234" target="_blank" rel="noopener">https://www.jianshu.com/p/1dc893a05234</a>以及<a href="https://blog.csdn.net/mqdxiaoxiao/article/details/92799543" target="_blank" rel="noopener">https://blog.csdn.net/mqdxiaoxiao/article/details/92799543</a><br>唯一的缺点就是访问有点慢<br>另外编写markdown使用的是vscode，paste Image真是一个超好用的插件，我用quiver写markdown时图片可以直接复制粘贴，这个插件也实现了这个功能</p>
-<p>好吧，后来又出现了一个图片显示不出来的bug，下载<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a>,<br>然后将配置里面的<strong>post_asset_folder: true</strong>改成这样就可以了</p>
-<p>我就奇了怪了，我自己手动建立的文件夹不能部署到github上，因为我想把图片单纯的存在一个文件夹里，但这样就不行</p>
+    <title>时间复杂度</title>
+    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
+<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
+<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
+<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
+<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
+<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
+<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
+<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
+<p>我们主要关心的还是一般情况下的数据形式。</p>
+<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
+<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
+<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
+<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
+<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
+<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
+<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
+<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
+<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
+<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
+<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
+<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
+<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
+</li>
+<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
+<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
+</li>
+<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
+<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+</li>
+<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
+</li>
+</ol>
+<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
+<ol start="5">
+<li>递归复杂度计算</li>
+</ol>
+<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
 ]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
       <tags>
-        <tag>hexo-bug</tag>
+        <tag>复杂度</tag>
       </tags>
   </entry>
   <entry>
@@ -131,51 +179,58 @@
       </tags>
   </entry>
   <entry>
-    <title>时间复杂度</title>
-    <url>/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>时间复杂度是一个函数，它定性来描述该算法的运行时间。</p>
-<p>那么该如何估算程序的运行时间呢，通常会估算算法的操作单元数来代表程序的消耗时间。这里默认CPU的每个单元运行消耗的时间都是相同的。</p>
-<p>假设算法的时间规模是n，那么 操作单元数量便用函数f(n)来表示，随着数据规模n的增大，算法执行时间的增长率和f(n)的增长率相同，这称作做算法的渐进时间复杂，简称时间复杂度</p>
-<h3 id="什么是大O"><a href="#什么是大O" class="headerlink" title="什么是大O"></a>什么是大O</h3><p>算法导论给出的解释：<strong>大O是用来表示上界的</strong>。当用它作为算法的最坏情况运行时间的上界，就是对任意数据输入的运行时间的上界。</p>
-<p>同样算法导论给出了例子：拿插入排序来说，插入排序的时间复杂度我们都说是O(n^2) 。</p>
-<p>输入数据的形式对程序运算时间是有很大影响的，在数据本来有序的情况下时间复杂度是O(n)，但如果数据是逆序的话，插入排序的时间复杂度就是O(n^2)，也就对于所有输入情况来说，最坏是O(n^2) 的时间复杂度，所以称插入排序的时间复杂度为O(n^2)。</p>
-<p>同样的同理再看一下快速排序，都知道快速排序是O(nlogn)，但是当数据已经有序情况下，快速排序的时间复杂度是O(n^2) 的，<strong>「所以严格从大O的定义来讲，快速排序的时间复杂度应该是O(n^2)」</strong>。</p>
-<p><strong>「但是我们依然说快速排序是O(nlogn)的时间复杂度，这个就是业内的一个默认规定，这里说的O代表的就是一般情况，而不是严格的上界</strong></p>
-<p>我们主要关心的还是一般情况下的数据形式。</p>
-<p><strong>「面试中说道算法的时间复杂度是多少指的都是一般情况」</strong>。但是如果面试官和我们深入探讨一个算法的实现以及性能的时候，就要时刻想着数据用例的不一样，时间复杂度也是不同的，这一点是一定要注意的。</p>
-<h3 id="不同数据规模的差异"><a href="#不同数据规模的差异" class="headerlink" title="不同数据规模的差异"></a>不同数据规模的差异</h3><p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409145616758.png" alt="image-20210409145616758"></p>
-<p>在决定使用哪些算法的时候，不是时间复杂越低的越好（因为简化后的时间复杂度忽略了常数项等等），要考虑数据规模，如果数据规模很小甚至可以用O(n^2)的算法比O(n)的更合适（在有常数项的时候）。</p>
-<p>就像上图中 O(5n^2) 和 O(100n) 在n为20之前 很明显 O(5n^2)是更优的，所花费的时间也是最少的。</p>
-<p>那为什么在计算时间复杂度的时候要忽略常数项系数呢，也就说O(100n) 就是O(n)的时间复杂度，O(5n^2) 就是O(n^2)的时间复杂度，而且要默认O(n) 优于O(n^2) 呢 ？</p>
-<p>这里就又涉及到大O的定义，<strong>「因为大O就是数据量级突破一个点且数据量级非常大的情况下所表现出的时间复杂度，这个数据量也就是常数项系数已经不起决定性作用的数据量」</strong>。</p>
-<p>例如上图中20就是那个点，n只要大于20 常数项系数已经不起决定性作用了。</p>
-<p><strong>「所以我们说的时间复杂度都是省略常数项系数的，是因为一般情况下都是默认数据规模足够的大，基于这样的事实，给出的算法时间复杂的的一个排行如下所示」</strong>：</p>
-<p>O(1)常数阶 &lt; O(logn)对数阶 &lt; O(n)线性阶 &lt; O(n^2)平方阶 &lt; O(n^3)(立方阶) &lt; O(2^n) (指数阶)</p>
-<p>但是也要注意大常数，如果这个常数非常大，例如10^7 ，10^9 ，那么常数就是不得不考虑的因素了。</p>
-<h3 id="时间复杂度计算"><a href="#时间复杂度计算" class="headerlink" title="时间复杂度计算"></a>时间复杂度计算</h3><ol>
-<li><p>对于一个循环体，假设循环体的时间复杂度为O(n),循环次数为 m，则这个<br>循环的时间复杂度为 O(n×m)。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153656308.png" alt="image-20210409153656308"></p>
-<p>此时时间复杂度为 O(n × 1)，即 O(n)。</p>
-</li>
-<li><p>对于多个循环体，假设循环体的时间复杂度为O(n)，各个循环的循环次数分别为a,b,c。。。。，则这个循环的时间复杂度为O(n<em>a</em>b<em>c</em>…..),此时时间复杂度为 O(n × n × 1)，即 O(n^2)。</p>
-<p><img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409153832353.png" alt="image-20210409153832353"></p>
-</li>
-<li><p>对于顺序执行的语句或者算法，总的时间复杂度 等于其中最大的时间复杂度<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154224821.png" alt="image-20210409154224821"></p>
-<p>此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-</li>
-<li><p>对于条件判断语句，总的时间复杂度等于其中 时间复杂度最大的路径 的时间复杂度。<img src="/2021/04/09/%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409154258121.png" alt="image-20210409154258121"></p>
-</li>
-</ol>
-<p>​       此时时间复杂度为 max(O(n^2), O(n))，即 O(n^2)。</p>
-<ol start="5">
-<li>递归复杂度计算</li>
-</ol>
-<p>参考：<a href="https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/I6ZXFbw09NR31F5CJR_geQ</a></p>
+    <title>实习一个月总结</title>
+    <url>/2020/09/17/%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%B8%AA%E6%9C%88%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>从八月十九号入职爱奇艺会员业务部门成为一名java开发实习生，到今天为止差不多快一个月了。从刚开始的熟悉代码画流程图，到实习业务之后开始写Python脚本，接触项目，开发监控系统和管理数据系统，每一项对我来说都是陌生和全新的，有的时候忙到一天没时间吃饭，有的时候轻松到一天都可以看文档学习。偶尔也会有担心，担心自己写不出来代码，担心自己写出来代码后又被批评代码写的太垃圾，后来安慰自己本来到这里就是来学习的，如果我一开始我就杨洋做的很好，那么我到这里的意义在哪里呢？我的目标是来学习，把他们的本领学到手，而不倒任务完成的有多漂亮，工作做的有多好。偶尔反思自己，我需要摆正自己的心态，认清自己的不足，不会的就多学习，不能怕丢脸，自己本来就是一个菜鸟，想成为大神，想明年进入理想的公司，这些都是必经之路。</p>
+<p>入职一个月，我学到的最重要的就是书的重要性，多看书，多看代码。我的mentor现在还每天都看书来充实自己，而我最为一个研究生，又有多久没有碰过书了，惭愧惭愧。尤其昨天开会的时候，有一些问题我没有答上来，但其实我是知道的，让我了解我需要书来充实自己，也让我了解到mentor的知识面。了解到自己的不足，就有努力的方向，昨天的遗憾留给昨天，今天明天继续努力。</p>
+<p>多刷题，多看书，多写代码，多学习！！！！</p>
+<p>加油！！！！奥利给！！！！</p>
 ]]></content>
+      <categories>
+        <category>唠叨</category>
+      </categories>
+      <tags>
+        <tag>无聊琐事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>并查集</title>
+    <url>/2021/03/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>复杂度</tag>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字符和字符串加法</title>
+    <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
+    <content><![CDATA[<p><strong>加法运算特点</strong></p>
+<ol>
+<li><p>加法两边是数值型数据时，进行加法运算</p>
+</li>
+<li><p>加法两边有任意一边是字符串时，进行字符串的拼接</p>
+</li>
+<li><p>字符型数据参与算术运算，是用字符在计算机中存储的数据来进行运算的</p>
+<p>‘0’——48</p>
+<p>‘a’——97</p>
+<p>‘A’——-65</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> b=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> c=(<span class="keyword">byte</span>)(a+b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line">        <span class="keyword">char</span> d=<span class="string">'a'</span>;</span><br><span class="line">        System.out.println(a+d);</span><br><span class="line">        System.out.println(<span class="string">"helloword"</span>+<span class="number">10</span>+<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>输出结果：</p>
+<p><img src="/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/image-20200711103245195.png" alt="image-20200711103245195"></p>
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>字符和字符串加法</tag>
       </tags>
   </entry>
   <entry>
@@ -228,58 +283,54 @@
       </tags>
   </entry>
   <entry>
-    <title>字符和字符串加法</title>
-    <url>/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/</url>
-    <content><![CDATA[<p><strong>加法运算特点</strong></p>
-<ol>
-<li><p>加法两边是数值型数据时，进行加法运算</p>
-</li>
-<li><p>加法两边有任意一边是字符串时，进行字符串的拼接</p>
-</li>
-<li><p>字符型数据参与算术运算，是用字符在计算机中存储的数据来进行运算的</p>
-<p>‘0’——48</p>
-<p>‘a’——97</p>
-<p>‘A’——-65</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> b=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">byte</span> c=(<span class="keyword">byte</span>)(a+b);</span><br><span class="line">        System.out.println(c);</span><br><span class="line">        <span class="keyword">char</span> d=<span class="string">'a'</span>;</span><br><span class="line">        System.out.println(a+d);</span><br><span class="line">        System.out.println(<span class="string">"helloword"</span>+<span class="number">10</span>+<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+    <title>成员变量和局部变量</title>
+    <url>/2020/07/13/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Descripttion: </span></span><br><span class="line"><span class="comment"> * @Author: Ashley</span></span><br><span class="line"><span class="comment"> * @Date: 2020-07-11 17:20:38</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 成员变量，类中方法外</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">    private一般修饰成员变量</span></span><br><span class="line"><span class="comment">    public一般修饰成员方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//提供公共的访问方法，分别设置值，获取值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 成员变量和局部变量的区别： 位置： 初始化值：成员变量有初始值，局部变量没有初始值 作用范围：成员变量再类中，局部变量在方法中</span></span><br><span class="line"><span class="comment">     * 内存中的位置：成员变量再堆中，局部变量再栈中 生命周期：成员变量随着对象的创建而存在，随着对象的消失而消失</span></span><br><span class="line"><span class="comment">     * 局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 局部变量：方法内部，或者参数列表</span></span><br><span class="line">        String name = <span class="string">"小黑"</span>;<span class="comment">// 使用变量的规则遵循就近原则，如果局部位置有，就使用，没有就去本类的成员位置找，没有，就去父类找</span></span><br><span class="line">        System.out.print(name + <span class="string">"正在学习\n"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">age</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + age + <span class="string">"了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-</li>
-</ol>
-<p>输出结果：</p>
-<p><img src="/2020/07/11/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E6%B3%95/image-20200711103245195.png" alt="image-20200711103245195"></p>
+<p><strong>总结：</strong></p>
+<p>成员变量和局部变量的区别： </p>
+<p><strong>位置</strong>： 成员变量在类中方法外，局部变量，方法内</p>
+<p><strong>初始化值</strong>：成员变量有初始值，局部变量没有初始值</p>
+<p> <strong>作用范围</strong>：成员变量再类中，局部变量在方法中<br>       <strong>内存中的位置</strong>：成员变量再堆中，局部变量再栈中 </p>
+<p><strong>生命周期</strong>：成员变量随着对象的创建而存在，随着对象的消失而消失<br>     <strong>局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</strong></p>
 ]]></content>
       <categories>
         <category>java基础</category>
       </categories>
       <tags>
-        <tag>字符和字符串加法</tag>
+        <tag>成员变量  局部变量</tag>
       </tags>
   </entry>
   <entry>
-    <title>实习一个月总结</title>
-    <url>/2020/09/17/%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%B8%AA%E6%9C%88%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>从八月十九号入职爱奇艺会员业务部门成为一名java开发实习生，到今天为止差不多快一个月了。从刚开始的熟悉代码画流程图，到实习业务之后开始写Python脚本，接触项目，开发监控系统和管理数据系统，每一项对我来说都是陌生和全新的，有的时候忙到一天没时间吃饭，有的时候轻松到一天都可以看文档学习。偶尔也会有担心，担心自己写不出来代码，担心自己写出来代码后又被批评代码写的太垃圾，后来安慰自己本来到这里就是来学习的，如果我一开始我就杨洋做的很好，那么我到这里的意义在哪里呢？我的目标是来学习，把他们的本领学到手，而不倒任务完成的有多漂亮，工作做的有多好。偶尔反思自己，我需要摆正自己的心态，认清自己的不足，不会的就多学习，不能怕丢脸，自己本来就是一个菜鸟，想成为大神，想明年进入理想的公司，这些都是必经之路。</p>
-<p>入职一个月，我学到的最重要的就是书的重要性，多看书，多看代码。我的mentor现在还每天都看书来充实自己，而我最为一个研究生，又有多久没有碰过书了，惭愧惭愧。尤其昨天开会的时候，有一些问题我没有答上来，但其实我是知道的，让我了解我需要书来充实自己，也让我了解到mentor的知识面。了解到自己的不足，就有努力的方向，昨天的遗憾留给昨天，今天明天继续努力。</p>
-<p>多刷题，多看书，多写代码，多学习！！！！</p>
-<p>加油！！！！奥利给！！！！</p>
+    <title>排序链表去重</title>
+    <url>/2021/03/25/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%8E%BB%E9%87%8D/</url>
+    <content><![CDATA[<ol>
+<li><p>82.删除排序链表中的重复元素</p>
+<p>存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。</p>
+<p>返回同样按升序排列的结果链表。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span> || head.next==<span class="keyword">null</span>)<span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ListNode newHead=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">            newHead.next=head;</span><br><span class="line">            ListNode pre=newHead;</span><br><span class="line">            ListNode cur=head;</span><br><span class="line">            ListNode next=<span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">while</span>(cur!=<span class="keyword">null</span> &amp;&amp; cur.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                next=cur.next;</span><br><span class="line">                <span class="keyword">if</span>(cur.val==next.val)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(next!=<span class="keyword">null</span> &amp;&amp; cur.val==next.val)&#123;</span><br><span class="line">                        next=next.next;</span><br><span class="line">                        cur=cur.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre.next=next;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    pre=cur;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> newHead.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode tail = dummy;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 进入循环时，确保了 head 不会与上一节点相同</span></span><br><span class="line">            <span class="keyword">if</span> (head.next == <span class="keyword">null</span> || head.val != head.next.val) &#123;</span><br><span class="line">                tail.next = head;</span><br><span class="line">                tail = head;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果 head 与下一节点相同，跳过相同节点</span></span><br><span class="line">            <span class="keyword">while</span> (head.next != <span class="keyword">null</span> &amp;&amp; head.val == head.next.val) head = head.next;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        tail.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>83  删除排序链表中的重复节点—保留重复节点</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode slow=head;</span><br><span class="line">        ListNode fast=head.next;</span><br><span class="line">        <span class="keyword">while</span> (fast!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast.val!=slow.val)&#123;</span><br><span class="line">                slow.next=fast;</span><br><span class="line">                slow=slow.next;</span><br><span class="line">            &#125;</span><br><span class="line">            fast=fast.next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow.next=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
 ]]></content>
-      <categories>
-        <category>唠叨</category>
-      </categories>
-      <tags>
-        <tag>无聊琐事</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>并查集</title>
-    <url>/2021/03/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>并查集</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -371,87 +422,6 @@
       </tags>
   </entry>
   <entry>
-    <title>成员变量和局部变量</title>
-    <url>/2020/07/13/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Descripttion: </span></span><br><span class="line"><span class="comment"> * @Author: Ashley</span></span><br><span class="line"><span class="comment"> * @Date: 2020-07-11 17:20:38</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 成员变量，类中方法外</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">    private一般修饰成员变量</span></span><br><span class="line"><span class="comment">    public一般修饰成员方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//提供公共的访问方法，分别设置值，获取值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 成员变量和局部变量的区别： 位置： 初始化值：成员变量有初始值，局部变量没有初始值 作用范围：成员变量再类中，局部变量在方法中</span></span><br><span class="line"><span class="comment">     * 内存中的位置：成员变量再堆中，局部变量再栈中 生命周期：成员变量随着对象的创建而存在，随着对象的消失而消失</span></span><br><span class="line"><span class="comment">     * 局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 局部变量：方法内部，或者参数列表</span></span><br><span class="line">        String name = <span class="string">"小黑"</span>;<span class="comment">// 使用变量的规则遵循就近原则，如果局部位置有，就使用，没有就去本类的成员位置找，没有，就去父类找</span></span><br><span class="line">        System.out.print(name + <span class="string">"正在学习\n"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">age</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + age + <span class="string">"了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>总结：</strong></p>
-<p>成员变量和局部变量的区别： </p>
-<p><strong>位置</strong>： 成员变量在类中方法外，局部变量，方法内</p>
-<p><strong>初始化值</strong>：成员变量有初始值，局部变量没有初始值</p>
-<p> <strong>作用范围</strong>：成员变量再类中，局部变量在方法中<br>       <strong>内存中的位置</strong>：成员变量再堆中，局部变量再栈中 </p>
-<p><strong>生命周期</strong>：成员变量随着对象的创建而存在，随着对象的消失而消失<br>     <strong>局部变量随着方法的调用而存在，随着方法调用结束而消失 注意：如果成员变量和局部变量重名就使用就近原则</strong></p>
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>成员变量  局部变量</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>排序链表去重</title>
-    <url>/2021/03/25/%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%8E%BB%E9%87%8D/</url>
-    <content><![CDATA[<ol>
-<li><p>82.删除排序链表中的重复元素</p>
-<p>存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。</p>
-<p>返回同样按升序排列的结果链表。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span> || head.next==<span class="keyword">null</span>)<span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ListNode newHead=<span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">            newHead.next=head;</span><br><span class="line">            ListNode pre=newHead;</span><br><span class="line">            ListNode cur=head;</span><br><span class="line">            ListNode next=<span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">while</span>(cur!=<span class="keyword">null</span> &amp;&amp; cur.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                next=cur.next;</span><br><span class="line">                <span class="keyword">if</span>(cur.val==next.val)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(next!=<span class="keyword">null</span> &amp;&amp; cur.val==next.val)&#123;</span><br><span class="line">                        next=next.next;</span><br><span class="line">                        cur=cur.next;</span><br><span class="line">                    &#125;</span><br><span class="line">                    pre.next=next;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    pre=cur;</span><br><span class="line">                    cur=cur.next;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> newHead.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode tail = dummy;</span><br><span class="line">        <span class="keyword">while</span> (head != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 进入循环时，确保了 head 不会与上一节点相同</span></span><br><span class="line">            <span class="keyword">if</span> (head.next == <span class="keyword">null</span> || head.val != head.next.val) &#123;</span><br><span class="line">                tail.next = head;</span><br><span class="line">                tail = head;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果 head 与下一节点相同，跳过相同节点</span></span><br><span class="line">            <span class="keyword">while</span> (head.next != <span class="keyword">null</span> &amp;&amp; head.val == head.next.val) head = head.next;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        tail.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>83  删除排序链表中的重复节点—保留重复节点</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplicates</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode slow=head;</span><br><span class="line">        ListNode fast=head.next;</span><br><span class="line">        <span class="keyword">while</span> (fast!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast.val!=slow.val)&#123;</span><br><span class="line">                slow.next=fast;</span><br><span class="line">                slow=slow.next;</span><br><span class="line">            &#125;</span><br><span class="line">            fast=fast.next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow.next=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>插入排序</title>
-    <url>/2021/05/22/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4><p>将一个元素插入到有序数组中，使之成为更长的有序数组</p>
-<p>具体来说，我们需要从第二个数开始，一次把这个数插入到它之前已经排好序的部分，这样每一次都能得到比上一次更长的有序数组，直到数组整体有序</p>
-<h4 id="将一个元素插入一个有序数组的两种方式"><a href="#将一个元素插入一个有序数组的两种方式" class="headerlink" title="将一个元素插入一个有序数组的两种方式"></a>将一个元素插入一个有序数组的两种方式</h4><ol>
-<li>逐个交换到前面合适的位置</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] insertSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        <span class="comment">//将nums[i]插入到区间[0,i]使之成为有序数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i;j&gt;<span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j-<span class="number">1</span>]&gt;nums[j])swap(nums,j-<span class="number">1</span>,j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度：O(n*n)</p>
-<p>空间复杂度：O(1)</p>
-<ol start="2">
-<li>先暂存当前变量，然后将前面若干个元素逐个向后赋值</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] insertSort2(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line"><span class="comment">//            先暂存这个变量，然后之前数值严格小于temp的所有元素后移</span></span><br><span class="line">            <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">            <span class="keyword">int</span> j=i;</span><br><span class="line">            <span class="keyword">while</span> (j&gt;<span class="number">0</span> &amp;&amp; nums[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">                nums[j]=nums[j-<span class="number">1</span>];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[j]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>与选择排序不同的是，插入排序比较的方式是从后向前将依次看到的元素与待插入的元素进行比较，这一步操作不同比较完它前面所有的元素，即：插入排序的内层循环可以提前终止，这一点是插入排序非常重要的性质</p>
-<p>如果待排序的数组是接近有序的数组和元素个数较少的数组，插入排序就可以很快的完成排序任务，选择排序不具备这样的特点。一个非常极端的例子是：对一个已经排好序的数组，使用插入排序，每一轮插入排序就只要看一个前面的那个元素，发现不能再往前移动了，马上进入下一层循环</p>
-<p>结论：插入排序最好的时间复杂度是：O（n）</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>排序 插入</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>构造方法</title>
     <url>/2020/07/13/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>构造方法：帮助创建对象的方法，也就是初始化对象</p>
@@ -468,6 +438,44 @@
       </categories>
       <tags>
         <tag>构造方法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>空间复杂度</title>
+    <url>/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
+    <content><![CDATA[<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>什么是空间复杂度呢？</p>
+<p>是对一个算法在运行过程中占用内存空间大小的量度，记做S(n)=O(f(n)。</p>
+<p>空间复杂度(Space Complexity)记作S(n) 依然使用大O来表示。利用程序的空间复杂度，可以对程序运行中需要多少内存有个预先估计。</p>
+<p>关注空间复杂度有两个常见的相关问题</p>
+<ol>
+<li>空间复杂度是考虑程序（可执行文件）的大小吗？</li>
+</ol>
+<p><strong>空间复杂度是考虑程序运行时占用内存的大小，而不是可执行文件的大小。</strong></p>
+<ol start="2">
+<li><p>空间复杂度是准确算出程序运行时所占用的内存吗？</p>
+<p>不要以为空间复杂度就已经精准的掌握了程序的内存使用大小，很有多因素会影响程序真正内存使用大小，例如<strong>编译器的内存对齐，编程语言容器的底层实现</strong>等等这些都会影响到程序内存的开销。</p>
+<p>所以空间复杂度是预先大体评估程序内存使用的大小。</p>
+<p>说到空间复杂度，大家在OJ（online judge）上应该遇到过这种错误，就是超出内存限制，一般OJ对程序运行时的所消耗的内存都有一个限制。</p>
+<p>为了避免内存超出限制，这也需要我们对算法占用多大的内存有一个大体的预估。</p>
+<p>同样在工程实践中，计算机的内存空间也不是无限的，需要工程师对软件运行时所使用的内存有一个大体评估，这都需要用到算法空间复杂度的分析。</p>
+</li>
+</ol>
+<p>那么什么时候空间复杂度是O(1)呢？</p>
+<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155057641.png" alt="image-20210409155057641"></p>
+<p>第一段代码可以看出，随着n的变化，所需开辟的内存空间并不会随着n的变化而变化。即此算法空间复杂度为一个常量，所以表示为大 O(1)。</p>
+<p>什么时候的空间复杂度是O(n)呢？</p>
+<p>当小号空间和输入参数n保持线性增长，这样的空间复杂度为O(n)</p>
+<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155209893.png" alt="image-20210409155209893"></p>
+<p>我们定义了一个数组出来，这个数组占用的大小为n，虽然有一个for循环，但没有再分配新的空间，因此，这段代码的空间复杂度主要看第一行即可，随着n的增大，开辟的内存大小呈线性增长，即 O(n)。</p>
+<p>什么时候的空间复杂度为 <strong>O(logn)呢？</strong></p>
+<p>空间复杂度是logn的情况确实有些特殊，其实是在<strong>递归的时候，会出现空间复杂度为logn的情况</strong>。</p>
+<p>参考：<a href="https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw</a></p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>空间复杂度</tag>
       </tags>
   </entry>
   <entry>
@@ -533,69 +541,33 @@
       </tags>
   </entry>
   <entry>
-    <title>状态压缩</title>
-    <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
-    <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
-<p>却迟迟理解不了，于是上网查了很多的资料，<strong>一句话总结就是用一串二进制数来表示当前情况的状态</strong></p>
-<p>参考如下：</p>
-<p><a href="https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p>
-<p><a href="https://blog.csdn.net/fjy19950504/article/details/105929173/" target="_blank" rel="noopener">https://blog.csdn.net/fjy19950504/article/details/105929173/</a></p>
-<p><a href="https://blog.csdn.net/lu597203933/article/details/44137277" target="_blank" rel="noopener">https://blog.csdn.net/lu597203933/article/details/44137277</a></p>
-<p>状态压缩用的到知识点主要是Java中的位运算，也有一方面是自己对位运算的理解不透彻，先把位运算的知识点总结如下：</p>
-<ol>
-<li>&amp;：x&amp;y，将两个十进制数在二进制下进行<strong>与</strong>运算，然后返回其十进制下的值（规则是两个同时为1，结果为1，否则为0），例如3（11）&amp;2（10）=2（10）</li>
-<li>|：x|y，将两个十进制数在二进制下进行<strong>或</strong>运算，然后返回其十进制下的值（规则是一个为1，其值为1），例如：3（11）|2（10）=3（11）</li>
-<li>^：x ^ y：将两个十进制的值在二进制下进行<strong>异或</strong>运算，然后返回其十进制下的值（规则是相同为0，不同为1），例如：3（11）^ 2（10）=1（01）</li>
-<li>&lt;&lt;：左移操作，x&lt;&lt;2，将x在二进制下的每一位向左移动两位，最右边用0填充，相当于让x乘以4</li>
-<li>&lt;&lt;：右移操作，x&gt;&gt;1，相当于x/2，去掉x最右一位</li>
-<li><u><em>判断一个数字x二进制下第i位是不是等于1。</em></u><br><u><em>方法：if(((1&lt;&lt;(i−1))&amp;x)&gt;0)</em></u><br><u><em>将1左移i-1位，相当于制造了一个只有第i位上是1，其他位上都是0的二进制数。然后与x做与运算，如果结果&gt;0，说明x第i位上是1，反之则是0。</em></u></li>
-<li><u><em>将一个数字x二进制下第i位更改成1。</em></u><br><u><em>方法：x=x|(1&lt;&lt;(i−1))</em></u></li>
-<li><u><em>把一个数字二进制下最靠右的第一个1去掉。</em></u><br><u><em>方法：x=x&amp;(x−1)</em></u></li>
+    <title>插入排序</title>
+    <url>/2021/05/22/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4><p>将一个元素插入到有序数组中，使之成为更长的有序数组</p>
+<p>具体来说，我们需要从第二个数开始，一次把这个数插入到它之前已经排好序的部分，这样每一次都能得到比上一次更长的有序数组，直到数组整体有序</p>
+<h4 id="将一个元素插入一个有序数组的两种方式"><a href="#将一个元素插入一个有序数组的两种方式" class="headerlink" title="将一个元素插入一个有序数组的两种方式"></a>将一个元素插入一个有序数组的两种方式</h4><ol>
+<li>逐个交换到前面合适的位置</li>
 </ol>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>状态压缩</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>空间复杂度</title>
-    <url>/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</url>
-    <content><![CDATA[<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>什么是空间复杂度呢？</p>
-<p>是对一个算法在运行过程中占用内存空间大小的量度，记做S(n)=O(f(n)。</p>
-<p>空间复杂度(Space Complexity)记作S(n) 依然使用大O来表示。利用程序的空间复杂度，可以对程序运行中需要多少内存有个预先估计。</p>
-<p>关注空间复杂度有两个常见的相关问题</p>
-<ol>
-<li>空间复杂度是考虑程序（可执行文件）的大小吗？</li>
-</ol>
-<p><strong>空间复杂度是考虑程序运行时占用内存的大小，而不是可执行文件的大小。</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] insertSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        <span class="comment">//将nums[i]插入到区间[0,i]使之成为有序数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i;j&gt;<span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j-<span class="number">1</span>]&gt;nums[j])swap(nums,j-<span class="number">1</span>,j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：O(n*n)</p>
+<p>空间复杂度：O(1)</p>
 <ol start="2">
-<li><p>空间复杂度是准确算出程序运行时所占用的内存吗？</p>
-<p>不要以为空间复杂度就已经精准的掌握了程序的内存使用大小，很有多因素会影响程序真正内存使用大小，例如<strong>编译器的内存对齐，编程语言容器的底层实现</strong>等等这些都会影响到程序内存的开销。</p>
-<p>所以空间复杂度是预先大体评估程序内存使用的大小。</p>
-<p>说到空间复杂度，大家在OJ（online judge）上应该遇到过这种错误，就是超出内存限制，一般OJ对程序运行时的所消耗的内存都有一个限制。</p>
-<p>为了避免内存超出限制，这也需要我们对算法占用多大的内存有一个大体的预估。</p>
-<p>同样在工程实践中，计算机的内存空间也不是无限的，需要工程师对软件运行时所使用的内存有一个大体评估，这都需要用到算法空间复杂度的分析。</p>
-</li>
+<li>先暂存当前变量，然后将前面若干个元素逐个向后赋值</li>
 </ol>
-<p>那么什么时候空间复杂度是O(1)呢？</p>
-<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155057641.png" alt="image-20210409155057641"></p>
-<p>第一段代码可以看出，随着n的变化，所需开辟的内存空间并不会随着n的变化而变化。即此算法空间复杂度为一个常量，所以表示为大 O(1)。</p>
-<p>什么时候的空间复杂度是O(n)呢？</p>
-<p>当小号空间和输入参数n保持线性增长，这样的空间复杂度为O(n)</p>
-<p><img src="/2021/04/09/%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/image-20210409155209893.png" alt="image-20210409155209893"></p>
-<p>我们定义了一个数组出来，这个数组占用的大小为n，虽然有一个for循环，但没有再分配新的空间，因此，这段代码的空间复杂度主要看第一行即可，随着n的增大，开辟的内存大小呈线性增长，即 O(n)。</p>
-<p>什么时候的空间复杂度为 <strong>O(logn)呢？</strong></p>
-<p>空间复杂度是logn的情况确实有些特殊，其实是在<strong>递归的时候，会出现空间复杂度为logn的情况</strong>。</p>
-<p>参考：<a href="https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zLeRB-GPc3q4DG-a5cQLVw</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] insertSort2(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line"><span class="comment">//            先暂存这个变量，然后之前数值严格小于temp的所有元素后移</span></span><br><span class="line">            <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">            <span class="keyword">int</span> j=i;</span><br><span class="line">            <span class="keyword">while</span> (j&gt;<span class="number">0</span> &amp;&amp; nums[j-<span class="number">1</span>]&gt;temp)&#123;</span><br><span class="line">                nums[j]=nums[j-<span class="number">1</span>];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[j]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>与选择排序不同的是，插入排序比较的方式是从后向前将依次看到的元素与待插入的元素进行比较，这一步操作不同比较完它前面所有的元素，即：插入排序的内层循环可以提前终止，这一点是插入排序非常重要的性质</p>
+<p>如果待排序的数组是接近有序的数组和元素个数较少的数组，插入排序就可以很快的完成排序任务，选择排序不具备这样的特点。一个非常极端的例子是：对一个已经排好序的数组，使用插入排序，每一轮插入排序就只要看一个前面的那个元素，发现不能再往前移动了，马上进入下一层循环</p>
+<p>结论：插入排序最好的时间复杂度是：O（n）</p>
 ]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
-        <tag>空间复杂度</tag>
+        <tag>排序 插入</tag>
       </tags>
   </entry>
   <entry>
@@ -638,53 +610,6 @@
       </categories>
   </entry>
   <entry>
-    <title>选择排序</title>
-    <url>/2021/05/22/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h4 id="选择排序的基本思想"><a href="#选择排序的基本思想" class="headerlink" title="选择排序的基本思想"></a>选择排序的基本思想</h4><p>从小到大一次选出第一个元素，第二个元素，通过交换达到选择和排序的目的</p>
-<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     * 每一轮都选取为排定部分的最小元素，然后将它交换到未排定的部分的第一个位置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] selectSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="comment">//最后一轮只有一个元素，一定是最大元素，因此是len-1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex=i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&lt;nums[minIndex])&#123;</span><br><span class="line">                    minIndex=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums,minIndex,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度:O(n*n)</p>
-<p>空间复杂度：O(1)</p>
-<h4 id="选择排序的特点"><a href="#选择排序的特点" class="headerlink" title="选择排序的特点"></a>选择排序的特点</h4><p><strong>交换的次数最少</strong></p>
-<p>如果一个排序任务交换的成本很高，可以考虑使用选择排序</p>
-<p><strong>运行时间与输入无关</strong></p>
-<p>每一趟扫描，除了扫描的元素比上一轮上了一个意外与，选择排序没有记住更多的信息。一个极端的例子是：已经是排好序的数组，选择排序还需要一次又一次的扫描</p>
-<p><strong>这两点是选择排序区别其他排序算的特点</strong></p>
-<h4 id="选择排序体现的算法思想"><a href="#选择排序体现的算法思想" class="headerlink" title="选择排序体现的算法思想"></a>选择排序体现的算法思想</h4><p>贪心算法</p>
-<p>减而治之</p>
-]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>排序 选择</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重载和重写</title>
-    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
-    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
-<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
-<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
-<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
-<p><strong>注意：</strong></p>
-<p>父类私有方法无法重写</p>
-<p>子类方法访问权限不能小于父类方法</p>
-<p>子类不能比父类抛出更大的异常</p>
-<p>使用场景：扩展父类功能</p>
-<p>父类功能过时，重新实现父类的功能 </p>
-]]></content>
-      <categories>
-        <category>java基础</category>
-      </categories>
-      <tags>
-        <tag>重载 重写</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>集合和泛型</title>
     <url>/2020/07/14/%E9%9B%86%E5%90%88%E5%92%8C%E6%B3%9B%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="集合和数组的区别："><a href="#集合和数组的区别：" class="headerlink" title="集合和数组的区别："></a>集合和数组的区别：</h1><p>元素类型：<br>集合：引用类型（存储基本类型时自动装箱）<br>数组：基本类型，引用类型<br>元素个数：<br>集合：不固定，可任意扩容<br>数组：固定，不能改变容量<br>集合的好处：<br>不受容器大小限制，可以随意添加删除元素<br>提供了大量操作元素的方法（判断获取等）</p>
@@ -714,6 +639,81 @@
       </categories>
       <tags>
         <tag>集合  泛型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重载和重写</title>
+    <url>/2020/07/13/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</url>
+    <content><![CDATA[<h1 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h1><p>方法重载：在同一类中的多个方法，它们的方法名相同，参数列表不同，</p>
+<p>   这样的情况称为方法重载，<strong>方法重载与返回值类型和修饰符无关</strong></p>
+<p>   参数列表不同：参数的个数不同；对应位置的参数类型不同</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">compare</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean  <span class="title">compare</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a==b;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>子类中出现和父类方法定义相同的方法的现象</p>
+<p>解释：方法重写也叫方法覆写，覆盖，<strong>方法名，参数列表，返回值类型都相同</strong></p>
+<p><strong>注意：</strong></p>
+<p>父类私有方法无法重写</p>
+<p>子类方法访问权限不能小于父类方法</p>
+<p>子类不能比父类抛出更大的异常</p>
+<p>使用场景：扩展父类功能</p>
+<p>父类功能过时，重新实现父类的功能 </p>
+]]></content>
+      <categories>
+        <category>java基础</category>
+      </categories>
+      <tags>
+        <tag>重载 重写</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>状态压缩</title>
+    <url>/2020/05/29/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<p>最近做Leetcode上第1371（<a href="https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/）的题目，用到的知识点是状态压缩+前缀和，对于状态压缩</a></p>
+<p>却迟迟理解不了，于是上网查了很多的资料，<strong>一句话总结就是用一串二进制数来表示当前情况的状态</strong></p>
+<p>参考如下：</p>
+<p><a href="https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/u011077606/article/details/43487421?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p>
+<p><a href="https://blog.csdn.net/fjy19950504/article/details/105929173/" target="_blank" rel="noopener">https://blog.csdn.net/fjy19950504/article/details/105929173/</a></p>
+<p><a href="https://blog.csdn.net/lu597203933/article/details/44137277" target="_blank" rel="noopener">https://blog.csdn.net/lu597203933/article/details/44137277</a></p>
+<p>状态压缩用的到知识点主要是Java中的位运算，也有一方面是自己对位运算的理解不透彻，先把位运算的知识点总结如下：</p>
+<ol>
+<li>&amp;：x&amp;y，将两个十进制数在二进制下进行<strong>与</strong>运算，然后返回其十进制下的值（规则是两个同时为1，结果为1，否则为0），例如3（11）&amp;2（10）=2（10）</li>
+<li>|：x|y，将两个十进制数在二进制下进行<strong>或</strong>运算，然后返回其十进制下的值（规则是一个为1，其值为1），例如：3（11）|2（10）=3（11）</li>
+<li>^：x ^ y：将两个十进制的值在二进制下进行<strong>异或</strong>运算，然后返回其十进制下的值（规则是相同为0，不同为1），例如：3（11）^ 2（10）=1（01）</li>
+<li>&lt;&lt;：左移操作，x&lt;&lt;2，将x在二进制下的每一位向左移动两位，最右边用0填充，相当于让x乘以4</li>
+<li>&lt;&lt;：右移操作，x&gt;&gt;1，相当于x/2，去掉x最右一位</li>
+<li><u><em>判断一个数字x二进制下第i位是不是等于1。</em></u><br><u><em>方法：if(((1&lt;&lt;(i−1))&amp;x)&gt;0)</em></u><br><u><em>将1左移i-1位，相当于制造了一个只有第i位上是1，其他位上都是0的二进制数。然后与x做与运算，如果结果&gt;0，说明x第i位上是1，反之则是0。</em></u></li>
+<li><u><em>将一个数字x二进制下第i位更改成1。</em></u><br><u><em>方法：x=x|(1&lt;&lt;(i−1))</em></u></li>
+<li><u><em>把一个数字二进制下最靠右的第一个1去掉。</em></u><br><u><em>方法：x=x&amp;(x−1)</em></u></li>
+</ol>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>状态压缩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>选择排序</title>
+    <url>/2021/05/22/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h4 id="选择排序的基本思想"><a href="#选择排序的基本思想" class="headerlink" title="选择排序的基本思想"></a>选择排序的基本思想</h4><p>从小到大一次选出第一个元素，第二个元素，通过交换达到选择和排序的目的</p>
+<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 选择排序</span></span><br><span class="line"><span class="comment">     * 每一轮都选取为排定部分的最小元素，然后将它交换到未排定的部分的第一个位置</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] selectSort(<span class="keyword">int</span>[] nums)&#123;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="comment">//最后一轮只有一个元素，一定是最大元素，因此是len-1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex=i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j]&lt;nums[minIndex])&#123;</span><br><span class="line">                    minIndex=j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums,minIndex,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">        nums[i]=nums[j];</span><br><span class="line">        nums[j]=temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>时间复杂度:O(n*n)</p>
+<p>空间复杂度：O(1)</p>
+<h4 id="选择排序的特点"><a href="#选择排序的特点" class="headerlink" title="选择排序的特点"></a>选择排序的特点</h4><p><strong>交换的次数最少</strong></p>
+<p>如果一个排序任务交换的成本很高，可以考虑使用选择排序</p>
+<p><strong>运行时间与输入无关</strong></p>
+<p>每一趟扫描，除了扫描的元素比上一轮上了一个意外与，选择排序没有记住更多的信息。一个极端的例子是：已经是排好序的数组，选择排序还需要一次又一次的扫描</p>
+<p><strong>这两点是选择排序区别其他排序算的特点</strong></p>
+<h4 id="选择排序体现的算法思想"><a href="#选择排序体现的算法思想" class="headerlink" title="选择排序体现的算法思想"></a>选择排序体现的算法思想</h4><p>贪心算法</p>
+<p>减而治之</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>排序 选择</tag>
       </tags>
   </entry>
   <entry>
@@ -846,6 +846,74 @@
       </categories>
       <tags>
         <tag>python 可视化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>非比较排序算法</title>
+    <url>/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h2><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>将元素的值，看成计数数组的下标。</p>
+<p>计数排序顾名思义：通过统计每个元素出现的次数完成排序。</p>
+<h3 id="适用条件"><a href="#适用条件" class="headerlink" title="适用条件"></a>适用条件</h3><ol>
+<li>非负整数排序</li>
+<li>最大值不是很大</li>
+<li>重复键值很多</li>
+</ol>
+<h3 id="稳定性实现"><a href="#稳定性实现" class="headerlink" title="稳定性实现"></a>稳定性实现</h3><ol>
+<li>计算前缀和计数数组</li>
+<li>从后向前扫描</li>
+</ol>
+<p>以数组：<code>[2, 5, 3, 0, 2, 3, 0, 3]</code> 为例。</p>
+<p><strong>第一步：得到计数数组，计数数组的元素个数等于原始数组的最大元素+1</strong></p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524093853858.png" alt="image-20210524093853858"></p>
+<p>表示数值0 出现2次，1出现0次，2出现2次，3出现3次，4出现0次，5出现1次</p>
+<p><strong>第二步：将计数数组改造成前缀和计数数组</strong></p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524094041265.png" alt="image-20210524094041265"></p>
+<p>表示：排好序以后，最后一个0出现在数组的第二个位置（下标为1），最后一个2出现在数组的第四个位置，以此类推。通过前缀和计数数组，可以很清楚的知道最后一个元素在排好序以后应该位于什么位置，因此可以从后向前一次遍历原始数组，把值赋值回去，保证排序以后数组的稳定性</p>
+<p><strong>第三步：从后向前赋值回原始数组</strong></p>
+<p>最后一个元素是3，看前缀和计数数组，知道3一定位于原始数组的第七位，即下标是6的位置，因此在下标6位置上先写上3，同时，前缀和计数数组3所对应的数值减1，表示下一个3位于排好序以后的第六个位置，即下标为5的位置。</p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524100355325.png" alt="image-20210524100355325"></p>
+<p>此时前缀和计数数组：</p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524100419474.png" alt="image-20210524100419474"></p>
+<p>倒数第 2 个元素是 0，看「前缀和」计数数组，我们知道 0 一定位数原始数组的第 2 位，即下标是 1 的位置。因此在下标 1 的位置上写上 0。同时，「前缀和」计数数组 0 所对应的数值减 11，表示下一个 0位于排好序以后的第 1个位置，即下标为 0的位置</p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524100530088.png" alt="image-20210524100530088"></p>
+<p>此时前缀和数组：</p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524100549918.png" alt="image-20210524100549918"></p>
+<p>以此类推，最终结果为</p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524100721275.png" alt="image-20210524100721275"></p>
+<p>此时前缀和为：</p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524100743491.png" alt="image-20210524100743491"></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计数排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">countSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//        找到数组的最大值，确定计数数组的长度</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&gt;max)max=nums[i];</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&lt;<span class="number">0</span>)<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"该数组不适合使用计数数组"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        第一步：对原始数组进行计数，将原始数组的值作为计数数组的下标</span></span><br><span class="line">        <span class="keyword">int</span>[] count=<span class="keyword">new</span> <span class="keyword">int</span>[max+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">            count[nums[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        第二步，将count数组改造成前缀和数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=max;i++)&#123;</span><br><span class="line">            count[i]+=count[i-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] copy=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line"><span class="comment">//        for (int i=0;i&lt;len;i++)copy[i]=nums[i];</span></span><br><span class="line">        System.arraycopy(nums,<span class="number">0</span>,copy,<span class="number">0</span>,len);</span><br><span class="line"><span class="comment">//        第三步，从后向前扫描，一次把看到的数组写回到原始数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=len-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line"><span class="comment">//            找到应该赋值的位置</span></span><br><span class="line">            <span class="keyword">int</span> position=count[copy[i]]-<span class="number">1</span>;</span><br><span class="line">            <span class="comment">//把看到的数覆盖回去</span></span><br><span class="line">            nums[position]=copy[i];</span><br><span class="line"><span class="comment">//            前缀和减1</span></span><br><span class="line">            count[copy[i]]--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：<em>O</em>(<em>N</em>+<em>K</em>)，这里 N<em>N</em> 是数组的长度，K<em>K</em> 是数组的最大值。</p>
+<p>空间复杂度：<em>O</em>(<em>N</em>+<em>K</em>)</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>计数排序的适用范围：范围小；重复键值多；可以与非负整数建立一一对应关系。<br>       描述「计数排序」算法流程：计算计数数组、将计数数组改造成前缀和数组、从后向前遍历原始数组，依次得到遍历    到的数在排好序以后应该在的位置；<br>      计数排序是非原地排序；<br>      计数排序是稳定排序。</p>
+<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>基数排序是一种非比较的排序方法，它是多关键字的排序方法</p>
+<p>在基数排序中认为一个整数的个位、十位分别是一个关键字</p>
+<p>基数排序的两种方式：高位优先（不推荐）和低位优先</p>
+<h3 id="低位优先"><a href="#低位优先" class="headerlink" title="低位优先"></a>低位优先</h3><p>以 [329, 457, 657, 839, 436, 720, 355] 为例，使用基数排序的低位优先算法执行流程</p>
+<p><img src="/2021/05/24/%E9%9D%9E%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image-20210524105300483.png" alt="image-20210524105300483"></p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line"><span class="comment">//        第一步  先找出最大的数字</span></span><br><span class="line">        <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&gt;max)max=nums[i];</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&lt;<span class="number">0</span>)<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"该数组不适合使用基数排序"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        第二步 计算出最大的数字有几位</span></span><br><span class="line">        <span class="keyword">int</span> maxLen = getMaxLen(max);</span><br><span class="line">        <span class="keyword">int</span>[] count=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span>[] temp=<span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">        <span class="keyword">int</span> divisor=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;maxLen;i++)&#123;</span><br><span class="line">            countingSort(nums,temp,divisor,len,count);</span><br><span class="line">            System.arraycopy(temp,<span class="number">0</span>,nums,<span class="number">0</span>,len);</span><br><span class="line">            divisor*=<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 基数排序</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums 原始数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> temp 在基数排序的过程中使用的辅助数组，基于divisor关键字的排序结果存在这</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> divisor</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> len 原始数组的长度</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> count 基数数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">countingSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span>[] temp,<span class="keyword">int</span> divisor,<span class="keyword">int</span> len,<span class="keyword">int</span>[] count)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)&#123;</span><br><span class="line"><span class="comment">//            计算数位上的数是几，先取个位，再十位，百位</span></span><br><span class="line">            <span class="keyword">int</span> remainder= (nums[j]/divisor)%<span class="number">10</span>;</span><br><span class="line">            count[remainder]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;<span class="number">10</span>;j++)count[j]+=count[j-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=len-<span class="number">1</span>;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">            <span class="keyword">int</span> remainder=(nums[j]/divisor)%<span class="number">10</span>;</span><br><span class="line">            <span class="keyword">int</span> index=count[remainder]-<span class="number">1</span>;</span><br><span class="line">            temp[index]=nums[j];</span><br><span class="line">            count[remainder]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)count[j]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取一个整数的最大位数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMaxLen</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxLen=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            num/=<span class="number">10</span>;</span><br><span class="line">            maxLen++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：O(KN)，这里 N 为输入数组的长度，K 为关键字的个数。以非负整数数组的排序任务为例，最大值有几位（K）就需要看数组几遍；<br>      空间复杂度：O(N + K)，这里 K（一个数的位数）通常比 N（输入数组的长度）小很多。</p>
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><h3 id="基本思想-1"><a href="#基本思想-1" class="headerlink" title="基本思想"></a>基本思想</h3><p>桶排序使用分而治之的思想，将待排序数组分配到若干个桶中，然后再对每个桶各自执行一次排序任务。桶内的排序可以使用不同的排序方法，每个桶内完成排序以后，依次将每个桶内的元素取出来，最终得到一个有序的数组。</p>
+<h3 id="适用范围"><a href="#适用范围" class="headerlink" title="适用范围"></a>适用范围</h3><p>数据分布 均匀，不会出现很多数落在同一个桶中的情况</p>
+<p>如果步长、桶数设置合理，每个桶使用插入排序，既能加快排序，又能保证数据的稳定性</p>
+<h3 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bucketSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len=nums.length;</span><br><span class="line">        <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&gt;max)max=nums[i];</span><br><span class="line">            <span class="keyword">if</span> (nums[i]&lt;<span class="number">0</span>)<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"该数组不适合使用桶排序"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxLen = getMaxLen2(max);</span><br><span class="line">        <span class="keyword">int</span> step=<span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">if</span> (maxLen&lt;<span class="number">5</span>)&#123;</span><br><span class="line">            <span class="comment">//如果最大数小于10000，3位数就设置100个桶，2位数就设置10个桶</span></span><br><span class="line">            step=(<span class="keyword">int</span>)Math.pow(<span class="number">10</span>,maxLen-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"步长"</span>+step);</span><br><span class="line"><span class="comment">//        桶的个数</span></span><br><span class="line">        <span class="keyword">int</span> bucketLen=max/step+<span class="number">1</span>;</span><br><span class="line">        System.out.println(<span class="string">"桶的个数："</span>+bucketLen);</span><br><span class="line">        <span class="keyword">int</span>[][] temp=<span class="keyword">new</span> <span class="keyword">int</span>[bucketLen][len];</span><br><span class="line"><span class="comment">//        记录每个桶内有多少数字</span></span><br><span class="line">        <span class="keyword">int</span>[] next=<span class="keyword">new</span> <span class="keyword">int</span>[bucketLen];</span><br><span class="line"><span class="comment">//        第三步  分桶</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line"><span class="comment">//            放到哪个桶</span></span><br><span class="line">            <span class="keyword">int</span> bucketIndex=nums[i]/step;</span><br><span class="line"><span class="comment">//            在桶中放入该数字</span></span><br><span class="line">            temp[bucketIndex][next[bucketIndex]]=nums[i];</span><br><span class="line"><span class="comment">//            桶中数量+1</span></span><br><span class="line">            next[bucketIndex]++;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        第四步 对于每个桶执行插入排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;bucketLen;i++)&#123;</span><br><span class="line">            insertSort(temp[i],next[i]-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> index=<span class="number">0</span>;</span><br><span class="line"><span class="comment">//        第五步  从桶内依次取出来</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;bucketLen;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> curLen=next[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;curLen;j++)&#123;</span><br><span class="line">                nums[index]=temp[i][j];</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> endIndex)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=endIndex;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp=nums[i];</span><br><span class="line">            <span class="keyword">int</span> j=i;</span><br><span class="line">            <span class="keyword">while</span> (j&gt;<span class="number">0</span> &amp;&amp; nums[j]&gt;temp)&#123;</span><br><span class="line">                nums[j]=nums[j-<span class="number">1</span>];</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[j]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMaxLen2</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxLen=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (num&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            num/=<span class="number">10</span>;</span><br><span class="line">            maxLen++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度分析-2"><a href="#复杂度分析-2" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：O(N)     最差时间复杂度是：O(N^2)，即：全部数据落在一个桶的时候；</p>
+<p>空间复杂度：O(M)   M需要根据具体的实现细节来定</p>
+<p>桶排序是稳定排序，不是原地排序</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>三种非比较排序的共同特点：</p>
+<p>都需要借助额外的空间来完成排序，都是非原地排序；</p>
+<p>都有一定的机制保证了排序的稳定性；</p>
+<p>三种非比较排序的应用场景有一定局限性，一般来说，要求数据范围不能太大；</p>
+<p>非比较的意思是：程序只需要看到这个元素，这个元素的数值就决定了它所在的位置，而不需要通过和其他元素的比较</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>排序 计数 基数 桶</tag>
       </tags>
   </entry>
 </search>
